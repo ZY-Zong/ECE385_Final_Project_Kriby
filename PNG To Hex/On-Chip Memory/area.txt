@@ -1,0 +1,26 @@
+'0xFFFFFF',
+'0xF0A010',
+'0x000000',
+'0x409858',
+'0x080990',
+'0xF8A0E0',
+'0xA050D8',
+'0x88E0F8',
+
+'0x88E0F8',
+'0x88E0F8',
+'0x88E0F8',
+'0x88E0F8',
+'0x88E0F8',
+'0x88E0F8',
+'0x88E0F8',
+'0x88E0F8',
+
+1.White,
+2.Star orange,
+3.Star green------changed to black
+4.Pipe green,
+5.Cloud blue,
+6.star pink
+7.Gate purple,
+8.inside cloud blue
