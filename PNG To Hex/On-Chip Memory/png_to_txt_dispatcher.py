@@ -43,8 +43,5 @@ while(1):
     elif mode == 3:
         os.system("python ./scripts/png_to_palette_relative_resizer.py")
         break
-    elif mode == 4:
-        os.system("python ./scripts/png_to_sv.py")
-        break
     else:
         print("Please enter a valid number.")

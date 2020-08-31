@@ -26,9 +26,9 @@ module palette_area (
 		end
 		3'b010:
 		begin
-			R = 8'h70;
-			G = 8'hf8;
-			B = 8'h08;
+			R = 8'h00;
+			G = 8'h00;
+			B = 8'h00;
 		end
 		3'b011:
 		begin

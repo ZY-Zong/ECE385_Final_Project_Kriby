@@ -10,8 +10,7 @@ def rgb_to_hex(num):
     return int(h[0:4], 16), int(('0x' + h[4:6]), 16), int(('0x' + h[6:8]), 16)
 filename = input("What's the image name? ")
 new_w, new_h = map(int, input("What's the new height x width? Like 28 28. ").split(' '))
-palette_hex =[
-'0xCFB0FF',
+palette_hex =['0xCFB0FF',
 '0x0F080F',
 '0xD00050',
 '0xffa0df',
