@@ -10,22 +10,22 @@ def rgb_to_hex(num):
     return int(h[0:4], 16), int(('0x' + h[4:6]), 16), int(('0x' + h[6:8]), 16)
 filename = input("What's the image name? ")
 new_w, new_h = map(int, input("What's the new height x width? Like 28 28. ").split(' '))
-palette_hex =['0xF8F8D8',
-'0xA8E8F8',
-'0x68B078',
-'0x68A070',
-'0x78F8A8',
-'0xA8C8E0',
-'0xF8F8F8',
-'0x98C8F8',
-'0xe0f8f8',
-'0xd8e8f8',
-'0xc8d8e0',
-'0xd8f8f8',
-'0xa0d8f8',
-'0x90b8f8',
-'0xa0d0f8',
-'0xc8f0f8']
+palette_hex =['0xCFB0FF',
+'0x0F080F',
+'0xD00050',
+'0xffa0df',
+'0xf070a0',
+'0x601010',
+'0xfff8ff',
+'0xefe8d0',
+'0xbfb89f',
+'0x0ff0ff',
+'0xfff800',
+'0xff682f',
+'0x00a090',
+'0xff90c0',
+'0xff2000',
+'0x601010']
 palette_rgb = [hex_to_rgb(color) for color in palette_hex]
 
 pixel_tree = KDTree(palette_rgb)
