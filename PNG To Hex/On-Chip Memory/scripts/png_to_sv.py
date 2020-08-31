@@ -10,29 +10,23 @@ def rgb_to_hex(num):
     return int(h[0:4], 16), int(('0x' + h[4:6]), 16), int(('0x' + h[6:8]), 16)
 filename = input("What's the image name? ")
 new_w, new_h = map(int, input("What's the new height x width? Like 28 28. ").split(' '))
-palette_hex =[
-'0xCFB0FF',
-'0x0F080F',
-'0xD00050',
-'0xffa0df',
-'0xf070a0',
-'0x601010',
-'0xfff8ff',
-'0xefe8d0',
-'0xbfb89f',
-'0x0ff0ff',
-'0xfff800',
-'0xff682f',
-'0x00a090',
-'0xff90c0',
-'0xff2000',
-'0x601010']
+palette_hex = ['0xFFFFFF',
+'0xF0A010',
+'0x000000',
+'0x409858',
+'0x080990',
+'0xF8A0E0',
+'0xA050D8',
+'0x88E0F8']
 palette_rgb = [hex_to_rgb(color) for color in palette_hex]
 
 pixel_tree = KDTree(palette_rgb)
 im = Image.open("./sprite_originals/" + filename+ ".png") #Can be many different formats.
 im = im.convert("RGBA")
-im = im.resize((new_w, new_h),Image.ANTIALIAS) # regular resize
+layer = Image.new('RGBA',(new_w, new_h), (0,0,0,0))
+layer.paste(im, (0, 0))
+im = layer
+#im = im.resize((new_w, new_h),Image.ANTIALIAS) # regular resize
 pix = im.load()
 pix_freqs = Counter([pix[x, y] for x in range(im.size[0]) for y in range(im.size[1])])
 pix_freqs_sorted = sorted(pix_freqs.items(), key=lambda x: x[1])
@@ -47,12 +41,12 @@ for y in range(im.size[1]):
         print(pixel)
         if(pixel[3] < 200):
             outImg.putpixel((x,y), palette_rgb[0])
-            outFile.write("%x\n" % (0))
+            outFile.write("3'h%x," %(0))
             print(i)
         else:
             index = pixel_tree.query(pixel[:3])[1]
             outImg.putpixel((x,y), palette_rgb[index])
-            outFile.write("%x\n" % (index))
+            outFile.write("3'h%x," %(index))
         i += 1
 outFile.close()
-outImg.save("./sprite_converted/" + filename + ".png")
+outImg.save("./sprite_converted/" + filename + ".png" )
