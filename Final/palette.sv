@@ -24,11 +24,11 @@ module palette_area (
 			G = 8'ha0;
 			B = 8'h10;
 		end
-		3'b010:
+		3'b010: // Should be ignored
 		begin
-			R = 8'h70;
-			G = 8'hf8;
-			B = 8'h08;
+			R = 8'h00;
+			G = 8'h00;
+			B = 8'h00;
 		end
 		3'b011:
 		begin
@@ -181,6 +181,126 @@ module palette_forest (
 			R = 8'hc8;
 			G = 8'hf0;
 			B = 8'hf8;
+		end
+		default:
+		begin
+			R = 8'h00;
+			G = 8'h00;
+			B = 8'h00;
+		end
+		endcase
+	end
+endmodule
+
+module palette_kirby (
+	input  logic [3:0] data_In,
+	output logic [7:0] Red, Green, Blue
+);
+
+	logic [7:0] R, G, B;
+
+	assign Red   = R;
+	assign Green = G;
+	assign Blue  = B;
+
+	always_comb
+	begin
+		case(data_In)
+		4'b0000: // Should be ignored
+		begin
+			R = 8'hcf;
+			G = 8'hb0;
+			B = 8'hff;
+		end
+		4'b0001:
+		begin
+			R = 8'h0f;
+			G = 8'h08;
+			B = 8'h0f;
+		end
+		4'b0010:
+		begin
+			R = 8'hd0;
+			G = 8'h00;
+			B = 8'h50;
+		end
+		4'b0011:
+		begin
+			R = 8'hff;
+			G = 8'ha0;
+			B = 8'hdf;
+		end
+		4'b0100:
+		begin
+			R = 8'hf0;
+			G = 8'h70;
+			B = 8'ha0;
+		end
+		4'b0101:
+		begin
+			R = 8'h60;
+			G = 8'h10;
+			B = 8'h10;
+		end
+		4'b0110:
+		begin
+			R = 8'hff;
+			G = 8'hf8;
+			B = 8'hff;
+		end
+		4'b0111:
+		begin
+			R = 8'hef;
+			G = 8'he8;
+			B = 8'hd0;
+		end
+		4'b1000:
+		begin
+			R = 8'hbf;
+			G = 8'hb8;
+			B = 8'h9f;
+		end
+		4'b1001:
+		begin
+			R = 8'h0f;
+			G = 8'hf0;
+			B = 8'hff;
+		end
+		4'b1010:
+		begin
+			R = 8'hff;
+			G = 8'hf8;
+			B = 8'h00;
+		end
+		4'b1011:
+		begin
+			R = 8'hff;
+			G = 8'h68;
+			B = 8'h2f;
+		end
+		4'b1100:
+		begin
+			R = 8'h00;
+			G = 8'ha0;
+			B = 8'h90;
+		end
+		4'b1101:
+		begin
+			R = 8'hff;
+			G = 8'h90;
+			B = 8'hc0;
+		end
+		4'b1110:
+		begin
+			R = 8'hff;
+			G = 8'h20;
+			B = 8'h00;
+		end
+		4'b1111:
+		begin
+			R = 8'h60;
+			G = 8'h10;
+			B = 8'h10;
 		end
 		default:
 		begin

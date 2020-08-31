@@ -16,7 +16,7 @@
 // color_mapper: Decide which color to be output to VGA for each pixel.
 module  color_mapper ( input              is_ball,            // Whether current pixel belongs to ball 
                                                               //   or background (computed in ball.sv)
-							  input        [3:0] idx_forest,         // idx of color in the palette - forest background
+					   input        [3:0] idx_forest,         // idx of color in the palette - forest background
                        input        [9:0] DrawX, DrawY,       // Current pixel coordinates
                        output logic [7:0] VGA_R, VGA_G, VGA_B // VGA RGB output
                      );
