@@ -1,7 +1,9 @@
 module frame_kirby(
         input  [2:0]  character_action_idx, // which action
 		input  [3:0]  character_action_frame_idx,
-        output [9:0]  kirby_LU_X, kirby_LU_Y, kirby_center_X, kirby_center_Y);
+        // output [9:0]  kirby_LU_X, kirby_LU_Y, kirby_center_X, kirby_center_Y
+        output [9:0]  Left_Dis, Right_Dis, Up_Dis, Bottom_Dis;
+        );
         //width = 28, height = 28
     parameter [0:3-1][9:0] frame_number = {
         10'd2, 10'd10, 10'd10
@@ -12,11 +14,18 @@ module frame_kirby(
     parameter [0:3-1][9:0] first_frame_center_Y = {
         10'd19, 10'd47, 10'd75
     };
+
+    int kirby_LU_X, kirby_LU_Y, kirby_center_X, kirby_center_Y;
     
     assign kirby_LU_X = character_action_frame_idx * 28;
     assign kirby_LU_Y = character_action_idx * 28;
     assign kirby_center_X = first_frame_center_X[character_action_idx] + character_action_frame_idx * 28;
     assign kirby_center_Y = first_frame_center_Y[character_action_idx];
+
+    assign Left_Dis = kirby_center_X - kirby_LU_X;
+    assign Right_Dis = Left_Dis + 28;
+    assign Up_Dis = kirby_center_Y - kirby_LU_Y;
+    assign Bottom_Dis = Up_Dis + 28;
 
 endmodule
 
