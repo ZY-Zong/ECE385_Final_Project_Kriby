@@ -119,8 +119,17 @@ module FinalProject(
     
     color_mapper color_instance(.*);
 	 
+	 logic [3 :0] idx_forest;
+	 logic [16:0] index;
+	 
+	 // Expand to 4 times
+	 assign index = (DrawY >> 1)* 540 + (DrawX >> 1) + Kriby_Position;
+	 
 	 // Read into ram
-	 background1RAM background1_ram(.data_In());
+	 background1RAM background1_ram(.data_In(4'b0), 
+									        .write_address(17'b0), 
+									        .read_address(index), 
+									        .we(1'b0), .Clk(Clk), .data_Out(idx_forest));
     
     // Display keycode on hex display
     HexDriver hex_inst_0 (keycode[3:0], HEX0);

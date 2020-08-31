@@ -6,19 +6,19 @@
 
 module  background1RAM
 (
-		input [4:0] data_In,
-		input [18:0] write_address, read_address,
+		input [3:0] data_In,
+		input [16:0] write_address, read_address,
 		input we, Clk,
 
-		output logic [4:0] data_Out
+		output logic [3:0] data_Out
 );
 
 // mem has width of 3 bits and a total of 400 addresses
-logic [3:0] mem [0:518400];
+logic [3:0] mem [0:129599];
 
 initial
 begin
-	 $readmemh("txt_files/Background1.txt", mem);
+	 $readmemh("txt_files/Background1.1.txt", mem);
 end
 
 

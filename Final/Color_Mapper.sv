@@ -16,11 +16,14 @@
 // color_mapper: Decide which color to be output to VGA for each pixel.
 module  color_mapper ( input              is_ball,            // Whether current pixel belongs to ball 
                                                               //   or background (computed in ball.sv)
+							  input        [3:0] idx_forest,         // idx of color in the palette - forest background
                        input        [9:0] DrawX, DrawY,       // Current pixel coordinates
                        output logic [7:0] VGA_R, VGA_G, VGA_B // VGA RGB output
                      );
     
     logic [7:0] Red, Green, Blue;
+	 
+	 logic [7:0] R_forest, G_forest, B_forest;
     
     // Output colors to VGA
     assign VGA_R = Red;
@@ -37,13 +40,15 @@ module  color_mapper ( input              is_ball,            // Whether current
             Green = 8'hff;
             Blue = 8'hff;
         end
-        else 
+        else
         begin
-            // Background with nice color gradient
-            Red = 8'h3f;
-            Green = 8'h00;
-            Blue = 8'h7f - {1'b0, DrawX[9:3]};
+            // Background forest with nice color gradient
+            Red = R_forest;
+            Green = G_forest;
+            Blue = B_forest;
         end
-    end 
+    end
+	 
+	 palette_forest forest(.data_In(idx_forest), .Red(R_forest), .Green(G_forest), .Blue(B_forest));
     
 endmodule

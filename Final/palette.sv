@@ -1,17 +1,17 @@
-module palatte_area (
-	input  logic [2:0] DATA_IN,
-	output logic [7:0] RED, GREEN, BLUE
+module palette_area (
+	input  logic [2:0] data_In,
+	output logic [7:0] Red, Green, Blue
 );
 
 	logic [7:0] R, G, B;
 
-	assign RED = R;
-	assign GREEN = G;
-	assign BLUE = B;
+	assign Red   = R;
+	assign Green = G;
+	assign Blue  = B;
 
 	always_comb
 	begin
-		case(DATA_IN)
+		case(data_In)
 		3'b000:
 		begin
 			R = 8'hff;
@@ -72,20 +72,20 @@ endmodule
 
 
 
-module palatte_forest (
-	input  logic [3:0] DATA_IN,
-	output logic [7:0] RED, GREEN, BLUE
+module palette_forest (
+	input  logic [3:0] data_In,
+	output logic [7:0] Red, Green, Blue
 );
 
 	logic [7:0] R, G, B;
 
-	assign RED = R;
-	assign GREEN = G;
-	assign BLUE = B;
+	assign Red   = R;
+	assign Green = G;
+	assign Blue  = B;
 
 	always_comb
 	begin
-		case(DATA_IN)
+		case(data_In)
 		4'b0000:
 		begin
 			R = 8'hf8;
