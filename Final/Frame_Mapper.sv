@@ -3,14 +3,14 @@ module frame_kirby(
 		input  [3:0]  character_action_frame_idx,
         output [9:0]  kirby_LU_X, kirby_LU_Y, kirby_center_X, kirby_center_Y);
         //width = 28, height = 28
-    parameter [0:3-1][3:0] frame_number = {
-        4'd2, 4'd10, 4'd10
+    parameter [0:3-1][9:0] frame_number = {
+        10'd2, 10'd10, 10'd10
     };
-    parameter [0:3-1][3:0] first_frame_center_X = {
-        4'd12, 4'd12, 4'd15
+    parameter [0:3-1][9:0] first_frame_center_X = {
+        10'd12, 10'd12, 10'd15
     };
-    parameter [0:3-1][3:0] first_frame_center_Y = {
-        4'd19, 4'd47, 4'd75
+    parameter [0:3-1][9:0] first_frame_center_Y = {
+        10'd19, 10'd47, 10'd75
     };
     
     assign kirby_LU_X = character_action_frame_idx * 28;

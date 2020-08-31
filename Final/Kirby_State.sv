@@ -5,31 +5,13 @@ module  Kirby_State (
             //                frame_clk,          // The clock indicating a new frame (~60Hz)
             //   input logic   is_damaged,
 			  input [7:0]   keycode,
-              input [9:0]   DrawX, DrawY,       // Current pixel coordinates
+            //   input [9:0]   DrawX, DrawY,       // Current pixel coordinates
 			//   input         initial_frame, final_frame, game_over,
             //   output logic  is_inhaled,
             //   output logic  game_over,
               output [2:0]  character_action_idx, // which action
 			  output [3:0]  character_action_frame_idx   // which frame of this action
               );
-
-    parameter [9:0] Kirby_X_Center = 10'd320;  // Center position on the X axis
-    parameter [9:0] Kirby_Y_Center = 10'd240;  // Center position on the Y axis
-    parameter [9:0] Kirby_X_Min = 10'd203;     // Leftmost point on the X axis
-    parameter [9:0] Kirby_X_Max = 10'd436;     // Rightmost point on the X axis
-    parameter [9:0] Kirby_Y_Min = 10'd152;     // Topmost point on the Y axis
-    parameter [9:0] Kirby_Y_Max = 10'd327;     // Bottommost point on the Y axis
-    parameter [9:0] Kirby_X_Step = 10'd1;      // Step size on the X axis
-    parameter [9:0] Kirby_Y_Jump_Step = 10'd8; // Step size on the Y axis -- jump
-    parameter [9:0] Kirby_X_Size = 10'd20;     // Kirby's size in X domain
-    parameter [9:0] Kirby_Y_Size = 10'd18;     // Kirby's size in Y domain
-
-    parameter [9:0] Kirby_X_Start = 10'd210;
-    parameter [9:0] Kirby_Y_Start = 10'd240;
-
-    parameter [9:0] Kirby_Inhaled_Y_Step = 10'd2;
-    parameter [9:0] Kirby_Inhaled_X_Size = 10'd4;      // Inhaled Kirby's size in X domain
-    parameter [9:0] Kirby_Inhaled_Y_Size = 10'd4;      // Inhaled Kirby's size in Y domain 
 
     enum logic [4:0] {
         INI,
@@ -63,8 +45,6 @@ module  Kirby_State (
         // DIE
     } curr_state, next_state;
 
-    // logic [9:0] Kirby_X_Pos, Kirby_Y_Pos;
-    // logic [9:0] Kirby_X_Pos_in, Kirby_Y_Pos_in;
     // logic [2:0] health;
     // logic is_dead;
 
@@ -81,8 +61,6 @@ module  Kirby_State (
     always_comb
     begin
         // default values for current state
-        // Kirby_X_Pos = Kirby_X_Start;
-        // Kirby_Y_Pos = Kirby_Y_Start;
         // is_dead = 1'b0;
         // health = 3'd5;
 
