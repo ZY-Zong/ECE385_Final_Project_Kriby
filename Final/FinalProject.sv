@@ -55,8 +55,8 @@ module FinalProject(
         Reset_h <= ~(KEY[0]);        // The push buttons are active low
     end
     
-    logic [1:0] hpi_addr;
-    logic [15:0] hpi_data_in, hpi_data_out;
+    logic [1:0] hpi_addr, dirc;
+    logic [15:0] hpi_data_in, hpi_data_out,count;
     logic hpi_r, hpi_w, hpi_cs, hpi_reset;
     
     // Interface between NIOS II and EZ-OTG chip
@@ -119,18 +119,61 @@ module FinalProject(
     
     color_mapper color_instance(.*);
 	 
+	 
+	 
+	 
 	 logic [3 :0] idx_forest;
-	 logic [16:0] index;
-	 
-	 // Expand to 4 times
-	 assign index = (DrawY >> 1)* 540 + (DrawX >> 1) + Kriby_Position;
-	 
+	 logic [2 :0] idx_area1;
+	 logic [16:0] backindex;
+	 logic [17:0] areaindex1;
+	 logic drawarea1;
+
+	 //always_comb
+	 always_ff @ (posedge Clk) 
+	 begin
+			 if (dirc)
+					begin
+					  case(dirc)
+							
+						    10'd1: 
+							     begin
+										if (count)
+											count-=10'd1;
+												
+								  end
+										  
+						    10'd2: 
+							     begin	
+										if(count<=10'd161)
+											count+=10'd1;
+								  end
+										  
+							 default: ;
+							
+						endcase 
+					 end
+        	 if (DrawY < 10'd328 && DrawY >= 10'd152 && DrawX < 10'd436 && DrawX >= 10'd202)
+				 begin
+					 backindex = (DrawY-152) * 395 + (DrawX-202)+count;// Expand to 4 times	
+					 areaindex1= (DrawY-152) * 1215 + (DrawX-202)+count;
+				 end
+			  else 
+				 begin
+					 backindex = 0;
+					 areaindex1= 0;
+				 end
+    end
+	 area1data area1(.addr(areaindex1),.area1index(idx_area1));
+//	 areaRAM area1(
+//												  .read_address(areaindex1), 
+//												  .Clk(Clk), .data_Out(idx_area1));
+		
+		
 	 // Read into ram
 	 background1RAM background1_ram(.data_In(4'b0), 
-									        .write_address(17'b0), 
-									        .read_address(index), 
-									        .we(1'b0), .Clk(Clk), .data_Out(idx_forest));
-    
+												  .write_address(17'b0), 
+												  .read_address(backindex), 
+												  .we(1'b0), .Clk(Clk), .data_Out(idx_forest));
     // Display keycode on hex display
     HexDriver hex_inst_0 (keycode[3:0], HEX0);
     HexDriver hex_inst_1 (keycode[7:4], HEX1);
