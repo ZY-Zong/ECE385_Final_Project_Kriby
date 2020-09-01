@@ -120,6 +120,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "VGA_G[7]",
+					"strict" : false
+				},
+				{
 					"name" : "VGA_B[0]",
 					"strict" : false
 				},

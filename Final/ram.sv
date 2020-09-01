@@ -35,11 +35,11 @@ module  areaRAM
 (
 		input [17:0] read_address,
 		input Clk,
-		output logic [2:0] data_Out
+		output logic [3:0] data_Out
 );
 
 // mem has width of 3 bits and a total of 400 addresses
-logic [2:0] mem [0:213839];
+logic [3:0] mem [0:213839];
 
 initial
 begin

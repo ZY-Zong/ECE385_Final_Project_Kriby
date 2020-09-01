@@ -1,5 +1,5 @@
 module palette_area (
-	input  logic [2:0] data_In,
+	input  logic [3:0] data_In,
 	output logic [7:0] Red, Green, Blue
 );
 
@@ -12,49 +12,49 @@ module palette_area (
 	always_comb
 	begin
 		case(data_In)
-		3'b000:
+		4'b0000:
 		begin
 			R = 8'hff;
 			G = 8'hff;
 			B = 8'hff;
 		end
-		3'b001:
+		4'b0001:
 		begin
 			R = 8'hf0;
 			G = 8'ha0;
 			B = 8'h10;
 		end
-		3'b010:
+		4'b0010:
 		begin
 			R = 8'h00;
 			G = 8'h00;
 			B = 8'h00;
 		end
-		3'b011:
+		4'b0011:
 		begin
 			R = 8'h40;
 			G = 8'h98;
 			B = 8'h58;
 		end
-		3'b100:
+		4'b0100:
 		begin
 			R = 8'h08;
 			G = 8'h09;
 			B = 8'h90;
 		end
-		3'b101:
+		4'b0101:
 		begin
 			R = 8'hf8;
 			G = 8'ha0;
 			B = 8'he0;
 		end
-		3'b110:
+		4'b0110:
 		begin
 			R = 8'ha0;
 			G = 8'h50;
 			B = 8'hd8;
 		end
-		3'b111:
+		4'b0111:
 		begin
 			R = 8'h88;
 			G = 8'he0;

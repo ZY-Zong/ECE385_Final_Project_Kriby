@@ -145,6 +145,7 @@ ELF := usb.elf
 C_SRCS += io_handler.c
 C_SRCS += main.c
 C_SRCS += usb.c
+C_SRCS += usb_main.c
 CXX_SRCS :=
 ASM_SRCS :=
 

@@ -123,7 +123,7 @@ module FinalProject(
 	 
 	 
 	 logic [3 :0] idx_forest;
-	 logic [2 :0] idx_area1;
+	 logic [3 :0] idx_area1;
 	 logic [16:0] backindex;
 	 logic [17:0] areaindex1;
 	 logic drawarea1;
