@@ -21,7 +21,22 @@ static volatile unsigned int * ADDRESS_PTR = (unsigned int *) 0x00000000;
 #define REG_14_             ADDRESS_PTR[14]
 #define REG_15_             ADDRESS_PTR[15]
 
-/* Other Parameters */
+/* KIRBY's Parameters */
+#define KIRBY_WIDTH         28
+#define KIRBY_HEIGHT        28
+
+
+/* VGA & Screen Related Parameters */
+#define SCREEN_WIDTH        234
+#define SCREEN_HEIGHT       176
+#define SCREEN_START_X      203
+#define SCREEN_START_Y      152
+
+
+#define VGA_WIDTH           640
+#define VGA_HEIGHT          480
+#define VGA_CENTER_X        320
+#define VGA_CENTER_Y        240
 
 
 #endif /*PARAMETER_H_*/
