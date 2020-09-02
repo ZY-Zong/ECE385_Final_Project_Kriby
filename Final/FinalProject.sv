@@ -49,6 +49,7 @@ module FinalProject(
     
     logic Reset_h, Clk;
     logic [7:0] keycode;
+	logic [511:0] Register_Files;
     
     assign Clk = CLOCK_50;
     always_ff @ (posedge Clk) begin
@@ -101,7 +102,8 @@ module FinalProject(
                              .otg_hpi_cs_export(hpi_cs),
                              .otg_hpi_r_export(hpi_r),
                              .otg_hpi_w_export(hpi_w),
-                             .otg_hpi_reset_export(hpi_reset)
+                             .otg_hpi_reset_export(hpi_reset),
+							 .kirby_export_export_data(Register_Files)
     );
     
     // Use PLL to generate the 25MHZ VGA_CLK.
@@ -163,16 +165,47 @@ module FinalProject(
 					 areaindex1= 0;
 				 end
     end
-	 areaRAM area1(
-												  .read_address(areaindex1), 
-												  .Clk(Clk), .data_Out(idx_area1));
-		
-		
-	 // Read into ram
-	 background1RAM background1_ram(.data_In(4'b0), 
-												  .write_address(17'b0), 
-												  .read_address(backindex), 
-												  .we(1'b0), .Clk(Clk), .data_Out(idx_forest));
+
+    logic [31:0] Register [15:0];
+    logic [7:0] Addr_X, Addr_Y;
+    logic [2:0] Palette_idx;
+    logic [3:0] Color_idx;
+    logic [1:0] Map_idx;
+
+    assign Register[0 ] = Register_Files[31 :0  ];
+    assign Register[1 ] = Register_Files[63 :32 ];
+    assign Register[2 ] = Register_Files[95 :64 ];
+    assign Register[3 ] = Register_Files[127:96 ];
+    assign Register[4 ] = Register_Files[159:128];
+    assign Register[5 ] = Register_Files[191:160];
+    assign Register[6 ] = Register_Files[223:192];
+    assign Register[7 ] = Register_Files[255:224];
+    assign Register[8 ] = Register_Files[287:256];
+    assign Register[9 ] = Register_Files[319:288];
+    assign Register[10] = Register_Files[351:320];
+    assign Register[11] = Register_Files[383:352];
+    assign Register[12] = Register_Files[415:384];
+    assign Register[13] = Register_Files[447:416];
+    assign Register[14] = Register_Files[479:448];
+    assign Register[15] = Register_Files[511:480];
+
+
+    always_comb begin
+        Addr_X = Register[1][7:0];
+        Addr_Y = Register[2][7:0];
+        Palette_idx = Register[3][2:0];
+        Color_idx = Register[4][3:0];
+        Map_idx = Register[5][1:0];
+    end
+
+	// areaRAM area1(.read_address(areaindex1), .Clk(Clk), .data_Out(idx_area1));
+
+	//// Read into ram
+	// background1RAM background1_ram(.data_In(4'b0), 
+	// 								.write_address(17'b0), 
+	// 								.read_address(backindex), 
+	// 								.we(1'b0), .Clk(Clk), .data_Out(idx_forest));
+    
     // Display keycode on hex display
     HexDriver hex_inst_0 (keycode[3:0], HEX0);
     HexDriver hex_inst_1 (keycode[7:4], HEX1);

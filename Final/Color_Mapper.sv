@@ -16,8 +16,13 @@
 // color_mapper: Decide which color to be output to VGA for each pixel.
 module  color_mapper ( input              is_ball,            // Whether current pixel belongs to ball 
                                                               //   or background (computed in ball.sv)
-							  input        [3:0] idx_area1,
-							  input        [3:0] idx_forest,         // idx of color in the palette - forest background
+					   input        [3:0] idx_area1,
+					   input        [3:0] idx_forest,         // idx of color in the palette - forest background
+					   input logic  [7:0] Addr_X, Addr_Y,     // pixel location on true screen
+    				   input logic  [2:0] Palette_idx,        // index of palette
+    				   input logic  [3:0] Color_idx,          // index of color in palette
+					   input logic  [1:0] Map_idx,            // which map to be printed
+
                        input        [9:0] DrawX, DrawY,       // Current pixel coordinates
                        output logic [7:0] VGA_R, VGA_G, VGA_B // VGA RGB output
                      );
@@ -35,31 +40,34 @@ module  color_mapper ( input              is_ball,            // Whether current
     // Assign color based on is_ball signal
     always_comb
     begin
-		  if (idx_area1 == 10'd2)
-				  begin
-						// Background forest with nice color gradient
-						Red = R_forest;
-						Green = G_forest;
-						Blue = B_forest;
-//						       if (is_ball == 1'b1) 
-//        begin
-//            // White ball
-//            Red = 8'hff;
-//            Green = 8'hff;
-//            Blue = 8'hff;
-//        end
-//		  else 
-				  end
-		  else
-			  begin
-					// Background forest with nice color gradient
-					Red = R_area1;
-					Green = G_area1;
-					Blue = B_area1;
-			  end
+// 		  if (idx_area1 == 10'd2)
+// 				  begin
+// 						// Background forest with nice color gradient
+// 						Red = R_forest;
+// 						Green = G_forest;
+// 						Blue = B_forest;
+// //						       if (is_ball == 1'b1) 
+// //        begin
+// //            // White ball
+// //            Red = 8'hff;
+// //            Green = 8'hff;
+// //            Blue = 8'hff;
+// //        end
+// //		  else 
+// 				  end
+// 		  else
+// 			  begin
+// 					// Background forest with nice color gradient
+// 					Red = R_area1;
+// 					Green = G_area1;
+// 					Blue = B_area1;
+// 			  end
+		Red = R_area1;
+		Green = G_area1;
+		Blue = B_area1;
 		  
     end
-	 
-	 palette_forest forest(.data_In(idx_forest), .Red(R_forest), .Green(G_forest), .Blue(B_forest));
-    palette_area area1(.data_In(idx_area1), .Red(R_area1), .Green(G_area1), .Blue(B_area1));
+	
+	// palette_forest forest(.data_In(idx_forest), .Red(R_forest), .Green(G_forest), .Blue(B_forest));
+    palette_area area1(.data_In(Color_idx), .Red(R_area1), .Green(G_area1), .Blue(B_area1));
 endmodule
