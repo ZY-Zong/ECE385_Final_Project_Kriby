@@ -8,16 +8,16 @@ void test_keyboard(int keycode) {
 
     printf("########Test KeyBoard########");
     switch (keycode){
-        case 26:  // h1A, "w"
+        case 0x001a:  // h1A, "w"
             REG_0_MAP_INFO = 1 << 16;
             break;
-        case 22:  // h16, "s"
+        case 0x0016:  // h16, "s"
             REG_0_MAP_INFO = 2 << 16;
             break;
-        case 4:   // h04, "a"
+        case 0x0004:   // h04, "a"
             REG_0_MAP_INFO = 1 << 16;
             break;
-        case 7:   // h07, "d"
+        case 0x0007:   // h07, "d"
             REG_0_MAP_INFO = 2 << 16;
             break;
         default:

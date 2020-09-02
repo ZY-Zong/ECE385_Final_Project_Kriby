@@ -7,7 +7,7 @@ static volatile unsigned int * ADDRESS_PTR = (unsigned int *) 0x00000000;
 
 #define REG_0_MAP_INFO          ADDRESS_PTR[0]
 #define REG_1_KIRBY_INFO        ADDRESS_PTR[1]
-#define REG_2_                  ADDRESS_PTR[2]
+#define REG_2_DIRECTION         ADDRESS_PTR[2]
 #define REG_3_                  ADDRESS_PTR[3]
 #define REG_4_                  ADDRESS_PTR[4]
 #define REG_5_                  ADDRESS_PTR[5]
@@ -25,8 +25,10 @@ static volatile unsigned int * ADDRESS_PTR = (unsigned int *) 0x00000000;
 /* KIRBY's Parameters */
 #define KIRBY_WIDTH             28
 #define KIRBY_HEIGHT            28
-#define KIRBY_START_X           20
-#define KIRBY_START_Y           86
+#define KIRBY_START_X           5
+#define KIRBY_START_Y           59
+#define KIRBY_STEP_X            6
+#define KIRBY_STEP_Y            6
 
 
 /* VGA & Screen Related Parameters */
