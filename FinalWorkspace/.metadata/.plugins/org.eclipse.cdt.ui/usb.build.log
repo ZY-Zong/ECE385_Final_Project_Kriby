@@ -1,9 +1,45 @@
-22:35:08 **** Incremental Build of configuration Nios II for project usb ****
+02:11:08 **** Incremental Build of configuration Nios II for project usb ****
 make all 
 Info: Building ../usb_bsp/
 D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
 [BSP build complete]
+Info: Compiling game_logic.c to obj/default/game_logic.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/game_logic.o game_logic.c
+game_logic.c: In function 'GameStart':
+game_logic.c:13:5: warning: implicit declaration of function 'usb_initialize' [-Wimplicit-function-declaration]
+     usb_initialize();
+     ^
+game_logic.c:18:19: warning: implicit declaration of function 'get_keycode_value' [-Wimplicit-function-declaration]
+         keycode = get_keycode_value();
+                   ^
+In file included from game_logic.c:2:0:
+game_logic.c: At top level:
+parameter.h:6:32: warning: 'ADDRESS_PTR' defined but not used [-Wunused-variable]
+ static volatile unsigned int * ADDRESS_PTR = (unsigned int *) 0x00000000;
+                                ^
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'updateKirby':
+kirby.c:35:9: warning: unused variable 'prekey1' [-Wunused-variable]
+     int prekey1 = (pre_keycode >> 8) & 0xff;
+         ^
+kirby.c:34:9: warning: unused variable 'prekey0' [-Wunused-variable]
+     int prekey0 = pre_keycode & 0xff;
+         ^
+kirby.c:33:9: warning: unused variable 'key1' [-Wunused-variable]
+     int key1 = (keycode >> 8) & 0xff;
+         ^
+kirby.c:32:9: warning: unused variable 'key0' [-Wunused-variable]
+     int key0 = keycode & 0xff;
+         ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599056575 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 82 KBytes program size (code + initialized data).
+Info:           130983 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
 [usb build complete]
 
-22:35:10 Build Finished (took 1s.353ms)
+02:11:11 Build Finished (took 3s.172ms)
 
