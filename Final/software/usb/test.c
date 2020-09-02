@@ -9,19 +9,19 @@ void test_keyboard(int keycode) {
     printf("########Test KeyBoard########");
     switch (keycode){
         case 26:  // h1A, "w"
-            REG_4_COLOR_IDX = 0;
+            REG_0_MAP_INFO = 1 << 16;
             break;
         case 22:  // h16, "s"
-            REG_4_COLOR_IDX = 1;
+            REG_0_MAP_INFO = 2 << 16;
             break;
         case 4:   // h04, "a"
-            REG_4_COLOR_IDX = 2;
+            REG_0_MAP_INFO = 1 << 16;
             break;
         case 7:   // h07, "d"
-            REG_4_COLOR_IDX = 3;
+            REG_0_MAP_INFO = 2 << 16;
             break;
         default:
-            REG_4_COLOR_IDX = 4;
+            REG_0_MAP_INFO = 0 << 16;
             break;
     }
     printf("######### End Test ##########");

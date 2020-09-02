@@ -146,6 +146,9 @@ C_SRCS += io_handler.c
 C_SRCS += main.c
 C_SRCS += usb.c
 C_SRCS += usb_main.c
+C_SRCS += game_logic.c
+C_SRCS += kirby.c
+C_SRCS += test.c
 CXX_SRCS :=
 ASM_SRCS :=
 

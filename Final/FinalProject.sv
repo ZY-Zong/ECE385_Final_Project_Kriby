@@ -167,11 +167,6 @@ module FinalProject(
     end
 
     logic [31:0] Register [15:0];
-    logic [7:0] Addr_X, Addr_Y;
-    logic [2:0] Palette_idx;
-    logic [3:0] Color_idx;
-    logic [1:0] Map_idx;
-
     assign Register[0 ] = Register_Files[31 :0  ];
     assign Register[1 ] = Register_Files[63 :32 ];
     assign Register[2 ] = Register_Files[95 :64 ];
@@ -190,12 +185,11 @@ module FinalProject(
     assign Register[15] = Register_Files[511:480];
 
 
+    logic [31:0] Map_Info;
+    logic [31:0] Kirby_Info;
     always_comb begin
-        Addr_X = Register[1][7:0];
-        Addr_Y = Register[2][7:0];
-        Palette_idx = Register[3][2:0];
-        Color_idx = Register[4][3:0];
-        Map_idx = Register[5][1:0];
+        Map_Info = Register[0];
+        Kirby_Info = Register[1];
     end
 
 	// areaRAM area1(.read_address(areaindex1), .Clk(Clk), .data_Out(idx_area1));

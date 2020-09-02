@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <io.h>
+#include <fcntl.h>
+
+#include "test.h"
+#include "usb_main.h"
+#include "parameter.h"
+
+int main(void) {
+
+    int keycode = 0;
+
+    usb_initialize();
+    while (1)
+    {
+        keycode = get_keycode_value();
+        test_keyboard(keycode);
+        
+
+    }
+
+    return 0;
+}

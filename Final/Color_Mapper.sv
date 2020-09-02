@@ -16,19 +16,16 @@
 // color_mapper: Decide which color to be output to VGA for each pixel.
 module  color_mapper ( input              is_ball,            // Whether current pixel belongs to ball 
                                                               //   or background (computed in ball.sv)
-					   input        [3:0] idx_area1,
-					   input        [3:0] idx_forest,         // idx of color in the palette - forest background
-					   input logic  [7:0] Addr_X, Addr_Y,     // pixel location on true screen
-    				   input logic  [2:0] Palette_idx,        // index of palette
-    				   input logic  [3:0] Color_idx,          // index of color in palette
-					   input logic  [1:0] Map_idx,            // which map to be printed
-
+					             input        [3:0] idx_area1,
+					             input        [3:0] idx_forest,
+					             input logic  [31:0] Map_Info,
+    				           input logic  [31:0] Kirby_Info,
                        input        [9:0] DrawX, DrawY,       // Current pixel coordinates
                        output logic [7:0] VGA_R, VGA_G, VGA_B // VGA RGB output
                      );
     
-    logic [7:0] Red, Green, Blue;
-	 
+   logic [7:0] Red, Green, Blue;
+
 	 logic [7:0] R_forest, G_forest, B_forest;
 	 logic [7:0] R_area1, G_area1, B_area1;
     
@@ -36,6 +33,21 @@ module  color_mapper ( input              is_ball,            // Whether current
     assign VGA_R = Red;
     assign VGA_G = Green;
     assign VGA_B = Blue;
+
+
+    // Decrypt infomation
+    logic [2:0] Map_idx;
+    logic [7:0] Map_Image_X, Map_Image_Y;
+    logic [7:0] Kirby_Image_X, Kirby_Image_Y, Kirby_Pos_X, Kirby_Pos_Y;
+
+    assign Map_idx     = Map_Info[17:16];
+    assign Map_Image_X = Map_Info[15:8 ];
+    assign Map_Image_Y = Map_Info[7 :0 ];
+    assign Kirby_Pos_X   = Kirby_Info[31:24];
+    assign Kirby_Pos_Y   = Kirby_Info[23:16];
+    assign Kirby_Image_X = Kirby_Info[15:8 ];
+    assign Kirby_Image_Y = Kirby_Info[7 :0 ];
+
     
     // Assign color based on is_ball signal
     always_comb
@@ -67,7 +79,11 @@ module  color_mapper ( input              is_ball,            // Whether current
 		Blue = B_area1;
 		  
     end
+	 
+	 logic [3:0] test_VGA;
+	 assign test_VGA = {2'b00, Map_idx};
+
 	
 	// palette_forest forest(.data_In(idx_forest), .Red(R_forest), .Green(G_forest), .Blue(B_forest));
-    palette_area area1(.data_In(Color_idx), .Red(R_area1), .Green(G_area1), .Blue(B_area1));
+    palette_area area1(.data_In(test_VGA), .Red(R_area1), .Green(G_area1), .Blue(B_area1));
 endmodule
