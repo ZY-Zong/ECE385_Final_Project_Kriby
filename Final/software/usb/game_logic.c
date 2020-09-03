@@ -3,9 +3,11 @@
 #include "kirby.h"
 #include "test.h"
 
-void GameStart() {
+Game GameStart() {
+    Game game_state;
     Kirby kirby;
     initial_Kirby(kirby);
+    initial_Game_State(game_state);
 
     int keycode = 0;
     int pre_keycode = 0;
@@ -19,7 +21,12 @@ void GameStart() {
 
         // test_keyboard(keycode);
         updateKirby(kirby, keycode, pre_keycode);
-        upload_Kirby_Info(kirby);
+        upload_Kirby_Info(kirby, game_state);
     }
     
+}
+
+void initial_Game_State (Game game_state) {
+    game_state.interrupt = 0;
+    game_state.map = 0;
 }

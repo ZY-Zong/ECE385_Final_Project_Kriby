@@ -1,0 +1,35 @@
+'0x00DBFF',
+'0x000000',
+'0xDEFBFF',
+'0x52E3B5',
+'0x00714A',
+'0xFF9242',
+'0xFFDB8C',
+'0xC60000',
+
+'0xFF4908',
+'0xFFEB8C',
+'0xFFC308',
+'0xB58A08',
+'0xBDBABD',
+'0x009263',
+'0xB5FBFF',
+'0x421021',
+
+1.Blue, should be ignored
+2.Black,
+3. white
+4. light green,
+5. deep green,
+6. orange
+7. light orange,
+8. deep red
+
+9. deep orange
+10. light yellow
+11. yellow
+12. deep yellow
+13. grew
+14. middle green
+15. light blue
+16. deepdeep red

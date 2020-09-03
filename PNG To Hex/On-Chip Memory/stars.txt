@@ -1,0 +1,33 @@
+'0xCFB0FF',
+'0xFFF8FF',
+'0xFFF800',
+'0xFF9000',
+'0xC06800',
+'0xF0B800',
+
+
+'0xA050D8',
+'0x88E0F8',
+
+'0x88E0F8',
+'0x88E0F8',
+'0x88E0F8',
+'0x88E0F8',
+'0x88E0F8',
+'0x88E0F8',
+'0x88E0F8',
+'0x88E0F8',
+
+1.Back Pink, should be ignored
+2.White
+3.yellow
+4.orange
+5.brown
+6.light brown
+
+
+
+//5.Cloud blue,
+//6.star pink
+//7.Gate purple,
+//8.inside cloud blue
