@@ -1,7 +1,6 @@
 #include "kirby.h"
 #include "parameter.h"
 #include "image.h"
-#include "game_logic.h"
 
 void initial_Kirby(Kirby kirby){
     kirby.x = KIRBY_START_X;
