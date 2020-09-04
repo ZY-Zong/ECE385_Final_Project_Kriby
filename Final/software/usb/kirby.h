@@ -6,12 +6,15 @@
 typedef struct kirby {
     int x;
     int y;
+    int image;
     int is_left;
     int health;
     int action;
     int frame;
     int in_slope;
+    int in_air;
     int is_inhaled;
+    int damaging;
     int inhaling;
     int spitting;
 } Kirby;
