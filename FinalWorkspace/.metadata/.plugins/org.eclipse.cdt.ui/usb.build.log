@@ -1,9 +1,15 @@
-14:04:06 **** Incremental Build of configuration Nios II for project usb ****
+00:09:35 **** Incremental Build of configuration Nios II for project usb ****
 make all 
 Info: Building ../usb_bsp/
 D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
 [BSP build complete]
-[usb build complete]
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+../usb_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o): In function `alt_instruction_exception_entry':
+D:\ECE385\FinalProject\ECE385_Final_Project_Kriby\Final\software\usb_bsp/HAL/src/alt_instruction_exception_entry.c:95: warning: Unable to reach (null) (at 0x104abb28) from the global pointer (at 0x10268368) because the offset (2373568) is out of the allowed range, -32678 to 32767.
 
-14:04:08 Build Finished (took 2s.220ms)
+collect2.exe: error: ld returned 1 exit status
+make: *** [usb.elf] Error 1
+
+00:09:36 Build Finished (took 1s.559ms)
 

@@ -22,6 +22,7 @@ void initial_Kirby(Kirby * kirby){
     kirby->spitting = 0;
 }
 
+
 void upload_Kirby_Info(Kirby * kirby, Game * game_state) {
     int Kirby_Pos_X = kirby->x;
     int Kirby_Pos_Y = kirby->y;
@@ -74,10 +75,16 @@ void upload_Kirby_Info(Kirby * kirby, Game * game_state) {
     #endif
 }
 
+
+
+
 unsigned int encryption(int a, int b, int c, int d) {
     unsigned int packet_info = (a << 24) | (b << 16) | (c << 8) | d;
     return packet_info;
 }
+
+
+
 
 void updateKirby(Kirby * kirby, Game * game_state, int keycode, int pre_keycode){
     int key0 = keycode & 0xff;
@@ -307,6 +314,10 @@ void updateKirby(Kirby * kirby, Game * game_state, int keycode, int pre_keycode)
     
 }
 
+
+
+
+// TO DO: Not finished yet
 void force_It_On_Ground(Kirby * kirby, int map_idx) {
     int kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
     int kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
@@ -597,7 +608,7 @@ int will_Touch_Ground(Kirby * kirby, int map_idx) {
     {
     case 0:
         if ((Wall1[kirby_botton_Y + KIRBY_STEP_Y][kirby_botton_X] == AREA_CANNOT_GO) && (kirby->in_air == 1)) {
-            return 1;
+            return 1
         } else {
             return 0;
         }

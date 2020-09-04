@@ -33,7 +33,7 @@ int will_Touch_Ground(Kirby * kirby, int map_idx);
 int get_Kirby_Botton_Pos(Kirby * kirby);
 int get_Kirby_Ceil_Pos(Kirby * kirby);
 int get_Kirby_Left_Pos(Kirby * kirby);
-int get_Kirby_Right_Pos(Kirby * kirby);
+int get_Kirby_Right_Pos(Kirby * kirby)
 
 
 #endif /*KIRBY_H_*/
