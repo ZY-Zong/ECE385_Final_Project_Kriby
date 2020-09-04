@@ -7,14 +7,14 @@
 '0xA050D8',
 '0x88E0F8',
 
-'0x88E0F8',
-'0x88E0F8',
-'0x88E0F8',
-'0x88E0F8',
-'0x88E0F8',
-'0x88E0F8',
-'0x88E0F8',
-'0x88E0F8',
+'0x68f800',
+'0xa57dc6',
+'0xcbc6e4',
+'0xe0e0f0',
+'0x90e0f3',
+'0x99e5f4',
+'0x3a84b7',
+'0x0c3ebd',
 
 1.White,
 2.Star orange,
@@ -24,3 +24,11 @@
 6.star pink
 7.Gate purple,
 8.inside cloud blue
+9.star green
+10.Gate purple2
+11.Gate purple3
+12.Gate purple4
+13.Cloud blue2
+14.Cloud blue3
+15.Cloud blue4
+16.dark blue
