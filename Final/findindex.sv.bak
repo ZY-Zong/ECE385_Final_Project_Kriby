@@ -1,0 +1,33 @@
+/*
+ * ECE385-HelperTools/PNG-To-Txt
+ * Author: Rishi Thakkar
+ *
+ */
+
+module  kirbyindex
+(
+		input  [9 :0] DrawX,DrawY,
+		input  [7 :0] Kirby_Image_X, Kirby_Image_Y,
+		input  [7 :0] Kirby_Pos_X, Kirby_Pos_Y,Image_width,
+		input  [6 :0] Image_height,
+		output [17:0] kirbyindex
+);
+	//always_ff @ (posedge Clk) 
+	logic [7 :0] Kirby_Image_Xsize, Kirby_Image_Ysize;
+	assign Kirby_Image_Xsize=Kirby_Image_X*Image_width;
+	assign Kirby_Image_Ysize=Kirby_Image_Y*Image_height;
+	always_comb
+		begin
+			  if (DrawY < (152+Kirby_Pos_Y+Image_height) && DrawY >= (152+Kirby_Pos_Y) && DrawX < (203+Kirby_Pos_X+Image_width) && DrawX >= (203+Kirby_Pos_X))
+				        begin
+								kirbyindex= (Kirby_Image_Ysize+DrawY-Kirby_Pos_Y-152)*308 + Kirby_Image_Xsize+DrawX-Kirby_Pos_X-203;
+						  end
+			  else
+					     begin
+								kirbyindex= 0;
+						  end			
+
+		end
+	
+endmodule
+

@@ -123,50 +123,90 @@ module FinalProject(
 	 
 	 
 	 
-	 
+	 logic        Direction;
+	 logic [1 :0] Map_idx;
 	 logic [3 :0] idx_forest;
-	 logic [3 :0] idx_area1;
+	 logic [3 :0] idx_area1,idx_area2,idx_area3;
+	 logic [3 :0] idx_kirby;
+	 logic [15:0] Map_pos_X,Map_pos_Y;
 	 logic [16:0] backindex;
-	 logic [17:0] areaindex1;
-	 logic drawarea1;
+	 logic [17:0] areaindex1,areaindex2,areaindex3,kirbyindex;
+	 logic [6 :0] Image_height;                     // 28 for 28x28, 30 for 30x30, 60 for 60x30
+	 logic [7 :0] Kirby_Image_X, Kirby_Image_Y;
+	 logic [7 :0] Kirby_Pos_X, Kirby_Pos_Y,Image_width;
+	 
+	 
+	 
+	// kirbyindex kirby_index(.DrawX(DrawX),.DrawY(DrawY),.Clk(Clk),.kirbyindex(kirbyindex));
 
+	 
+//	 assign Kirby_Pos_X   = 0;
+//  assign Kirby_Pos_Y   = 0;
+//	 assign Kirby_Image_X = 1;
+//  assign Kirby_Image_Y = 1;
+//	 assign Image_height  = 28;
+//	 assign Image_width   = 28;
+	 
 	 //always_comb
-	 always_ff @ (posedge Clk) 
+//	
+
+	 logic [10:0] Map_Width[2:0];
+//	 logic [3:0] idx_area[2:0];
+	 //logic [17:0] areaindex[2:0];
+	 assign Map_Width[0]  = 11'd1215; //4'd2;
+	 assign Map_Width[1]  = 11'd976;
+	 assign Map_Width[2]  = 11'd1217;
+	 
+
+//	 assign areaindex[0]  = 17'd0; //4'd2;
+//	 assign areaindex[1]  = 17'd0;
+//	 assign areaindex[2]  = 17'd0;
+	 
+	 getbackindex  background_index(.*);
+	 getkirbyindex kirby_index(.*);
+	 getareaindex  the_area_index1(.DrawX(DrawX),.DrawY(DrawY),.Map_pos_X(Map_pos_X),.Map_Wid(Map_Width[0]),.areaindex(areaindex1));
+	 getareaindex  the_area_index2(.DrawX(DrawX),.DrawY(DrawY),.Map_pos_X(Map_pos_X),.Map_Wid(Map_Width[1]),.areaindex(areaindex2));
+	 getareaindex  the_area_index3(.DrawX(DrawX),.DrawY(DrawY),.Map_pos_X(Map_pos_X),.Map_Wid(Map_Width[2]),.areaindex(areaindex3));
+/*
+	 always_comb 
 	 begin
-			 if (dirc)
-					begin
-					  case(dirc)
-							
-						    10'd1: 
-							     begin
-										if (count)
-											count-=10'd1;
-												
-								  end
-										  
-						    10'd2: 
-							     begin	
-										if(count<=10'd981)
-											count+=10'd1;
-								  end
-										  
-							 default: ;
-							
-						endcase 
-					 end
+
         	 if (DrawY < 10'd328 && DrawY >= 10'd152 && DrawX < 10'd436 && DrawX >= 10'd202)
 				 begin
-					 backindex = (DrawY-152) * 395 + (DrawX-202)+count;// Expand to 4 times	
-					 areaindex1= (DrawY-152) * 1215 + (DrawX-202)+count;
+				    if(Map_pos_X > 16'd117 && ) // TO DO: Add another edge detection
+					 begin
+						 backindex = (DrawY-152) * 395  + (DrawX-202)+(Map_pos_X-117)/6;// Expand to 4 times
+						 areaindex1= (DrawY-152) * 1215 + (DrawX-202)+(Map_pos_X-117);
+						 areaindex2= (DrawY-152) * 976  + (DrawX-202)+(Map_pos_X-117);
+						 areaindex3= (DrawY-152) * 1217 + (DrawX-202)+(Map_pos_X-117);
+					 end
+					 else
+					 begin
+					 
+						 backindex = (DrawY-152) * 395  + (DrawX-202);// Expand to 4 times
+						 areaindex1= (DrawY-152) * 1215 + (DrawX-202);
+						 areaindex2= (DrawY-152) * 976  + (DrawX-202);
+						 areaindex3= (DrawY-152) * 1217 + (DrawX-202);
+					 end
+
 				 end
 			  else 
 				 begin
 					 backindex = 0;
 					 areaindex1= 0;
+					 areaindex2= 0;
+					 areaindex3= 0;
 				 end
+				 
+			 
     end
-
+*/
     logic [31:0] Register [15:0];
+//    logic [7:0] Addr_X, Addr_Y;
+//    logic [2:0] Palette_idx;
+//    logic [3:0] Color_idx;
+//    logic [1:0] Map_idx;
+
     assign Register[0 ] = Register_Files[31 :0  ];
     assign Register[1 ] = Register_Files[63 :32 ];
     assign Register[2 ] = Register_Files[95 :64 ];
@@ -185,20 +225,49 @@ module FinalProject(
     assign Register[15] = Register_Files[511:480];
 
 
-    logic [31:0] Map_Info;
-    logic [31:0] Kirby_Info;
-    always_comb begin
-        Map_Info = Register[0];
-        Kirby_Info = Register[1];
+    always_comb 
+	 begin
+		  Kirby_Pos_X   =  Register[0][31:24];
+        Kirby_Pos_Y   =  Register[0][23:16];
+		  Map_idx       =  Register[0][ 1: 0];
+		  
+        Kirby_Image_X =  Register[1][31:24];
+        Kirby_Image_Y =  Register[1][23:16];
+		  Image_width   =  Register[1][15: 8];
+		  Image_height  =  Register[1][ 7: 1];
+		  Direction     =  Register[1][0];
+		  
+		  Map_pos_X     =  Register[2][31:16];
+		  Map_pos_Y     =  Register[2][15: 0];
     end
 
-	// areaRAM area1(.read_address(areaindex1), .Clk(Clk), .data_Out(idx_area1));
+	 Kirby kirby(.data_In(4'b0), 
+												  .write_address(17'b0), 
+												  .read_address(kirbyindex), 
+												  .we(1'b0),.Clk(Clk), .data_Out(idx_kirby));
+
+	 areaRAM area1(.data_In(4'b0), 
+												  .write_address(17'b0), 
+												  .read_address(areaindex1), 
+												  .we(1'b0),.Clk(Clk), .data_Out(idx_area1));
+ /*
+	 areaRAM2 area2(.data_In(4'b0), 
+												  .write_address(17'b0), 
+												  .read_address(areaindex2), 
+												  .we(1'b0),.Clk(Clk), .data_Out(idx_area2));
+												  
+												  
+	 areaRAM3 area3(.data_In(4'b0), 
+												  .write_address(17'b0), 
+												  .read_address(areaindex3), 
+												  .we(1'b0),.Clk(Clk), .data_Out(idx_area3));		
+	 */
 
 	//// Read into ram
-	// background1RAM background1_ram(.data_In(4'b0), 
-	// 								.write_address(17'b0), 
-	// 								.read_address(backindex), 
-	// 								.we(1'b0), .Clk(Clk), .data_Out(idx_forest));
+	 background1RAM background1_ram(.data_In(4'b0), 
+	 								.write_address(17'b0), 
+	 								.read_address(backindex), 
+	 								.we(1'b0), .Clk(Clk), .data_Out(idx_forest));
     
     // Display keycode on hex display
     HexDriver hex_inst_0 (keycode[3:0], HEX0);

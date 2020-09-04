@@ -16,10 +16,10 @@ typedef struct kirby {
     int spitting;
 } Kirby;
 
-void initial_Kirby(Kirby kirby);
-void upload_Kirby_Info(Kirby kirby, Game game_state);
+void initial_Kirby(Kirby * kirby);
+void upload_Kirby_Info(Kirby * kirby, Game * game_state);
 unsigned int encryption(int a, int b, int c, int d);
-void updateKirby(Kirby kirby, int keycode, int pre_keycode);
+void updateKirby(Kirby * kirby, Game * game_state, int keycode, int pre_keycode);
 void frame_Time(int t);
 int map_Width(int i);
 

@@ -1,5 +1,5 @@
 Flow report for FinalProject
-Wed Sep 02 22:25:16 2020
+Fri Sep 04 13:56:21 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,21 +40,21 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Wed Sep 02 22:25:11 2020       ;
+; Flow Status                        ; Successful - Fri Sep 04 13:56:16 2020       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; FinalProject                                ;
 ; Top-level Entity Name              ; FinalProject                                ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 3,926 / 114,480 ( 3 % )                     ;
-;     Total combinational functions  ; 3,038 / 114,480 ( 3 % )                     ;
-;     Dedicated logic registers      ; 2,653 / 114,480 ( 2 % )                     ;
-; Total registers                    ; 2772                                        ;
+; Total logic elements               ; 4,811 / 114,480 ( 4 % )                     ;
+;     Total combinational functions  ; 3,961 / 114,480 ( 3 % )                     ;
+;     Dedicated logic registers      ; 2,664 / 114,480 ( 2 % )                     ;
+; Total registers                    ; 2783                                        ;
 ; Total pins                         ; 128 / 529 ( 24 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 11,392 / 3,981,312 ( < 1 % )                ;
-; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                             ;
+; Total memory bits                  ; 1,248,320 / 3,981,312 ( 31 % )              ;
+; Embedded Multiplier 9-bit elements ; 6 / 532 ( 1 % )                             ;
 ; Total PLLs                         ; 2 / 4 ( 50 % )                              ;
 +------------------------------------+---------------------------------------------+
 
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 09/02/2020 22:22:36 ;
+; Start date & time ; 09/04/2020 13:48:49 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; FinalProject        ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------+----------------------------------------+---------------+-----------------+----------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name     ; Section Id     ;
 +--------------------------------------+----------------------------------------+---------------+-----------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 273184158307176.159905655537364        ; --            ; --              ; --             ;
+; COMPILER_SIGNATURE_ID                ; 273184158307176.159919852933692        ; --            ; --              ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --              ; testbench      ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; testbench                              ; --            ; --              ; eda_simulation ;
 ; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --            ; --              ; eda_simulation ;
@@ -106,12 +106,12 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:01:57     ; 1.0                     ; 4974 MB             ; 00:02:07                           ;
-; Fitter               ; 00:00:21     ; 1.0                     ; 5771 MB             ; 00:00:30                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 4713 MB             ; 00:00:04                           ;
-; Power Analyzer       ; 00:00:08     ; 1.0                     ; 4922 MB             ; 00:00:09                           ;
-; Timing Analyzer      ; 00:00:03     ; 1.1                     ; 4893 MB             ; 00:00:04                           ;
-; Total                ; 00:02:33     ; --                      ; --                  ; 00:02:54                           ;
+; Analysis & Synthesis ; 00:06:40     ; 1.0                     ; 5058 MB             ; 00:06:40                           ;
+; Fitter               ; 00:00:25     ; 1.0                     ; 5791 MB             ; 00:00:39                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 4725 MB             ; 00:00:04                           ;
+; Power Analyzer       ; 00:00:10     ; 1.1                     ; 4949 MB             ; 00:00:11                           ;
+; Timing Analyzer      ; 00:00:04     ; 1.2                     ; 4919 MB             ; 00:00:04                           ;
+; Total                ; 00:07:23     ; --                      ; --                  ; 00:07:38                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

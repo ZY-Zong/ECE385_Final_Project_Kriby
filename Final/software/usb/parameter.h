@@ -26,12 +26,13 @@ static volatile unsigned int * ADDRESS_PTR = (unsigned int *) 0x00000000;
 #define KIRBY_WIDTH             28
 #define KIRBY_HEIGHT            28
 #define KIRBY_START_X           5
-#define KIRBY_START_Y           59
-#define KIRBY_STEP_X            6
-#define KIRBY_STEP_Y            6
+#define KIRBY_START_Y           99
+#define KIRBY_STEP_X            3
+#define KIRBY_STEP_Y            3
 #define KIRBY_INHALED_WIDTH     30
-#define KIRBY_INHALED_
-
+#define KIRBY_INHALED_HEIGHT    30
+#define KIRBY_FRAME_TIME_NUM    1600
+#define KIRBY_FRAME_TIME_BLINK  15000
 
 /* VGA & Screen Related Parameters */
 #define SCREEN_WIDTH            234
@@ -50,6 +51,5 @@ static volatile unsigned int * ADDRESS_PTR = (unsigned int *) 0x00000000;
 #define MAP_1_WIDTH             976
 #define MAP_2_WIDTH             1217
 #define MAP_HEIGHT              176
-
 
 #endif /*PARAMETER_H_*/

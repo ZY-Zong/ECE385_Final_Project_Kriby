@@ -72,7 +72,7 @@ module  ball ( input         Clk,                // 50 MHz clock
         Ball_Y_Pos_in = Ball_Y_Pos;
         Ball_X_Motion_in = Ball_X_Motion;
         Ball_Y_Motion_in = Ball_Y_Motion;
-        dirc=10'd0;
+        dirc=2'd0;
         // Update position and motion only at rising edge of frame clock
         if (frame_clk_rising_edge)
         begin
@@ -81,25 +81,25 @@ module  ball ( input         Clk,                // 50 MHz clock
 					8'h1A: begin		//w
 									Ball_X_Motion_in = 10'd000;
 									Ball_Y_Motion_in = (~(Ball_Y_Step) + 1'b1);
-									dirc=10'd0;
+									dirc=2'd0;
 							  end
 							  
 					8'h16: begin		//s
 									Ball_X_Motion_in = 10'd000;
 									Ball_Y_Motion_in = Ball_Y_Step;
-									dirc=10'd0;
+									dirc=2'd0;
 							  end
 					
 					8'h04: begin		//a
 									Ball_X_Motion_in = (~(Ball_X_Step) + 1'b1);
 									Ball_Y_Motion_in = 10'd000;
-									dirc=10'd1;
+									dirc=2'd1;
 							  end
 							  
 					8'h07: begin		//d
 									Ball_X_Motion_in = Ball_X_Step;
 									Ball_Y_Motion_in = 10'd000;
-									dirc=10'd2;
+									dirc=2'd2;
 							  end
 							  
 					default: ;
