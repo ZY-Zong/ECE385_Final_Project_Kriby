@@ -3,7 +3,7 @@
 #include "kirby.h"
 #include "parameter.h"
 #include "image.h"
-#include "Wall.h"
+#include "wall.h"
 
 
 void initial_Kirby(Kirby * kirby){
@@ -85,6 +85,7 @@ void updateKirby(Kirby * kirby, Game * game_state, int keycode, int pre_keycode)
     int prekey0 = pre_keycode & 0xff;
     int prekey1 = (pre_keycode >> 8) & 0xff;
     int map_width = map_Width(game_state->map);
+    int i = 0;
 
     // Keyboard control
     switch ((keycode & 0x0000ffff)) {
@@ -197,15 +198,28 @@ void updateKirby(Kirby * kirby, Game * game_state, int keycode, int pre_keycode)
         } else if ((kirby->in_air == 0) && (kirby->is_inhaled == 1)) { // Gulp
             kirby->image = 1;
             kirby->action = 2;
-            if (pre_keycode == keycode) {
-                kirby->frame = (kirby->frame + 1) % KIRBY_GULP_FN;
-            } else {
-                kirby->frame = 0;
+            // // Version#1
+            // if (pre_keycode == keycode) {
+            //     kirby->frame += 1;
+            //     if (kirby->frame == KIRBY_GULP_FN - 1)
+            //         kirby->is_inhaled = 0;
+            // } else {
+            //     kirby->frame = 0;
+            // }
+            // frame_Time(KIRBY_FRAME_TIME_GULP);
+
+            // Version#2
+            kirby->frame = 0;
+            for (i = 0; i < KIRBY_GULP_FN; i++) {
+                upload_Kirby_Info(kirby, game_state);
+                kirby->frame += 1;
+                frame_Time(KIRBY_FRAME_TIME_GULP);
             }
-            frame_Time(KIRBY_FRAME_TIME_GULP);
+            kirby->is_inhaled = 0;
+            
         } else {  // In the air, go down || change to walk mode if touch ground
             if (will_Touch_Ground(kirby, game_state->map) == 1) {
-                kirby->in_air == 0;
+                kirby->in_air = 0;
                 force_It_On_Ground(kirby, game_state->map); // It will go to the ground
                 kirby->image = 1;
                 kirby->action = 0;
@@ -314,40 +328,12 @@ void force_It_On_Ground(Kirby * kirby, int map_idx) {
     int kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
 
     // Cling to the ground
-    switch (map_idx)
-    {
-    case 0:
-        while (Wall1[kirby_botton_Y + 1][kirby_botton_X] == AREA_CAN_GO) {
-            kirby->y += 1;
-            // Update values
-            kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-        }
-        break;
-    case 1:
-        while (Wall2[kirby_botton_Y + 1][kirby_botton_X] == AREA_CAN_GO) {
-            kirby->y += 1;
-            // Update values
-            kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-        }
-        break;
-    case 2:
-        while (Wall3[kirby_botton_Y + 1][kirby_botton_X] == AREA_CAN_GO) {
-            kirby->y += 1;
-            // Update values
-            kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-        }
-        break;
-    default:
-        while (Wall1[kirby_botton_Y + 1][kirby_botton_X] == AREA_CAN_GO) {
-            kirby->y += 1;
-            // Update values
-            kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-        }
-        break;
+
+    while (get_Wall_Info(kirby_botton_X, kirby_botton_Y + 1, map_idx) == AREA_CAN_GO) {
+        kirby->y += 1;
+        // Update values
+        kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
+        kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
     }
 }
 
@@ -361,208 +347,53 @@ void force_It_Inside_Map(Kirby * kirby, int map_idx) {
     int kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
     int kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
 
-    switch (map_idx)
+    while (get_Wall_Info(kirby_botton_X, kirby_botton_Y, map_idx) == AREA_CANNOT_GO)
     {
-    case 0:
-        while (Wall1[kirby_botton_Y][kirby_botton_X] == AREA_CANNOT_GO)
-        {
-            kirby->y -= 1;
-            kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-            kirby_ceil_X = (get_Kirby_Ceil_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
-            kirby_left_X = (get_Kirby_Left_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_left_Y = get_Kirby_Left_Pos(kirby) & 0x0000ffff;
-            kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
-        }
-        while (Wall1[kirby_left_Y][kirby_left_X] == AREA_CANNOT_GO)
-        {
-            kirby->x += 1;
-            kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-            kirby_ceil_X = (get_Kirby_Ceil_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
-            kirby_left_X = (get_Kirby_Left_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_left_Y = get_Kirby_Left_Pos(kirby) & 0x0000ffff;
-            kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
-        }
-        while (Wall1[kirby_ceil_Y][kirby_ceil_X] == AREA_CANNOT_GO)
-        {
-            kirby->y += 1;
-            kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-            kirby_ceil_X = (get_Kirby_Ceil_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
-            kirby_left_X = (get_Kirby_Left_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_left_Y = get_Kirby_Left_Pos(kirby) & 0x0000ffff;
-            kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
-        }
-        while (Wall1[kirby_right_Y][kirby_right_X] == AREA_CANNOT_GO)
-        {
-            kirby->x -= 1;
-            kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-            kirby_ceil_X = (get_Kirby_Ceil_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
-            kirby_left_X = (get_Kirby_Left_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_left_Y = get_Kirby_Left_Pos(kirby) & 0x0000ffff;
-            kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
-        }
-        break;
-    case 1:
-        while (Wall2[kirby_botton_Y][kirby_botton_X] == AREA_CANNOT_GO)
-        {
-            kirby->y -= 1;
-            kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-            kirby_ceil_X = (get_Kirby_Ceil_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
-            kirby_left_X = (get_Kirby_Left_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_left_Y = get_Kirby_Left_Pos(kirby) & 0x0000ffff;
-            kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
-        }
-        while (Wall2[kirby_left_Y][kirby_left_X] == AREA_CANNOT_GO)
-        {
-            kirby->x += 1;
-            kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-            kirby_ceil_X = (get_Kirby_Ceil_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
-            kirby_left_X = (get_Kirby_Left_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_left_Y = get_Kirby_Left_Pos(kirby) & 0x0000ffff;
-            kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
-        }
-        while (Wall2[kirby_ceil_Y][kirby_ceil_X] == AREA_CANNOT_GO)
-        {
-            kirby->y += 1;
-            kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-            kirby_ceil_X = (get_Kirby_Ceil_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
-            kirby_left_X = (get_Kirby_Left_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_left_Y = get_Kirby_Left_Pos(kirby) & 0x0000ffff;
-            kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
-        }
-        while (Wall2[kirby_right_Y][kirby_right_X] == AREA_CANNOT_GO)
-        {
-            kirby->x -= 1;
-            kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-            kirby_ceil_X = (get_Kirby_Ceil_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
-            kirby_left_X = (get_Kirby_Left_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_left_Y = get_Kirby_Left_Pos(kirby) & 0x0000ffff;
-            kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
-        }
-        break;
-    case 2:
-        while (Wall3[kirby_botton_Y][kirby_botton_X] == AREA_CANNOT_GO)
-        {
-            kirby->y -= 1;
-            kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-            kirby_ceil_X = (get_Kirby_Ceil_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
-            kirby_left_X = (get_Kirby_Left_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_left_Y = get_Kirby_Left_Pos(kirby) & 0x0000ffff;
-            kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
-        }
-        while (Wall3[kirby_left_Y][kirby_left_X] == AREA_CANNOT_GO)
-        {
-            kirby->x += 1;
-            kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-            kirby_ceil_X = (get_Kirby_Ceil_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
-            kirby_left_X = (get_Kirby_Left_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_left_Y = get_Kirby_Left_Pos(kirby) & 0x0000ffff;
-            kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
-        }
-        while (Wall3[kirby_ceil_Y][kirby_ceil_X] == AREA_CANNOT_GO)
-        {
-            kirby->y += 1;
-            kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-            kirby_ceil_X = (get_Kirby_Ceil_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
-            kirby_left_X = (get_Kirby_Left_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_left_Y = get_Kirby_Left_Pos(kirby) & 0x0000ffff;
-            kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
-        }
-        while (Wall3[kirby_right_Y][kirby_right_X] == AREA_CANNOT_GO)
-        {
-            kirby->x -= 1;
-            kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-            kirby_ceil_X = (get_Kirby_Ceil_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
-            kirby_left_X = (get_Kirby_Left_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_left_Y = get_Kirby_Left_Pos(kirby) & 0x0000ffff;
-            kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
-        }
-        break;
-    default:
-        while (Wall1[kirby_botton_Y][kirby_botton_X] == AREA_CANNOT_GO)
-        {
-            kirby->y -= 1;
-            kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-            kirby_ceil_X = (get_Kirby_Ceil_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
-            kirby_left_X = (get_Kirby_Left_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_left_Y = get_Kirby_Left_Pos(kirby) & 0x0000ffff;
-            kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
-        }
-        while (Wall1[kirby_left_Y][kirby_left_X] == AREA_CANNOT_GO)
-        {
-            kirby->x += 1;
-            kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-            kirby_ceil_X = (get_Kirby_Ceil_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
-            kirby_left_X = (get_Kirby_Left_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_left_Y = get_Kirby_Left_Pos(kirby) & 0x0000ffff;
-            kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
-        }
-        while (Wall1[kirby_ceil_Y][kirby_ceil_X] == AREA_CANNOT_GO)
-        {
-            kirby->y += 1;
-            kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-            kirby_ceil_X = (get_Kirby_Ceil_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
-            kirby_left_X = (get_Kirby_Left_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_left_Y = get_Kirby_Left_Pos(kirby) & 0x0000ffff;
-            kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
-        }
-        while (Wall1[kirby_right_Y][kirby_right_X] == AREA_CANNOT_GO)
-        {
-            kirby->x -= 1;
-            kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-            kirby_ceil_X = (get_Kirby_Ceil_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
-            kirby_left_X = (get_Kirby_Left_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_left_Y = get_Kirby_Left_Pos(kirby) & 0x0000ffff;
-            kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
-            kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
-        }
-        break;
+        kirby->y -= 1;
+        kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
+        kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
+        kirby_ceil_X = (get_Kirby_Ceil_Pos(kirby) >> 16) & 0x0000ffff;
+        kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
+        kirby_left_X = (get_Kirby_Left_Pos(kirby) >> 16) & 0x0000ffff;
+        kirby_left_Y = get_Kirby_Left_Pos(kirby) & 0x0000ffff;
+        kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
+        kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
+    }
+    while (get_Wall_Info(kirby_left_X, kirby_left_Y, map_idx) == AREA_CANNOT_GO)
+    {
+        kirby->x += 1;
+        kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
+        kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
+        kirby_ceil_X = (get_Kirby_Ceil_Pos(kirby) >> 16) & 0x0000ffff;
+        kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
+        kirby_left_X = (get_Kirby_Left_Pos(kirby) >> 16) & 0x0000ffff;
+        kirby_left_Y = get_Kirby_Left_Pos(kirby) & 0x0000ffff;
+        kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
+        kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
+    }
+    while (get_Wall_Info(kirby_ceil_X, kirby_ceil_Y, map_idx) == AREA_CANNOT_GO)
+    {
+        kirby->y += 1;
+        kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
+        kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
+        kirby_ceil_X = (get_Kirby_Ceil_Pos(kirby) >> 16) & 0x0000ffff;
+        kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
+        kirby_left_X = (get_Kirby_Left_Pos(kirby) >> 16) & 0x0000ffff;
+        kirby_left_Y = get_Kirby_Left_Pos(kirby) & 0x0000ffff;
+        kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
+        kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
+    }
+    while (get_Wall_Info(kirby_right_X, kirby_right_Y, map_idx) == AREA_CANNOT_GO)
+    {
+        kirby->x -= 1;
+        kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
+        kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
+        kirby_ceil_X = (get_Kirby_Ceil_Pos(kirby) >> 16) & 0x0000ffff;
+        kirby_ceil_Y = get_Kirby_Ceil_Pos(kirby) & 0x0000ffff;
+        kirby_left_X = (get_Kirby_Left_Pos(kirby) >> 16) & 0x0000ffff;
+        kirby_left_Y = get_Kirby_Left_Pos(kirby) & 0x0000ffff;
+        kirby_right_X = (get_Kirby_Right_Pos(kirby) >> 16) & 0x0000ffff;
+        kirby_right_Y = get_Kirby_Right_Pos(kirby) & 0x0000ffff;
     }
 }
 
@@ -581,9 +412,9 @@ int map_Width(int i) {
     case 1:
         return MAP_1_WIDTH;
         break;
-    case 2:
-        return MAP_2_WIDTH;
-        break;
+    // case 2:
+    //     return MAP_2_WIDTH;
+    //     break;
     default:
         return MAP_0_WIDTH;
         break;
@@ -593,36 +424,11 @@ int map_Width(int i) {
 int will_Touch_Ground(Kirby * kirby, int map_idx) {
     int kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
     int kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
-    switch (map_idx)
-    {
-    case 0:
-        if ((Wall1[kirby_botton_Y + KIRBY_STEP_Y][kirby_botton_X] == AREA_CANNOT_GO) && (kirby->in_air == 1)) {
-            return 1;
-        } else {
-            return 0;
-        }
-        break;
-    case 1:
-        if ((Wall2[kirby_botton_Y + KIRBY_STEP_Y][kirby_botton_X] == AREA_CANNOT_GO) && (kirby->in_air == 1)) {
-            return 1;
-        } else {
-            return 0;
-        }
-        break;
-    case 2:
-        if ((Wall3[kirby_botton_Y + KIRBY_STEP_Y][kirby_botton_X] == AREA_CANNOT_GO) && (kirby->in_air == 1)) {
-            return 1;
-        } else {
-            return 0;
-        }
-        break;
-    default:
-        if ((Wall1[kirby_botton_Y + KIRBY_STEP_Y][kirby_botton_X] == AREA_CANNOT_GO) && (kirby->in_air == 1)) {
-            return 1;
-        } else {
-            return 0;
-        }
-        break;
+
+    if ((get_Wall_Info(kirby_botton_X, kirby_botton_Y + KIRBY_STEP_Y, map_idx) == AREA_CANNOT_GO) && (kirby->in_air == 1)) {
+        return 1;
+    } else {
+        return 0;
     }
 }
 
@@ -704,4 +510,19 @@ int get_Kirby_Right_Pos(Kirby * kirby) {
         kirby_right_Y = kirby->y + 14;   //// Not an accurate value!!! ////
     }
     return ((kirby_right_X << 16) | kirby_right_Y);
+}
+
+int get_Wall_Info(int x, int y, int map_idx) {
+    int idx, res = 0;
+    idx = (map_Width(map_idx) * y + x) / 32;
+    res = (map_Width(map_idx) * y + x) % 32;
+    if (map_idx == 0) {
+        return ((Wall1[idx] >> (31 - res)) & 0x00000001);
+    } else if (map_idx == 1) {
+        return ((Wall2[idx] >> (31 - res)) & 0x00000001);
+    } else {
+        printf("Error: Map index out of tolerrance!");
+    }
+    
+    
 }

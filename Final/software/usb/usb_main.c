@@ -477,8 +477,8 @@ void usb_initialize()
 // Should be place in a while loop to keep fetching keycodes
 int get_keycode_value() 
 {
-	int keycode0 = 0;
-	int keycode1 = 0;
+	// int keycode0 = 0;
+	// int keycode1 = 0;
 	int keycode = 0;
 
 	toggle++;

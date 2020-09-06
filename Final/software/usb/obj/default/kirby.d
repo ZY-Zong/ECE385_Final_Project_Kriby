@@ -1,5 +1,5 @@
 obj/default/kirby.o: kirby.c kirby.h game_logic.h parameter.h image.h \
- Wall.h
+ wall.h
 
 kirby.h:
 
@@ -9,4 +9,4 @@ parameter.h:
 
 image.h:
 
-Wall.h:
+wall.h:
