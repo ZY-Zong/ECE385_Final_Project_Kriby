@@ -72,5 +72,6 @@ static volatile unsigned int * ADDRESS_PTR = (unsigned int *) 0x00000000;
 
 /* Star Parameters */
 #define STAR_STEP_X             4
+#define STAR_FRAME_TIME         4000
 
 #endif /*PARAMETER_H_*/

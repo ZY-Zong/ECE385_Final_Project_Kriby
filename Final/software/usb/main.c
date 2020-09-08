@@ -12,6 +12,6 @@
 int main(void) {
     GameStart();
 
-    printf("Interupt takes place!");
+    printf("Interrupt takes place!");
     return 0;
 }

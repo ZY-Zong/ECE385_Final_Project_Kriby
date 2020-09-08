@@ -8677,3 +8677,1621 @@ Info: Building ../usb_bsp/
 D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
 [BSP build complete]
 [usb build complete]
+15:47:18 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+15:47:19 **** Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+15:47:32 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+15:50:58 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling game_logic.c to obj/default/game_logic.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/game_logic.o game_logic.c
+game_logic.c: In function 'GameStart':
+game_logic.c:38:5: warning: 'kirby' is used uninitialized in this function [-Wuninitialized]
+     initial_Kirby(kirby);
+     ^
+game_logic.c:46:5: warning: 'star' is used uninitialized in this function [-Wuninitialized]
+     initial_Star(star);
+     ^
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+main.c: In function 'main':
+main.c:12:5: warning: implicit declaration of function 'GameStart' [-Wimplicit-function-declaration]
+     GameStart();
+     ^
+In file included from main.c:9:0:
+main.c: At top level:
+parameter.h:6:32: warning: 'ADDRESS_PTR' defined but not used [-Wunused-variable]
+ static volatile unsigned int * ADDRESS_PTR = (unsigned int *) 0x00000000;
+                                ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599501391 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 116 KBytes program size (code + initialized data).
+Info:           130922 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+15:51:02 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+15:52:00 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+In file included from main.c:9:0:
+parameter.h:6:32: warning: 'ADDRESS_PTR' defined but not used [-Wunused-variable]
+ static volatile unsigned int * ADDRESS_PTR = (unsigned int *) 0x00000000;
+                                ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599501391 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 116 KBytes program size (code + initialized data).
+Info:           130922 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+15:52:03 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+15:52:19 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+16:41:44 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+Compiling alt_alarm_start.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_alarm_start.o HAL/src/alt_alarm_start.c
+Compiling alt_busy_sleep.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_busy_sleep.o HAL/src/alt_busy_sleep.c
+Compiling alt_close.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_close.o HAL/src/alt_close.c
+Compiling alt_dcache_flush.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_dcache_flush.o HAL/src/alt_dcache_flush.c
+Compiling alt_dcache_flush_all.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_dcache_flush_all.o HAL/src/alt_dcache_flush_all.c
+Compiling alt_dcache_flush_no_writeback.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_dcache_flush_no_writeback.o HAL/src/alt_dcache_flush_no_writeback.c
+Compiling alt_dev.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_dev.o HAL/src/alt_dev.c
+Compiling alt_dma_rxchan_open.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_dma_rxchan_open.o HAL/src/alt_dma_rxchan_open.c
+Compiling alt_dma_txchan_open.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_dma_txchan_open.o HAL/src/alt_dma_txchan_open.c
+Compiling alt_ecc_fatal_exception.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_ecc_fatal_exception.o HAL/src/alt_ecc_fatal_exception.c
+Compiling alt_exception_entry.S...
+nios2-elf-gcc -MP -MMD -c   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global    -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED  -Wa,-gdwarf2  -o obj/HAL/src/alt_exception_entry.o HAL/src/alt_exception_entry.S
+Compiling alt_exit.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_exit.o HAL/src/alt_exit.c
+Compiling alt_fcntl.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_fcntl.o HAL/src/alt_fcntl.c
+Compiling alt_fd_lock.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_fd_lock.o HAL/src/alt_fd_lock.c
+Compiling alt_fd_unlock.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_fd_unlock.o HAL/src/alt_fd_unlock.c
+Compiling alt_find_dev.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_find_dev.o HAL/src/alt_find_dev.c
+Compiling alt_find_file.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_find_file.o HAL/src/alt_find_file.c
+Compiling alt_flash_dev.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_flash_dev.o HAL/src/alt_flash_dev.c
+Compiling alt_fs_reg.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_fs_reg.o HAL/src/alt_fs_reg.c
+Compiling alt_fstat.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_fstat.o HAL/src/alt_fstat.c
+Compiling alt_get_fd.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_get_fd.o HAL/src/alt_get_fd.c
+Compiling alt_gmon.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_gmon.o HAL/src/alt_gmon.c
+Compiling alt_icache_flush.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_icache_flush.o HAL/src/alt_icache_flush.c
+Compiling alt_icache_flush_all.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_icache_flush_all.o HAL/src/alt_icache_flush_all.c
+Compiling alt_iic.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_iic.o HAL/src/alt_iic.c
+Compiling alt_iic_isr_register.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_iic_isr_register.o HAL/src/alt_iic_isr_register.c
+Compiling alt_instruction_exception_entry.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_instruction_exception_entry.o HAL/src/alt_instruction_exception_entry.c
+Compiling alt_instruction_exception_register.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_instruction_exception_register.o HAL/src/alt_instruction_exception_register.c
+Compiling alt_io_redirect.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_io_redirect.o HAL/src/alt_io_redirect.c
+Compiling alt_ioctl.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_ioctl.o HAL/src/alt_ioctl.c
+Compiling alt_irq_entry.S...
+nios2-elf-gcc -MP -MMD -c   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global    -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED  -Wa,-gdwarf2  -o obj/HAL/src/alt_irq_entry.o HAL/src/alt_irq_entry.S
+Compiling alt_irq_handler.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_irq_handler.o HAL/src/alt_irq_handler.c
+Compiling alt_irq_register.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_irq_register.o HAL/src/alt_irq_register.c
+Compiling alt_irq_vars.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_irq_vars.o HAL/src/alt_irq_vars.c
+Compiling alt_isatty.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_isatty.o HAL/src/alt_isatty.c
+Compiling alt_lseek.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_lseek.o HAL/src/alt_lseek.c
+Compiling alt_main.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_main.o HAL/src/alt_main.c
+Compiling alt_open.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_open.o HAL/src/alt_open.c
+Compiling alt_read.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_read.o HAL/src/alt_read.c
+Compiling alt_release_fd.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_release_fd.o HAL/src/alt_release_fd.c
+Compiling alt_remap_cached.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_remap_cached.o HAL/src/alt_remap_cached.c
+Compiling alt_remap_uncached.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_remap_uncached.o HAL/src/alt_remap_uncached.c
+Compiling alt_sbrk.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_sbrk.o HAL/src/alt_sbrk.c
+Compiling alt_software_exception.S...
+nios2-elf-gcc -MP -MMD -c   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global    -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED  -Wa,-gdwarf2  -o obj/HAL/src/alt_software_exception.o HAL/src/alt_software_exception.S
+Compiling alt_tick.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_tick.o HAL/src/alt_tick.c
+Compiling alt_uncached_free.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_uncached_free.o HAL/src/alt_uncached_free.c
+Compiling alt_uncached_malloc.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_uncached_malloc.o HAL/src/alt_uncached_malloc.c
+Compiling alt_write.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_write.o HAL/src/alt_write.c
+Compiling altera_nios2_gen2_irq.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/altera_nios2_gen2_irq.o HAL/src/altera_nios2_gen2_irq.c
+Compiling crt0.S...
+nios2-elf-gcc -MP -MMD -c   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global    -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED  -Wa,-gdwarf2  -o obj/HAL/src/crt0.o HAL/src/crt0.S
+Compiling alt_sys_init.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/alt_sys_init.o alt_sys_init.c
+Compiling altera_avalon_jtag_uart_fd.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/drivers/src/altera_avalon_jtag_uart_fd.o drivers/src/altera_avalon_jtag_uart_fd.c
+Compiling altera_avalon_jtag_uart_init.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/drivers/src/altera_avalon_jtag_uart_init.o drivers/src/altera_avalon_jtag_uart_init.c
+Compiling altera_avalon_jtag_uart_ioctl.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/drivers/src/altera_avalon_jtag_uart_ioctl.o drivers/src/altera_avalon_jtag_uart_ioctl.c
+Compiling altera_avalon_jtag_uart_read.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/drivers/src/altera_avalon_jtag_uart_read.o drivers/src/altera_avalon_jtag_uart_read.c
+Compiling altera_avalon_jtag_uart_write.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/drivers/src/altera_avalon_jtag_uart_write.o drivers/src/altera_avalon_jtag_uart_write.c
+Compiling altera_avalon_sysid_qsys.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/drivers/src/altera_avalon_sysid_qsys.o drivers/src/altera_avalon_sysid_qsys.c
+Creating libhal_bsp.a...
+rm -f -f libhal_bsp.a
+nios2-elf-ar -src libhal_bsp.a obj/HAL/src/alt_alarm_start.o obj/HAL/src/alt_busy_sleep.o obj/HAL/src/alt_close.o obj/HAL/src/alt_dcache_flush.o obj/HAL/src/alt_dcache_flush_all.o obj/HAL/src/alt_dcache_flush_no_writeback.o obj/HAL/src/alt_dev.o obj/HAL/src/alt_dev_llist_insert.o obj/HAL/src/alt_dma_rxchan_open.o obj/HAL/src/alt_dma_txchan_open.o obj/HAL/src/alt_do_ctors.o obj/HAL/src/alt_do_dtors.o obj/HAL/src/alt_ecc_fatal_entry.o obj/HAL/src/alt_ecc_fatal_exception.o obj/HAL/src/alt_env_lock.o obj/HAL/src/alt_environ.o obj/HAL/src/alt_errno.o obj/HAL/src/alt_exception_entry.o obj/HAL/src/alt_exception_muldiv.o obj/HAL/src/alt_exception_trap.o obj/HAL/src/alt_execve.o obj/HAL/src/alt_exit.o obj/HAL/src/alt_fcntl.o obj/HAL/src/alt_fd_lock.o obj/HAL/src/alt_fd_unlock.o obj/HAL/src/alt_find_dev.o obj/HAL/src/alt_find_file.o obj/HAL/src/alt_flash_dev.o obj/HAL/src/alt_fork.o obj/HAL/src/alt_fs_reg.o obj/HAL/src/alt_fstat.o obj/HAL/src/alt_get_fd.o obj/HAL/src/alt_getchar.o obj/HAL/src/alt_getpid.o obj/HAL/src/alt_gettod.o obj/HAL/src/alt_gmon.o obj/HAL/src/alt_icache_flush.o obj/HAL/src/alt_icache_flush_all.o obj/HAL/src/alt_iic.o obj/HAL/src/alt_iic_isr_register.o obj/HAL/src/alt_instruction_exception_entry.o obj/HAL/src/alt_instruction_exception_register.o obj/HAL/src/alt_io_redirect.o obj/HAL/src/alt_ioctl.o obj/HAL/src/alt_irq_entry.o obj/HAL/src/alt_irq_handler.o obj/HAL/src/alt_irq_register.o obj/HAL/src/alt_irq_vars.o obj/HAL/src/alt_isatty.o obj/HAL/src/alt_kill.o obj/HAL/src/alt_link.o obj/HAL/src/alt_load.o obj/HAL/src/alt_log_macro.o obj/HAL/src/alt_log_printf.o obj/HAL/src/alt_lseek.o obj/HAL/src/alt_main.o obj/HAL/src/alt_malloc_lock.o obj/HAL/src/alt_mcount.o obj/HAL/src/alt_open.o obj/HAL/src/alt_printf.o obj/HAL/src/alt_putchar.o obj/HAL/src/alt_putcharbuf.o obj/HAL/src/alt_putstr.o obj/HAL/src/alt_read.o obj/HAL/src/alt_release_fd.o obj/HAL/src/alt_remap_cached.o obj/HAL/src/alt_remap_uncached.o obj/HAL/src/alt_rename.o obj/HAL/src/alt_sbrk.o obj/HAL/src/alt_settod.o obj/HAL/src/alt_software_exception.o obj/HAL/src/alt_stat.o obj/HAL/src/alt_tick.o obj/HAL/src/alt_times.o obj/HAL/src/alt_uncached_free.o obj/HAL/src/alt_uncached_malloc.o obj/HAL/src/alt_unlink.o obj/HAL/src/alt_usleep.o obj/HAL/src/alt_wait.o obj/HAL/src/alt_write.o obj/HAL/src/altera_nios2_gen2_irq.o obj/HAL/src/crt0.o obj/alt_sys_init.o obj/drivers/src/altera_avalon_jtag_uart_fd.o obj/drivers/src/altera_avalon_jtag_uart_init.o obj/drivers/src/altera_avalon_jtag_uart_ioctl.o obj/drivers/src/altera_avalon_jtag_uart_read.o obj/drivers/src/altera_avalon_jtag_uart_write.o obj/drivers/src/altera_avalon_sysid_qsys.o
+[BSP build complete]
+Info: Compiling io_handler.c to obj/default/io_handler.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/io_handler.o io_handler.c
+Info: Compiling usb.c to obj/default/usb.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/usb.o usb.c
+Info: Compiling usb_main.c to obj/default/usb_main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/usb_main.o usb_main.c
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599551768 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 116 KBytes program size (code + initialized data).
+Info:           130922 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+16:41:57 **** Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+16:42:39 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling game_logic.c to obj/default/game_logic.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/game_logic.o game_logic.c
+game_logic.c: In function 'GameStart':
+game_logic.c:41:5: warning: 'kirby' is used uninitialized in this function [-Wuninitialized]
+     initial_Kirby(kirby);
+     ^
+game_logic.c:49:5: warning: 'star' is used uninitialized in this function [-Wuninitialized]
+     initial_Star(star);
+     ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599551768 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 116 KBytes program size (code + initialized data).
+Info:           130922 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+16:42:43 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+16:43:36 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+16:50:43 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling game_logic.c to obj/default/game_logic.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/game_logic.o game_logic.c
+game_logic.c: In function 'GameStart':
+game_logic.c:41:5: warning: 'kirby' is used uninitialized in this function [-Wuninitialized]
+     initial_Kirby(kirby);
+     ^
+game_logic.c:49:5: warning: 'star' is used uninitialized in this function [-Wuninitialized]
+     initial_Star(star);
+     ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599551768 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 116 KBytes program size (code + initialized data).
+Info:           130922 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+16:55:11 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+16:56:16 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+16:57:24 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling game_logic.c to obj/default/game_logic.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/game_logic.o game_logic.c
+game_logic.c: In function 'GameStart':
+game_logic.c:41:5: warning: 'kirby' is used uninitialized in this function [-Wuninitialized]
+     initial_Kirby(kirby);
+     ^
+game_logic.c:49:5: warning: 'star' is used uninitialized in this function [-Wuninitialized]
+     initial_Star(star);
+     ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599551768 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 116 KBytes program size (code + initialized data).
+Info:           130922 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+16:57:40 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+16:57:41 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+16:57:50 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+16:58:36 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+17:01:01 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+In file included from main.c:9:0:
+parameter.h:6:32: warning: 'ADDRESS_PTR' defined but not used [-Wunused-variable]
+ static volatile unsigned int * ADDRESS_PTR = (unsigned int *) 0x00000000;
+                                ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599551768 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 116 KBytes program size (code + initialized data).
+Info:           130922 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+17:11:20 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling game_logic.c to obj/default/game_logic.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/game_logic.o game_logic.c
+game_logic.c: In function 'GameStart':
+game_logic.c:15:5: warning: 'star' is used uninitialized in this function [-Wuninitialized]
+     initial_Star(star);
+     ^
+game_logic.c:16:5: warning: 'kirby' is used uninitialized in this function [-Wuninitialized]
+     initial_Kirby(kirby);
+     ^
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599551768 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 137 KBytes program size (code + initialized data).
+Info:           130880 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+17:11:25 **** Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+17:11:31 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+17:11:32 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+Command canceled
+17:11:36 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599551768 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 137 KBytes program size (code + initialized data).
+Info:           130880 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+17:11:40 **** Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+17:11:51 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+19:30:01 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling star.c to obj/default/star.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/star.o star.c
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599551768 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 137 KBytes program size (code + initialized data).
+Info:           130880 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+19:30:03 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+19:30:34 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+19:32:39 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling game_logic.c to obj/default/game_logic.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/game_logic.o game_logic.c
+game_logic.c: In function 'GameStart':
+game_logic.c:15:5: warning: 'star' is used uninitialized in this function [-Wuninitialized]
+     initial_Star(star);
+     ^
+game_logic.c:16:5: warning: 'kirby' is used uninitialized in this function [-Wuninitialized]
+     initial_Kirby(kirby);
+     ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599551768 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 137 KBytes program size (code + initialized data).
+Info:           130880 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+19:32:41 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+19:32:53 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+19:35:39 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling star.c to obj/default/star.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/star.o star.c
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599551768 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 137 KBytes program size (code + initialized data).
+Info:           130880 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+19:35:41 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+19:35:53 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+19:35:54 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+19:36:00 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+19:36:20 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+19:37:50 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling game_logic.c to obj/default/game_logic.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/game_logic.o game_logic.c
+game_logic.c: In function 'GameStart':
+game_logic.c:15:5: warning: 'star' is used uninitialized in this function [-Wuninitialized]
+     initial_Star(star);
+     ^
+game_logic.c:16:5: warning: 'kirby' is used uninitialized in this function [-Wuninitialized]
+     initial_Kirby(kirby);
+     ^
+Info: Compiling star.c to obj/default/star.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/star.o star.c
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599551768 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 137 KBytes program size (code + initialized data).
+Info:           130880 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+19:37:52 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+19:37:57 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+20:00:56 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+Compiling alt_alarm_start.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_alarm_start.o HAL/src/alt_alarm_start.c
+Compiling alt_busy_sleep.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_busy_sleep.o HAL/src/alt_busy_sleep.c
+Compiling alt_close.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_close.o HAL/src/alt_close.c
+Compiling alt_dcache_flush.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_dcache_flush.o HAL/src/alt_dcache_flush.c
+Compiling alt_dcache_flush_all.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_dcache_flush_all.o HAL/src/alt_dcache_flush_all.c
+Compiling alt_dcache_flush_no_writeback.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_dcache_flush_no_writeback.o HAL/src/alt_dcache_flush_no_writeback.c
+Compiling alt_dev.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_dev.o HAL/src/alt_dev.c
+Compiling alt_dma_rxchan_open.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_dma_rxchan_open.o HAL/src/alt_dma_rxchan_open.c
+Compiling alt_dma_txchan_open.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_dma_txchan_open.o HAL/src/alt_dma_txchan_open.c
+Compiling alt_ecc_fatal_exception.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_ecc_fatal_exception.o HAL/src/alt_ecc_fatal_exception.c
+Compiling alt_exception_entry.S...
+nios2-elf-gcc -MP -MMD -c   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global    -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED  -Wa,-gdwarf2  -o obj/HAL/src/alt_exception_entry.o HAL/src/alt_exception_entry.S
+Compiling alt_exit.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_exit.o HAL/src/alt_exit.c
+Compiling alt_fcntl.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_fcntl.o HAL/src/alt_fcntl.c
+Compiling alt_fd_lock.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_fd_lock.o HAL/src/alt_fd_lock.c
+Compiling alt_fd_unlock.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_fd_unlock.o HAL/src/alt_fd_unlock.c
+Compiling alt_find_dev.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_find_dev.o HAL/src/alt_find_dev.c
+Compiling alt_find_file.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_find_file.o HAL/src/alt_find_file.c
+Compiling alt_flash_dev.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_flash_dev.o HAL/src/alt_flash_dev.c
+Compiling alt_fs_reg.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_fs_reg.o HAL/src/alt_fs_reg.c
+Compiling alt_fstat.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_fstat.o HAL/src/alt_fstat.c
+Compiling alt_get_fd.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_get_fd.o HAL/src/alt_get_fd.c
+Compiling alt_gmon.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_gmon.o HAL/src/alt_gmon.c
+Compiling alt_icache_flush.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_icache_flush.o HAL/src/alt_icache_flush.c
+Compiling alt_icache_flush_all.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_icache_flush_all.o HAL/src/alt_icache_flush_all.c
+Compiling alt_iic.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_iic.o HAL/src/alt_iic.c
+Compiling alt_iic_isr_register.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_iic_isr_register.o HAL/src/alt_iic_isr_register.c
+Compiling alt_instruction_exception_entry.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_instruction_exception_entry.o HAL/src/alt_instruction_exception_entry.c
+Compiling alt_instruction_exception_register.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_instruction_exception_register.o HAL/src/alt_instruction_exception_register.c
+Compiling alt_io_redirect.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_io_redirect.o HAL/src/alt_io_redirect.c
+Compiling alt_ioctl.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_ioctl.o HAL/src/alt_ioctl.c
+Compiling alt_irq_entry.S...
+nios2-elf-gcc -MP -MMD -c   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global    -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED  -Wa,-gdwarf2  -o obj/HAL/src/alt_irq_entry.o HAL/src/alt_irq_entry.S
+Compiling alt_irq_handler.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_irq_handler.o HAL/src/alt_irq_handler.c
+Compiling alt_irq_register.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_irq_register.o HAL/src/alt_irq_register.c
+Compiling alt_irq_vars.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_irq_vars.o HAL/src/alt_irq_vars.c
+Compiling alt_isatty.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_isatty.o HAL/src/alt_isatty.c
+Compiling alt_lseek.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_lseek.o HAL/src/alt_lseek.c
+Compiling alt_main.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_main.o HAL/src/alt_main.c
+Compiling alt_open.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_open.o HAL/src/alt_open.c
+Compiling alt_read.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_read.o HAL/src/alt_read.c
+Compiling alt_release_fd.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_release_fd.o HAL/src/alt_release_fd.c
+Compiling alt_remap_cached.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_remap_cached.o HAL/src/alt_remap_cached.c
+Compiling alt_remap_uncached.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_remap_uncached.o HAL/src/alt_remap_uncached.c
+Compiling alt_sbrk.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_sbrk.o HAL/src/alt_sbrk.c
+Compiling alt_software_exception.S...
+nios2-elf-gcc -MP -MMD -c   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global    -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED  -Wa,-gdwarf2  -o obj/HAL/src/alt_software_exception.o HAL/src/alt_software_exception.S
+Compiling alt_tick.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_tick.o HAL/src/alt_tick.c
+Compiling alt_uncached_free.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_uncached_free.o HAL/src/alt_uncached_free.c
+Compiling alt_uncached_malloc.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_uncached_malloc.o HAL/src/alt_uncached_malloc.c
+Compiling alt_write.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/alt_write.o HAL/src/alt_write.c
+Compiling altera_nios2_gen2_irq.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/HAL/src/altera_nios2_gen2_irq.o HAL/src/altera_nios2_gen2_irq.c
+Compiling crt0.S...
+nios2-elf-gcc -MP -MMD -c   -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global    -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED  -Wa,-gdwarf2  -o obj/HAL/src/crt0.o HAL/src/crt0.S
+Compiling alt_sys_init.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/alt_sys_init.o alt_sys_init.c
+Compiling altera_avalon_jtag_uart_fd.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/drivers/src/altera_avalon_jtag_uart_fd.o drivers/src/altera_avalon_jtag_uart_fd.c
+Compiling altera_avalon_jtag_uart_init.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/drivers/src/altera_avalon_jtag_uart_init.o drivers/src/altera_avalon_jtag_uart_init.c
+Compiling altera_avalon_jtag_uart_ioctl.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/drivers/src/altera_avalon_jtag_uart_ioctl.o drivers/src/altera_avalon_jtag_uart_ioctl.c
+Compiling altera_avalon_jtag_uart_read.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/drivers/src/altera_avalon_jtag_uart_read.o drivers/src/altera_avalon_jtag_uart_read.c
+Compiling altera_avalon_jtag_uart_write.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/drivers/src/altera_avalon_jtag_uart_write.o drivers/src/altera_avalon_jtag_uart_write.c
+Compiling altera_avalon_sysid_qsys.c...
+nios2-elf-gcc -xc -MP -MMD -c  -I./HAL/inc -I. -I./drivers/inc -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall  -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global   -o obj/drivers/src/altera_avalon_sysid_qsys.o drivers/src/altera_avalon_sysid_qsys.c
+Creating libhal_bsp.a...
+rm -f -f libhal_bsp.a
+nios2-elf-ar -src libhal_bsp.a obj/HAL/src/alt_alarm_start.o obj/HAL/src/alt_busy_sleep.o obj/HAL/src/alt_close.o obj/HAL/src/alt_dcache_flush.o obj/HAL/src/alt_dcache_flush_all.o obj/HAL/src/alt_dcache_flush_no_writeback.o obj/HAL/src/alt_dev.o obj/HAL/src/alt_dev_llist_insert.o obj/HAL/src/alt_dma_rxchan_open.o obj/HAL/src/alt_dma_txchan_open.o obj/HAL/src/alt_do_ctors.o obj/HAL/src/alt_do_dtors.o obj/HAL/src/alt_ecc_fatal_entry.o obj/HAL/src/alt_ecc_fatal_exception.o obj/HAL/src/alt_env_lock.o obj/HAL/src/alt_environ.o obj/HAL/src/alt_errno.o obj/HAL/src/alt_exception_entry.o obj/HAL/src/alt_exception_muldiv.o obj/HAL/src/alt_exception_trap.o obj/HAL/src/alt_execve.o obj/HAL/src/alt_exit.o obj/HAL/src/alt_fcntl.o obj/HAL/src/alt_fd_lock.o obj/HAL/src/alt_fd_unlock.o obj/HAL/src/alt_find_dev.o obj/HAL/src/alt_find_file.o obj/HAL/src/alt_flash_dev.o obj/HAL/src/alt_fork.o obj/HAL/src/alt_fs_reg.o obj/HAL/src/alt_fstat.o obj/HAL/src/alt_get_fd.o obj/HAL/src/alt_getchar.o obj/HAL/src/alt_getpid.o obj/HAL/src/alt_gettod.o obj/HAL/src/alt_gmon.o obj/HAL/src/alt_icache_flush.o obj/HAL/src/alt_icache_flush_all.o obj/HAL/src/alt_iic.o obj/HAL/src/alt_iic_isr_register.o obj/HAL/src/alt_instruction_exception_entry.o obj/HAL/src/alt_instruction_exception_register.o obj/HAL/src/alt_io_redirect.o obj/HAL/src/alt_ioctl.o obj/HAL/src/alt_irq_entry.o obj/HAL/src/alt_irq_handler.o obj/HAL/src/alt_irq_register.o obj/HAL/src/alt_irq_vars.o obj/HAL/src/alt_isatty.o obj/HAL/src/alt_kill.o obj/HAL/src/alt_link.o obj/HAL/src/alt_load.o obj/HAL/src/alt_log_macro.o obj/HAL/src/alt_log_printf.o obj/HAL/src/alt_lseek.o obj/HAL/src/alt_main.o obj/HAL/src/alt_malloc_lock.o obj/HAL/src/alt_mcount.o obj/HAL/src/alt_open.o obj/HAL/src/alt_printf.o obj/HAL/src/alt_putchar.o obj/HAL/src/alt_putcharbuf.o obj/HAL/src/alt_putstr.o obj/HAL/src/alt_read.o obj/HAL/src/alt_release_fd.o obj/HAL/src/alt_remap_cached.o obj/HAL/src/alt_remap_uncached.o obj/HAL/src/alt_rename.o obj/HAL/src/alt_sbrk.o obj/HAL/src/alt_settod.o obj/HAL/src/alt_software_exception.o obj/HAL/src/alt_stat.o obj/HAL/src/alt_tick.o obj/HAL/src/alt_times.o obj/HAL/src/alt_uncached_free.o obj/HAL/src/alt_uncached_malloc.o obj/HAL/src/alt_unlink.o obj/HAL/src/alt_usleep.o obj/HAL/src/alt_wait.o obj/HAL/src/alt_write.o obj/HAL/src/altera_nios2_gen2_irq.o obj/HAL/src/crt0.o obj/alt_sys_init.o obj/drivers/src/altera_avalon_jtag_uart_fd.o obj/drivers/src/altera_avalon_jtag_uart_init.o obj/drivers/src/altera_avalon_jtag_uart_ioctl.o obj/drivers/src/altera_avalon_jtag_uart_read.o obj/drivers/src/altera_avalon_jtag_uart_write.o obj/drivers/src/altera_avalon_sysid_qsys.o
+[BSP build complete]
+Info: Compiling io_handler.c to obj/default/io_handler.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/io_handler.o io_handler.c
+Info: Compiling usb.c to obj/default/usb.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/usb.o usb.c
+Info: Compiling usb_main.c to obj/default/usb_main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/usb_main.o usb_main.c
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 137 KBytes program size (code + initialized data).
+Info:           130880 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+20:01:06 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+20:01:25 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+20:49:00 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:471:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 137 KBytes program size (code + initialized data).
+Info:           130880 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+20:49:03 **** Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+20:49:27 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+21:28:43 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling game_logic.c to obj/default/game_logic.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/game_logic.o game_logic.c
+game_logic.c: In function 'GameStart':
+game_logic.c:15:5: warning: 'star' is used uninitialized in this function [-Wuninitialized]
+     initial_Star(star);
+     ^
+game_logic.c:16:5: warning: 'kirby' is used uninitialized in this function [-Wuninitialized]
+     initial_Kirby(kirby);
+     ^
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:486:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+kirby.c: In function 'updateKirby':
+kirby.c:826:1: error: expected declaration or statement at end of input
+ }
+ ^
+make: *** [obj/default/kirby.o] Error 1
+21:28:45 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+21:33:53 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:481:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/main.o main.c
+In file included from main.c:9:0:
+parameter.h:6:32: warning: 'ADDRESS_PTR' defined but not used [-Wunused-variable]
+ static volatile unsigned int * ADDRESS_PTR = (unsigned int *) 0x00000000;
+                                ^
+Info: Compiling star.c to obj/default/star.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/star.o star.c
+Info: Compiling test.c to obj/default/test.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/test.o test.c
+test.c: In function 'test_keyboard':
+test.c:9:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+     printf("########Test KeyBoard########");
+     ^
+test.c:9:5: warning: incompatible implicit declaration of built-in function 'printf'
+test.c:9:5: note: include '<stdio.h>' or provide a declaration of 'printf'
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130880 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+21:33:57 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+21:34:08 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+21:37:40 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:490:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+21:37:43 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+21:37:49 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+21:40:11 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:496:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+21:40:14 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+21:40:20 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+21:41:59 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+21:42:47 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:496:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+21:42:50 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+21:42:56 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+21:44:46 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:496:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+21:44:49 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+21:44:54 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+21:50:35 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:496:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+21:50:38 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+21:50:44 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+21:55:20 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:500:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+21:55:22 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+21:55:31 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+21:55:48 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+22:16:02 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling game_logic.c to obj/default/game_logic.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/game_logic.o game_logic.c
+game_logic.c: In function 'GameStart':
+game_logic.c:17:9: warning: unused variable 'kicking_flag' [-Wunused-variable]
+     int kicking_flag = 0;
+         ^
+game_logic.c:16:9: warning: unused variable 'spitting_flag' [-Wunused-variable]
+     int spitting_flag = 0;
+         ^
+game_logic.c:20:5: warning: 'star' is used uninitialized in this function [-Wuninitialized]
+     initial_Star(star);
+     ^
+game_logic.c:21:5: warning: 'kirby' is used uninitialized in this function [-Wuninitialized]
+     initial_Kirby(kirby);
+     ^
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:517:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+22:16:05 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+22:16:11 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+22:19:58 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling game_logic.c to obj/default/game_logic.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/game_logic.o game_logic.c
+game_logic.c: In function 'GameStart':
+game_logic.c:17:9: warning: unused variable 'kicking_flag' [-Wunused-variable]
+     int kicking_flag = 0;
+         ^
+game_logic.c:16:9: warning: unused variable 'spitting_flag' [-Wunused-variable]
+     int spitting_flag = 0;
+         ^
+game_logic.c:20:5: warning: 'star' is used uninitialized in this function [-Wuninitialized]
+     initial_Star(star);
+     ^
+game_logic.c:21:5: warning: 'kirby' is used uninitialized in this function [-Wuninitialized]
+     initial_Kirby(kirby);
+     ^
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:518:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Compiling star.c to obj/default/star.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/star.o star.c
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+22:20:01 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+22:20:05 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+22:24:34 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:520:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+22:24:37 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+22:24:47 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+22:31:30 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:519:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+22:31:35 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+22:31:41 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+22:34:20 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:519:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+22:34:24 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+22:34:31 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+22:46:41 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:520:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+22:46:46 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+22:46:55 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+22:49:13 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:521:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+22:49:18 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+22:49:27 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+22:51:08 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:523:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+22:51:13 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+22:55:24 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+23:03:20 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:530:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+23:03:25 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+23:03:37 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+23:12:01 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:531:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+23:12:06 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+23:12:24 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+23:12:26 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+23:12:31 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+23:16:58 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'updateKirby':
+kirby.c:394:21: warning: implicit declaration of function 'print' [-Wimplicit-function-declaration]
+                     print("\n################## Inhale Enemies ################\n");
+                     ^
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:531:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+23:17:03 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+23:17:16 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+23:36:22 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling star.c to obj/default/star.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/star.o star.c
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+23:36:27 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+23:38:01 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+23:57:08 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling star.c to obj/default/star.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/star.o star.c
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+23:57:12 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+23:57:38 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+00:01:33 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling star.c to obj/default/star.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/star.o star.c
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+00:01:37 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+00:01:44 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+00:07:09 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling star.c to obj/default/star.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/star.o star.c
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+00:07:14 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+00:07:21 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+00:11:42 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling game_logic.c to obj/default/game_logic.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/game_logic.o game_logic.c
+game_logic.c: In function 'GameStart':
+game_logic.c:17:9: warning: unused variable 'kicking_flag' [-Wunused-variable]
+     int kicking_flag = 0;
+         ^
+game_logic.c:16:9: warning: unused variable 'spitting_flag' [-Wunused-variable]
+     int spitting_flag = 0;
+         ^
+game_logic.c:20:5: warning: 'star' is used uninitialized in this function [-Wuninitialized]
+     initial_Star(star);
+     ^
+game_logic.c:21:5: warning: 'kirby' is used uninitialized in this function [-Wuninitialized]
+     initial_Kirby(kirby);
+     ^
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'updateKirby':
+kirby.c:394:21: warning: implicit declaration of function 'print' [-Wimplicit-function-declaration]
+                     print("\n################## Inhale Enemies ################\n");
+                     ^
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:531:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Compiling star.c to obj/default/star.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/star.o star.c
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+00:11:47 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+00:12:48 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+00:19:24 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'updateKirby':
+kirby.c:394:21: warning: implicit declaration of function 'print' [-Wimplicit-function-declaration]
+                     print("\n################## Inhale Enemies ################\n");
+                     ^
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:531:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+00:19:37 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+00:19:40 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+00:35:35 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling kirby.c to obj/default/kirby.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/kirby.o kirby.c
+kirby.c: In function 'updateKirby':
+kirby.c:413:21: warning: implicit declaration of function 'print' [-Wimplicit-function-declaration]
+                     print("\n################## Inhale Enemies ################\n");
+                     ^
+kirby.c: In function 'force_It_On_Ground':
+kirby.c:536:13: warning: unused variable 'dropping_keycode' [-Wunused-variable]
+         int dropping_keycode = 0;
+             ^
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+00:35:39 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+00:35:46 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+00:37:22 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling star.c to obj/default/star.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/star.o star.c
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+00:37:26 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+00:37:35 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+00:37:58 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+00:38:23 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+00:39:17 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling star.c to obj/default/star.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/star.o star.c
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+00:39:22 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+00:39:29 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+00:39:55 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+00:41:19 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+Info: Compiling star.c to obj/default/star.o
+nios2-elf-gcc -xc -MP -MMD -c -I../usb_bsp//HAL/inc -I../usb_bsp/ -I../usb_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/star.o star.c
+Info: Linking usb.elf
+nios2-elf-g++  -T'../usb_bsp//linker.x' -msys-crt0='../usb_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../usb_bsp/   -Wl,-Map=usb.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o usb.elf obj/default/enemy.o obj/default/game_logic.o obj/default/io_handler.o obj/default/kirby.o obj/default/main.o obj/default/star.o obj/default/test.o obj/default/usb.o obj/default/usb_main.o -lm -msys-lib=m
+nios2-elf-insert usb.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x108 --timestamp 1599565939 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name final_nios_system --quartus_project_dir "D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final" --jdi D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../FinalProject.jdi --sopcinfo D:/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb_bsp/../../final_nios_system.sopcinfo
+Info: (usb.elf) 138 KBytes program size (code + initialized data).
+Info:           130879 KBytes free for stack + heap.
+Info: Creating usb.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source usb.elf >usb.objdump
+[usb build complete]
+00:41:23 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+00:44:04 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]
+00:44:07 **** Incremental Build of configuration Nios II for project usb_bsp ****
+make all 
+[BSP build complete]
+00:44:12 **** Incremental Build of configuration Nios II for project usb ****
+make all 
+Info: Building ../usb_bsp/
+D:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../usb_bsp/
+[BSP build complete]
+[usb build complete]

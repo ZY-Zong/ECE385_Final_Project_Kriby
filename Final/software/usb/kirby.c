@@ -43,12 +43,17 @@ void upload_Kirby_Info(Kirby * kirby) {
     if (kirby->is_inhaled == 1) {
         Kirby_Image_Width = 30;
         Kirby_Image_Height = 30;
-    } else if ((kirby->inhaling == 1) || (kirby->spitting == 1)) {
-        Kirby_Image_Width = 60;
-        Kirby_Image_Height = 30;
     } else {
         Kirby_Image_Width = 28;
         Kirby_Image_Height = 28;
+    }
+    if ((kirby->is_inhaled == 1) && (kirby->spitting != 0)) {
+        Kirby_Image_Width = 60;
+        Kirby_Image_Height = 30;
+    }
+    if (kirby->inhaling != 0) {
+        Kirby_Image_Width = 60;
+        Kirby_Image_Height = 30;
     }
 
     // Decide the position X of kirby in screen
@@ -74,338 +79,430 @@ void upload_Kirby_Info(Kirby * kirby) {
 }
 
 void updateKirby(Kirby * kirby, Star * star, int keycode, int pre_keycode){
-//    int key0 = keycode & 0xff;
-//    int key1 = (keycode >> 8) & 0xff;
-//    int prekey0 = pre_keycode & 0xff;
-//    int prekey1 = (pre_keycode >> 8) & 0xff;
     int map_width = map_Width(kirby->map);
     int i = 0;
 
-    // Keyboard control
-    switch ((keycode & 0x0000ffff)) {
-    case 0x0000: { // "" Stand
-        if ((kirby->in_air == 0) && (kirby->is_inhaled == 0)) {
+    // Enforce spitting
+    if (kirby->spitting > 0) {
+        kirby->spitting += 1;
+        kirby->image = 1;
+        kirby->action = 4;
+        kirby->frame += 1;
+        // printf("\n Spitting, ignore keyboard control \n");
+        spit_Star(kirby, star); // spit star in specific frame
+        if (kirby->spitting == 8) {
+            kirby->spitting = 0;
+            kirby->is_inhaled = 0;
             kirby->image = 0;
             kirby->action = 0;
-            if (pre_keycode == keycode) {
-                kirby->frame = (kirby->frame + 1) % KIRBY_STAND_FN + 2 * kirby->in_slope;
-            } else {
-                kirby->frame = 0 + 2 * kirby->in_slope;
-            }
-            frame_Time(KIRBY_FRAME_TIME_BLINK);
-        } else if ((kirby->in_air == 0) && (kirby->is_inhaled == 1)) {
-            kirby->image = 1;
-            kirby->action = 0;
-            if (pre_keycode == keycode) {
-                kirby->frame = (kirby->frame + 1) % KIRBY_STAND_FN + 2 * kirby->in_slope;
-            } else {
-                kirby->frame = 0 + 2 * kirby->in_slope;
-            }
-            frame_Time(KIRBY_FRAME_TIME_BLINK);
-        } else {
-            if (will_Touch_Ground(kirby, kirby->map)) {
-                kirby->image = 1;
-                kirby->action = 2;
-                kirby->in_air = 0;
-            } else {
-                kirby->image = 1;
-                kirby->action = 2;
-                kirby->frame = 13;
-                kirby->y += KIRBY_STEP_Y;
-                frame_Time(KIRBY_FRAME_TIME_WALK);
-            }
-        }
-        break;
-    }
-
-    case 0x0416:   //"a" & "s"
-    case 0x1604:
-    case 0x0400:
-    case 0x0004: { //"a" left move
-        kirby->is_left = 1;
-        if ((kirby->in_air == 0) && (kirby->is_inhaled == 0)) {
-            kirby->image = 0;
-            kirby->action = 1;
-            if (pre_keycode == keycode) {
-                kirby->frame = (kirby->frame + 1) % KIRBY_NORMAL_WALK_FN;
-            } else {
+            if (kirby->in_air == 1)
+                kirby->frame = 10;
+            else
                 kirby->frame = 0;
-            }
-        } else if ((kirby->in_air == 0) && (kirby->is_inhaled == 1)) {
-            kirby->image = 1;
-            kirby->action = 1;
-            if (pre_keycode == keycode) {
-                kirby->frame = (kirby->frame + 1) % KIRBY_INHALED_WALK_FN;
-            } else {
-                kirby->frame = 0 + 2 * kirby->in_slope;
-            } 
-        } else {
-            if (will_Touch_Ground(kirby, kirby->map)) {
-                kirby->image = 1;
-                kirby->in_air = 0;
-                kirby->image = 1;
-                kirby->action = 1;
-                if (pre_keycode == keycode) {
-                    kirby->frame = (kirby->frame + 1) % KIRBY_INHALED_WALK_FN;
-                } else {
-                    kirby->frame = 0 + 2 * kirby->in_slope;
-                } 
-            } else {
-                kirby->image = 1;
-                kirby->action = 2;
-                kirby->frame = 13;
-                kirby->y += KIRBY_STEP_Y;
-            }
         }
-        frame_Time(KIRBY_FRAME_TIME_WALK);
-        kirby->x -= KIRBY_STEP_X;
-        break;
-    }
-
-    case 0x0716:   //"d" & "s"
-    case 0x1607:
-    case 0x0700:
-    case 0x0007: { //"d" right move
-    	kirby->is_left = 0;
-        if ((kirby->in_air == 0) && (kirby->is_inhaled == 0)) {
-            kirby->image = 0;
-            kirby->action = 1;
-            if (pre_keycode == keycode) {
-                kirby->frame = (kirby->frame + 1) % KIRBY_NORMAL_WALK_FN;
-            } else {
-                kirby->frame = 0;
-            }
-        } else if ((kirby->in_air == 0) && (kirby->is_inhaled == 1)) {
-            kirby->image = 1;
-            kirby->action = 1;
-            if (pre_keycode == keycode) {
-                kirby->frame = (kirby->frame + 1) % KIRBY_INHALED_WALK_FN;
-            } else {
-                kirby->frame = 0 + 2 * kirby->in_slope;
-            }
-        } else {
-            if (will_Touch_Ground(kirby, kirby->map)) {
-                kirby->image = 1;
-                kirby->in_air = 0;
-                kirby->image = 1;
-                kirby->action = 1;
-                if (pre_keycode == keycode) {
-                    kirby->frame = (kirby->frame + 1) % KIRBY_INHALED_WALK_FN;
-                } else {
-                    kirby->frame = 0 + 2 * kirby->in_slope;
-                } 
-            } else {
-                kirby->image = 1;
-                kirby->action = 2;
-                kirby->frame = 13;
-                kirby->y += KIRBY_STEP_Y;
-            }
-        }
-        frame_Time(KIRBY_FRAME_TIME_WALK);
-        kirby->x += KIRBY_STEP_X;
-        break;
-    }
-
-    case 0x041a:   // "a" & "w"
-    case 0x1a04: { // "w" & "a"
-        kirby->is_left = 1;
-        kirby->in_air = 1;
-        kirby->is_inhaled = 1;
-        kirby->image = 1;
-        kirby->action = 2;
-        if (pre_keycode == keycode) {
-            kirby->frame = 7 + ((kirby->frame - 7) + 1) % KIRBY_INHALED_FLY_FN;
-        } else {
-            kirby->frame = 7;
-        }
-        // TO DO: Maybe need to check whether tough the up walls
-        kirby->y -= KIRBY_STEP_Y;
-        kirby->x -= KIRBY_STEP_X;
-        frame_Time(KIRBY_FRAME_TIME_WALK);
-        break;
-    }
-
-    case 0x071a:   // "d" & "w"
-    case 0x1a07:{  // "w" & "d"
-        kirby->is_left = 0;
-        kirby->in_air = 1;
-        kirby->is_inhaled = 1;
-        kirby->image = 1;
-        kirby->action = 2;
-        if (pre_keycode == keycode) {
-            kirby->frame = 7 + ((kirby->frame - 7) + 1) % KIRBY_INHALED_FLY_FN;
-        } else {
-            kirby->frame = 7;
-        }
-        // TO DO: Maybe need to check whether tough the up walls
-        kirby->y -= KIRBY_STEP_Y;
-        kirby->x += KIRBY_STEP_X;
-        frame_Time(KIRBY_FRAME_TIME_WALK);
-        break;
+        frame_Time(KIRBY_FRAME_TIME_INHALE);
     }
     
-    case 0x0016: { //"s" squat
-
-        if ((kirby->in_air == 0) && (kirby->is_inhaled == 0)) {
-            kirby->image = 0;
-            kirby->action = 2;
-            if (pre_keycode == keycode) {
-                kirby->frame = (kirby->frame + 1) % KIRBY_STAND_FN + 2 * kirby->in_slope;
-            } else {
-                kirby->frame = 0;
-            }
-            frame_Time(KIRBY_FRAME_TIME_BLINK);
-        } else if ((kirby->in_air == 0) && (kirby->is_inhaled == 1)) { // Gulp
-            kirby->image = 1;
-            kirby->action = 2;
-            // // Version#1
-            // if (pre_keycode == keycode) {
-            //     kirby->frame += 1;
-            //     if (kirby->frame == KIRBY_GULP_FN - 1)
-            //         kirby->is_inhaled = 0;
-            // } else {
-            //     kirby->frame = 0;
-            // }
-            // frame_Time(KIRBY_FRAME_TIME_GULP);
-
-            // Version#2
-            kirby->frame = 0;
-            for (i = 0; i < KIRBY_GULP_FN; i++) {
-                upload_Kirby_Info(kirby);
-                kirby->frame += 1;
-                frame_Time(KIRBY_FRAME_TIME_GULP);
-            }
+    // Enforce inhaling
+    else if (kirby->inhaling >= 2) {
+        kirby->inhaling += 1;
+        kirby->image = 1;
+        kirby->action = 3;
+        kirby->frame += 1;
+        if (kirby->inhaling == 7) {
+            kirby->inhaling = 0;
             kirby->is_inhaled = 0;
-            kirby_Return_Normal(kirby);
-            
-            
-        } else {  // In the air, go down || change to walk mode if touch ground
-            if (will_Touch_Ground(kirby, kirby->map) == 1) {
-                kirby->in_air = 0;
-                force_It_On_Ground(kirby, kirby->map); // It will go to the ground
-                kirby->image = 1;
+            if (kirby->in_air == 1) {
+                kirby->action = 2;
+                kirby->frame = 13;
+            } else {
                 kirby->action = 0;
                 kirby->frame = 0;
-                frame_Time(KIRBY_FRAME_TIME_BLINK);
-            } else {  // Slowly Drop downwards
-                kirby->image = 1;
-                kirby->action = 2;
-                kirby->frame = 13;
-                kirby->y += KIRBY_DROP_Y;
-                frame_Time(KIRBY_FRAME_TIME_WALK);
             }
         }
-        break;
     }
-
-    case 0x001a: { //"w" jump
-        kirby->in_air = 1;
-        kirby->is_inhaled = 1;
-        kirby->image = 1;
-        kirby->action = 2;
-        if (pre_keycode == keycode) {
-            kirby->frame = 7 + ((kirby->frame - 7) + 1) % KIRBY_INHALED_FLY_FN;
-        } else {
-            kirby->frame = 7;
-        }
-        // TO DO: Maybe need to check whether tough the up walls
-        kirby->y -= KIRBY_STEP_Y; // fly upwards
-        frame_Time(KIRBY_FRAME_TIME_WALK);
-        break;
-    }
-
-    case 0x000e: { //"k" Fake B button
-        if (kirby->is_inhaled == 0) {
-            // Inhale
-            kirby->inhaling = 1;
-            kirby->image = 1;
-            kirby->action = 3;
-            if (1) {// Not get enemy signal
-                kirby_Inhaling(kirby);
-            } else { // Get enemy signal
-                kirby->frame = 0;
-                for (i = 0; i < KIRBY_INHALING_FN; i++) {
-                    kirby->frame += 1;
-                    upload_Kirby_Info(kirby);
-                    frame_Time(KIRBY_FRAME_TIME_INHALE * 3);
-                }
-                kirby->is_inhaled = 1;
-                kirby->inhaling = 0;
-            }
-        } else { // Spitting
-            kirby_Spitting(kirby, star);
-        }
-        frame_Time(KIRBY_FRAME_TIME_GULP);
-        break;
-    }
-
-    case 0x000f: { //"l" Fake A button
-            // Jump
-        break;
-    }
-
-    case 0x160f:
-    case 0x0f16: { //"l" & "s"
-        if (kirby->is_inhaled == 0) {
-            kirby_Kick_Ass(kirby);
-        }
-        while ((get_keycode_value() == 0x160f) || (get_keycode_value() == 0x0f16)) {
-            kirby->image = 0;
-            kirby->action = 2;
-            kirby->frame = (kirby->frame + 1) % KIRBY_STAND_FN + 2 * kirby->in_slope;
-            upload_Kirby_Info(kirby);
-            force_It_On_Ground(kirby, kirby->map);
-        }
-        break;
-    }
-
-    #ifdef TEST_EDGE
-    case 0x0017: // "t" test
-        kirby->frame += 1;
-        frame_Time(KIRBY_FRAME_STOP);
-        break;
-    #endif
-
-    default: { // "" Stand
-        if ((kirby->in_air == 0) && (kirby->is_inhaled == 0)) {
-            kirby->image = 0;
-            kirby->action = 0;
-            if (pre_keycode == keycode) {
-                kirby->frame = (kirby->frame + 1) % KIRBY_STAND_FN + 2 * kirby->in_slope;
-            } else {
-                kirby->frame = 0 + 2 * kirby->in_slope;
-            }
-            frame_Time(KIRBY_FRAME_TIME_BLINK);
-        } else if ((kirby->in_air == 0) && (kirby->is_inhaled == 1)) {
-            kirby->image = 1;
-            kirby->action = 0;
-            if (pre_keycode == keycode) {
-                kirby->frame = (kirby->frame + 1) % KIRBY_STAND_FN + 2 * kirby->in_slope;
-            } else {
-                kirby->frame = 0 + 2 * kirby->in_slope;
-            }
-            frame_Time(KIRBY_FRAME_TIME_BLINK);
-        } else {
-            if (will_Touch_Ground(kirby, kirby->map)) {
-                kirby->image = 1;
-                kirby->action = 2;
+    
+    // Key detection
+    else {
+        kirby->inhaling = 0;
+        switch ((keycode & 0x0000ffff)) {
+        case 0x0000: { // "" Stand
+            if ((kirby->in_air == 0) && (kirby->is_inhaled == 0)) {
+                kirby->image = 0;
+                kirby->action = 0;
                 if (pre_keycode == keycode) {
-                    kirby->frame = 7 + ((kirby->frame - 7) + 1) % KIRBY_INHALED_FLY_FN;
+                    kirby->frame = (kirby->frame + 1) % KIRBY_STAND_FN + 2 * kirby->in_slope;
                 } else {
-                    kirby->frame = 7;
+                    kirby->frame = 0 + 2 * kirby->in_slope;
                 }
-            } else {
+                frame_Time(KIRBY_FRAME_TIME_BLINK);
+            } else if ((kirby->in_air == 0) && (kirby->is_inhaled == 1)) {
+                kirby->image = 1;
+                kirby->action = 0;
+                if (pre_keycode == keycode) {
+                    kirby->frame = (kirby->frame + 1) % KIRBY_STAND_FN + 2 * kirby->in_slope;
+                } else {
+                    kirby->frame = 0 + 2 * kirby->in_slope;
+                }
+                frame_Time(KIRBY_FRAME_TIME_BLINK);
+            } else if ((kirby->in_air == 1) && (kirby->is_inhaled == 0)) {
+                if (will_Touch_Ground(kirby, kirby->map)) {
+                    kirby->image = 0;
+                    kirby->action = 0;
+                    kirby->in_air = 0;
+                } else {
+                    kirby->image = 0;
+                    kirby->action = 0;
+                    kirby->frame = 10;
+                    kirby->y += KIRBY_STEP_Y;
+                    frame_Time(KIRBY_FRAME_TIME_WALK);
+                }
+            } else if ((kirby->in_air == 1) && (kirby->is_inhaled == 1)) {
+                if (will_Touch_Ground(kirby, kirby->map)) {
+                    kirby->image = 1;
+                    kirby->action = 0;
+                    kirby->in_air = 0;
+                    kirby->frame = 0;
+                } else {
+                    kirby->image = 1;
+                    kirby->action = 2;
+                    kirby->frame = 13;
+                    kirby->y += KIRBY_STEP_Y;
+                    frame_Time(KIRBY_FRAME_TIME_WALK);
+                }
+            }
+            break;
+        }
+
+        case 0x0416:   //"a" & "s"
+        case 0x1604:
+        case 0x0400:
+        case 0x0004: { //"a" left move
+            kirby->x -= KIRBY_STEP_X;
+            kirby->is_left = 1;
+
+            // Kirby may walk to air
+            if (will_Touch_Ground(kirby, kirby->map) == 0)
+                kirby->in_air = 1;
+
+            // state update
+            if ((kirby->in_air == 0) && (kirby->is_inhaled == 0)) {
+                kirby->image = 0;
+                kirby->action = 1;
+                if (pre_keycode == keycode)
+                    kirby->frame = (kirby->frame + 1) % KIRBY_NORMAL_WALK_FN;
+                else
+                    kirby->frame = 0;
+            } else if ((kirby->in_air == 0) && (kirby->is_inhaled == 1)) {
+                kirby->image = 1;
+                kirby->action = 1;
+                if (pre_keycode == keycode)
+                    kirby->frame = (kirby->frame + 1) % KIRBY_INHALED_WALK_FN;
+                else
+                    kirby->frame = 0 + 2 * kirby->in_slope; 
+            } else if ((kirby->in_air == 1) && (kirby->is_inhaled == 0)) {
+                if (will_Touch_Ground(kirby, kirby->map)) {
+                    kirby->image = 0;
+                    kirby->action = 1;
+                    kirby->in_air = 0;
+                    kirby->frame = 0;
+                    if (pre_keycode == keycode)
+                        kirby->frame = (kirby->frame + 1) % KIRBY_NORMAL_WALK_FN;
+                } else {
+                    kirby->image = 0;
+                    kirby->action = 0;
+                    kirby->frame = 10;
+                    kirby->y += KIRBY_STEP_Y;
+                }
+            } else if  ((kirby->in_air == 1) && (kirby->is_inhaled == 1)) {
+                if (will_Touch_Ground(kirby, kirby->map)) {
+                    kirby->image = 1;
+                    kirby->action = 0;
+                    kirby->in_air = 0;
+                    kirby->frame = 0;
+                    if (pre_keycode == keycode)
+                        kirby->frame = (kirby->frame + 1) % KIRBY_INHALED_WALK_FN;
+                } else {
+                    kirby->image = 1;
+                    kirby->action = 2;
+                    kirby->frame = 13;
+                    kirby->y += KIRBY_STEP_Y;
+                }
+            }
+            frame_Time(KIRBY_FRAME_TIME_WALK);
+            break;
+        }
+
+        case 0x0716:   //"d" & "s"
+        case 0x1607:
+        case 0x0700:
+        case 0x0007: { //"d" right move
+            kirby->x += KIRBY_STEP_X;
+            kirby->is_left = 0;
+
+            // Kirby may walk to air
+            if (will_Touch_Ground(kirby, kirby->map) == 0)
+                kirby->in_air = 1;
+
+            // state update
+            if ((kirby->in_air == 0) && (kirby->is_inhaled == 0)) {
+                kirby->image = 0;
+                kirby->action = 1;
+                if (pre_keycode == keycode)
+                    kirby->frame = (kirby->frame + 1) % KIRBY_NORMAL_WALK_FN;
+                else
+                    kirby->frame = 0;
+            } else if ((kirby->in_air == 0) && (kirby->is_inhaled == 1)) {
+                kirby->image = 1;
+                kirby->action = 1;
+                if (pre_keycode == keycode)
+                    kirby->frame = (kirby->frame + 1) % KIRBY_INHALED_WALK_FN;
+                else
+                    kirby->frame = 0 + 2 * kirby->in_slope;
+            } else if ((kirby->in_air == 1) && (kirby->is_inhaled == 0)) {
+                if (will_Touch_Ground(kirby, kirby->map)) {
+                    kirby->image = 0;
+                    kirby->action = 1;
+                    kirby->in_air = 0;
+                    kirby->frame = 0;
+                    if (pre_keycode == keycode)
+                        kirby->frame = (kirby->frame + 1) % KIRBY_NORMAL_WALK_FN;
+                } else {
+                    kirby->image = 0;
+                    kirby->action = 0;
+                    kirby->frame = 10;
+                    kirby->y += KIRBY_STEP_Y;
+                }
+            } else if  ((kirby->in_air == 1) && (kirby->is_inhaled == 1)) {
+                if (will_Touch_Ground(kirby, kirby->map)) {
+                    kirby->image = 1;
+                    kirby->action = 0;
+                    kirby->in_air = 0;
+                    kirby->frame = 0;
+                    if (pre_keycode == keycode)
+                        kirby->frame = (kirby->frame + 1) % KIRBY_INHALED_WALK_FN;
+                } else {
+                    kirby->image = 1;
+                    kirby->action = 2;
+                    kirby->frame = 13;
+                    kirby->y += KIRBY_STEP_Y;
+                }
+            }
+            frame_Time(KIRBY_FRAME_TIME_WALK);
+            break;
+        }
+
+        case 0x041a:   // "a" & "w"
+        case 0x1a04: { // "w" & "a"
+            kirby->is_left = 1;
+            kirby->in_air = 1;
+            kirby->is_inhaled = 1;
+            kirby->image = 1;
+            kirby->action = 2;
+            if (pre_keycode == keycode)
+                kirby->frame = 7 + ((kirby->frame - 7) + 1) % KIRBY_INHALED_FLY_FN;
+            else
+                kirby->frame = 7;
+            // TO DO: Maybe need to check whether tough the up walls
+            kirby->y -= KIRBY_STEP_Y;
+            kirby->x -= KIRBY_STEP_X;
+            frame_Time(KIRBY_FRAME_TIME_WALK);
+            break;
+        }
+
+        case 0x071a:   // "d" & "w"
+        case 0x1a07:{  // "w" & "d"
+            kirby->is_left = 0;
+            kirby->in_air = 1;
+            kirby->is_inhaled = 1;
+            kirby->image = 1;
+            kirby->action = 2;
+            if (pre_keycode == keycode)
+                kirby->frame = 7 + ((kirby->frame - 7) + 1) % KIRBY_INHALED_FLY_FN;
+            else
+                kirby->frame = 7;
+            // TO DO: Maybe need to check whether tough the up walls
+            kirby->y -= KIRBY_STEP_Y;
+            kirby->x += KIRBY_STEP_X;
+            frame_Time(KIRBY_FRAME_TIME_WALK);
+            break;
+        }
+        
+        case 0x0016: { //"s" squat
+            if ((kirby->in_air == 0) && (kirby->is_inhaled == 0)) {
+                kirby->image = 0;
+                kirby->action = 2;
+                if (pre_keycode == keycode)
+                    kirby->frame = (kirby->frame + 1) % KIRBY_STAND_FN + 2 * kirby->in_slope;
+                else
+                    kirby->frame = 0;
+                frame_Time(KIRBY_FRAME_TIME_BLINK);
+            } else if ((kirby->in_air == 0) && (kirby->is_inhaled == 1)) { // Gulp
                 kirby->image = 1;
                 kirby->action = 2;
-                kirby->frame = 13;
-                kirby->y += KIRBY_STEP_Y;
-                frame_Time(KIRBY_FRAME_TIME_WALK);
+                kirby->frame = 0;
+                for (i = 0; i < KIRBY_GULP_FN; i++) {
+                    upload_Kirby_Info(kirby);
+                    kirby->frame += 1;
+                    frame_Time(KIRBY_FRAME_TIME_GULP);
+                }
+                kirby->is_inhaled = 0;
+                kirby_Return_Normal(kirby);
+            } else if ((kirby->in_air == 1) && (kirby->is_inhaled == 0)) {
+                if (will_Touch_Ground(kirby, kirby->map) == 1) {
+                    kirby->in_air = 0;
+                    force_It_On_Ground(kirby, kirby->map); // It will go to the ground
+                    kirby->image = 0;
+                    kirby->action = 0;
+                    kirby->frame = 0 + 2 * kirby->in_slope;
+                    frame_Time(KIRBY_FRAME_TIME_BLINK);
+                } else {  // Slowly Drop downwards
+                    kirby->image = 0;
+                    kirby->action = 0;
+                    kirby->frame = 10;
+                    kirby->y += KIRBY_STEP_Y;
+                    frame_Time(KIRBY_FRAME_TIME_WALK);
+                }
+            } else if ((kirby->in_air == 1) && (kirby->is_inhaled == 1)) {
+                if (will_Touch_Ground(kirby, kirby->map) == 1) {
+                    kirby->in_air = 0;
+                    force_It_On_Ground(kirby, kirby->map); // It will go to the ground
+                    kirby->image = 1;
+                    kirby->action = 0;
+                    kirby->frame = 0;
+                    frame_Time(KIRBY_FRAME_TIME_BLINK);
+                } else {  // Slowly Drop downwards
+                    kirby->image = 1;
+                    kirby->action = 2;
+                    kirby->frame = 13;
+                    kirby->y += KIRBY_STEP_Y;
+                    frame_Time(KIRBY_FRAME_TIME_WALK);
+                }
             }
+            break;
         }
-        break;
-    }
-    }
 
+        case 0x001a: { //"w" jump
+            kirby->in_air = 1;
+            kirby->is_inhaled = 1;
+            kirby->image = 1;
+            kirby->action = 2;
+            if (pre_keycode == keycode) {
+                kirby->frame = 7 + ((kirby->frame - 7) + 1) % KIRBY_INHALED_FLY_FN;
+            } else {
+                kirby->frame = 7;
+            }
+            // TO DO: Maybe need to check whether tough the up walls
+            kirby->y -= KIRBY_STEP_Y; // fly upwards
+            frame_Time(KIRBY_FRAME_TIME_WALK);
+            break;
+        }
+
+        case 0x000e: { //"k" Fake B button
+            if (kirby->is_inhaled == 0) { // Inhale
+                kirby->inhaling = 1;
+                kirby->image = 1;
+                kirby->action = 3;
+                if (1) {// Not get enemy signal
+                    if (keycode == pre_keycode)
+                        kirby->frame = (kirby->frame + 1) % 2;
+                    else
+                        kirby->frame = 0;
+                    frame_Time(KIRBY_FRAME_TIME_INHALE * 3);
+                } else { // TO DO: Get enemy signal, need test and add signal
+                    print("\n################## Inhale Enemies ################\n");
+                    kirby->inhaling = 2;
+                    kirby->image = 1;
+                    kirby->action = 3;
+                    kirby->frame = 2;
+                }
+            } else { // Spitting
+                kirby->spitting = 1;
+                kirby->image = 1;
+                kirby->action = 4;
+                kirby->frame = 0;
+            }
+            frame_Time(KIRBY_FRAME_TIME_GULP);
+            break;
+        }
+
+        case 0x000f: { //"l" Fake A button
+                // Jump
+            break;
+        }
+
+        case 0x160f:
+        case 0x0f16: { //"l" & "s"
+            if (kirby->is_inhaled == 0) {
+                kirby_Kick_Ass(kirby);
+            }
+            while ((get_keycode_value() == 0x160f) || (get_keycode_value() == 0x0f16)) {
+                kirby->image = 0;
+                kirby->action = 2;
+                kirby->frame = (kirby->frame + 1) % KIRBY_STAND_FN + 2 * kirby->in_slope;
+                upload_Kirby_Info(kirby);
+                force_It_On_Ground(kirby, kirby->map);
+            }
+            break;
+        }
+
+        #ifdef TEST_EDGE
+        case 0x0017: // "t" test
+            kirby->frame += 1;
+            frame_Time(KIRBY_FRAME_STOP);
+            break;
+        #endif
+
+        default: { // "" Stand
+            if ((kirby->in_air == 0) && (kirby->is_inhaled == 0)) {
+                kirby->image = 0;
+                kirby->action = 0;
+                if (pre_keycode == keycode) {
+                    kirby->frame = (kirby->frame + 1) % KIRBY_STAND_FN + 2 * kirby->in_slope;
+                } else {
+                    kirby->frame = 0 + 2 * kirby->in_slope;
+                }
+                frame_Time(KIRBY_FRAME_TIME_BLINK);
+            } else if ((kirby->in_air == 0) && (kirby->is_inhaled == 1)) {
+                kirby->image = 1;
+                kirby->action = 0;
+                if (pre_keycode == keycode) {
+                    kirby->frame = (kirby->frame + 1) % KIRBY_STAND_FN + 2 * kirby->in_slope;
+                } else {
+                    kirby->frame = 0 + 2 * kirby->in_slope;
+                }
+                frame_Time(KIRBY_FRAME_TIME_BLINK);
+            } else if ((kirby->in_air == 1) && (kirby->is_inhaled == 0)) {
+                if (will_Touch_Ground(kirby, kirby->map)) {
+                    kirby->image = 0;
+                    kirby->action = 0;
+                    kirby->in_air = 0;
+                } else {
+                    kirby->image = 0;
+                    kirby->action = 0;
+                    kirby->frame = 10;
+                    kirby->y += KIRBY_STEP_Y;
+                    frame_Time(KIRBY_FRAME_TIME_WALK);
+                }
+            } else if ((kirby->in_air == 1) && (kirby->is_inhaled == 1)) {
+                if (will_Touch_Ground(kirby, kirby->map)) {
+                    kirby->image = 1;
+                    kirby->action = 0;
+                    kirby->in_air = 0;
+                    kirby->frame = 0;
+                } else {
+                    kirby->image = 1;
+                    kirby->action = 2;
+                    kirby->frame = 13;
+                    kirby->y += KIRBY_STEP_Y;
+                    frame_Time(KIRBY_FRAME_TIME_WALK);
+                }
+            }
+            break;
+        }
+        }
+    }
+    
     /* Position adjustment */
     // 1-Make sure Kirby not extending the map edges
     if (kirby->x <= 0) {
@@ -428,17 +525,6 @@ void updateKirby(Kirby * kirby, Star * star, int keycode, int pre_keycode){
 }
 
 
-// void damage_Anime(Kirby * kirby) {
-//     kirby->health -= 1;
-//     if (kirby->)
-//     {
-//         /* code */
-//     }
-    
-// }
-
-
-
 void force_It_On_Ground(Kirby * kirby, int map_idx) {
     int kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
     int kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
@@ -448,39 +534,37 @@ void force_It_On_Ground(Kirby * kirby, int map_idx) {
     // Cling to the ground
     while (get_Wall_Info(kirby_botton_X, kirby_botton_Y + 1, map_idx) == AREA_CAN_GO) {
         int dropping_keycode = 0;
-        kirby->y += 3;
+        kirby->y += 1;
         
-        // To Do: Butify Drop Logic
-        dropping_keycode = get_keycode_value();
-        switch (dropping_keycode)
-        {
-        case 0x0004:
-        case 0x0400:
-        case 0x0416:
-        case 0x1604:
-        case 0x1a04:
-        case 0x041a: 
-            kirby->is_left = 1;
-            kirby->x -= KIRBY_STEP_X;
-            break;
-
-        case 0x0007:
-        case 0x0700:
-        case 0x0716:
-        case 0x1607:
-        case 0x1a07:
-        case 0x071a: 
-            kirby->is_left = 0;
-            kirby->x += KIRBY_STEP_X;
-            break;
-        
-        default:
-            break;
-        }
-        
-        
-        upload_Kirby_Info(kirby);
-        frame_Time(KIRBY_FRAME_TIME_DROP);
+        // Make kirby able to move in the air
+        // dropping_keycode = get_keycode_value();
+        // switch (dropping_keycode)
+        // {
+        // case 0x0004:
+        // case 0x0400:
+        // case 0x0416:
+        // case 0x1604:
+        // case 0x1a04:
+        // case 0x041a: 
+        //     kirby->is_left = 1;
+        //     kirby->x -= KIRBY_STEP_X;
+        //     break;
+        //
+        // case 0x0007:
+        // case 0x0700:
+        // case 0x0716:
+        // case 0x1607:
+        // case 0x1a07:
+        // case 0x071a: 
+        //     kirby->is_left = 0;
+        //     kirby->x += KIRBY_STEP_X;
+        //     break;
+        //
+        // default:
+        //     break;
+        // }
+        // upload_Kirby_Info(kirby);
+        // frame_Time(KIRBY_FRAME_TIME_DROP);
 
         // Update values
         kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
@@ -563,9 +647,9 @@ int map_Width(int i) {
     case 1:
         return MAP_1_WIDTH;
         break;
-    // case 2:
-    //     return MAP_2_WIDTH;
-    //     break;
+     case 2:
+         return MAP_2_WIDTH;
+         break;
     default:
         return MAP_0_WIDTH;
         break;
@@ -576,7 +660,7 @@ int will_Touch_Ground(Kirby * kirby, int map_idx) {
     int kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
     int kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
 
-    if ((get_Wall_Info(kirby_botton_X, kirby_botton_Y + KIRBY_STEP_Y, map_idx) == AREA_CANNOT_GO) && (kirby->in_air == 1)) {
+    if (get_Wall_Info(kirby_botton_X, kirby_botton_Y + 1, map_idx) == AREA_CANNOT_GO) {
         return 1;
     } else {
         return 0;
@@ -669,8 +753,8 @@ int get_Wall_Info(int x, int y, int map_idx) {
     res = (map_Width(map_idx) * y + x) % 32;
     if (map_idx == 0) {
         return ((Wall1[idx] >> (31 - res)) & 0x00000001);
-//    } else if (map_idx == 1) {
-//        return ((Wall2[idx] >> (31 - res)) & 0x00000001);
+    } else if (map_idx == 1) {
+        return ((Wall2[idx] >> (31 - res)) & 0x00000001);
     } else {
         printf("Error: Map index out of tolerrance!");
     }
@@ -696,28 +780,6 @@ void kirby_Inhaling(Kirby * kirby) {
     kirby->frame = 13;
     upload_Kirby_Info(kirby);
     kirby->is_inhaled = 0;
-}
-
-void kirby_Spitting(Kirby * kirby, Star * star) {
-    int i = 0;
-    kirby->spitting = 1;
-    kirby->image = 1;
-    kirby->action = 4;
-    kirby->frame = 0;
-    upload_Kirby_Info(kirby);
-    frame_Time(KIRBY_FRAME_TIME_INHALE);
-    for (i = 0; i < KIRBY_INHALING_FN; i++)
-    {
-        kirby->frame += 1;
-        upload_Kirby_Info(kirby);
-        frame_Time(KIRBY_FRAME_TIME_INHALE);
-
-        // Spit the star
-        spit_Star(kirby, star);
-    }
-    kirby->spitting = 0;
-    kirby->is_inhaled = 0;
-    kirby_Return_Normal(kirby);
 }
 
 void kirby_Return_Normal(Kirby * kirby) {

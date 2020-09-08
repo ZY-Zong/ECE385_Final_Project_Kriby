@@ -25,6 +25,7 @@ typedef struct kirby {
 typedef struct star {
     int x;
     int y;
+    int map_x;
     int idx;
     int appear;
     int is_left;
@@ -53,7 +54,7 @@ int get_Kirby_Right_Pos(Kirby * kirby);
 int get_Wall_Info(int x, int y, int map_idx);
 void kirby_Return_Normal(Kirby * kirby);
 void kirby_Inhaling(Kirby * kirby);
-void kirby_Spitting(Kirby * kirby, Star * star);
+// void kirby_Spitting(Kirby * kirby, Star * star);
 void kirby_Kick_Ass(Kirby * kirby);
 int kirby_Screen_Center_X(int x);
 

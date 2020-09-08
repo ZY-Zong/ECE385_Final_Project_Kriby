@@ -3,6 +3,7 @@
 #include "kirby.h"
 #include "test.h"
 #include "star.h"
+#include "usb_main.h"
 
 #include <stdio.h>
 
@@ -10,62 +11,32 @@ void GameStart() {
     Kirby * kirby;
     Star * star;
 
-    #ifdef TEST2
-        printf("\n/************* check 0 *************/\n");
-        printf("\nkirby->x = %d; kirby->y = %d; kirby->frame = %d; kirby->action = %d\n", kirby->x, kirby->y, kirby->frame, kirby->action);
-        printf("\nkirby->health = %d; kirby->is_inhaled = %d; kirby->inhaling = %d; kirby->in_slope = %d; kirby->spitting = %d\n", kirby->health, kirby->is_inhaled, kirby->inhaling, kirby->in_slope, kirby->spitting);
-        printf("\n/************* end check 0 *************/\n");
-    #endif
-
-    usb_initialize();
-    #ifdef TEST2
-        printf("\n/************* check 1 *************/\n");
-        printf("\nkirby->x = %d; kirby->y = %d; kirby->frame = %d; kirby->action = %d\n", kirby->x, kirby->y, kirby->frame, kirby->action);
-        printf("\nkirby->health = %d; kirby->is_inhaled = %d; kirby->inhaling = %d; kirby->in_slope = %d; kirby->spitting = %d\n", kirby->health, kirby->is_inhaled, kirby->inhaling, kirby->in_slope, kirby->spitting);
-        printf("\n/************* end check 1 *************/\n");
-    #endif
-
-    printf("What's wrong with USB?");
-    initial_Registers();
-    #ifdef TEST2
-        printf("\n/************* check 2 *************/\n");
-        printf("\nkirby->x = %d; kirby->y = %d; kirby->frame = %d; kirby->action = %d\n", kirby->x, kirby->y, kirby->frame, kirby->action);
-        printf("\nkirby->health = %d; kirby->is_inhaled = %d; kirby->inhaling = %d; kirby->in_slope = %d; kirby->spitting = %d\n", kirby->health, kirby->is_inhaled, kirby->inhaling, kirby->in_slope, kirby->spitting);
-        printf("\n/************* end check 2 *************/\n");
-    #endif
-
-    initial_Kirby(kirby);
-    #ifdef TEST1
-        printf("\n/************* check initial kirby *************/\n");
-        printf("\nkirby->x = %d; kirby->y = %d; kirby->frame = %d; kirby->action = %d\n", kirby->x, kirby->y, kirby->frame, kirby->action);
-        printf("\nkirby->health = %d; kirby->is_inhaled = %d; kirby->inhaling = %d; kirby->in_slope = %d; kirby->spitting = %d\n", kirby->health, kirby->is_inhaled, kirby->inhaling, kirby->in_slope, kirby->spitting);
-        printf("\n/************* end check initial kirby *************/\n");
-    #endif
-
-    initial_Star(star);
-
-    kirby->is_inhaled = 1;
-    
     int keycode = 0;
     int pre_keycode = 0;
+    int spitting_flag = 0;
+    int kicking_flag = 0;
+
+    initial_Registers();
+    initial_Star(star);
+    initial_Kirby(kirby);
+    kirby->is_inhaled = 1;
+
+//    printf("** USB initial begin?? **\n");
+
+    usb_initialize();
+    printf("What's wrong with USB?");
 
     while (1)
     {
         pre_keycode = keycode;
         keycode = get_keycode_value();
 
-        #ifdef TEST1
-            printf("\n/************* check get keycode *************/\n");
-            printf("\nkirby->x = %d; kirby->y = %d; kirby->frame = %d; kirby->action = %d\n", kirby->x, kirby->y, kirby->frame, kirby->action);
-            printf("\nkirby->health = %d; kirby->is_inhaled = %d; kirby->inhaling = %d; kirby->in_slope = %d; kirby->spitting = %d\n", kirby->health, kirby->is_inhaled, kirby->inhaling, kirby->in_slope, kirby->spitting);
-            printf("\n/************* end check get keycode *************/\n");
-        #endif
-
         // test_keyboard(keycode);
         updateKirby(kirby, star, keycode, pre_keycode);
         upload_Kirby_Info(kirby);
 
-        spit_Star(kirby, star);
+        if (star->appear == 1)
+        	spit_Star(kirby, star);
 
         // TO DO: Check game_state.interrupt why changed
         // if (game_state->interrupt != 0) {

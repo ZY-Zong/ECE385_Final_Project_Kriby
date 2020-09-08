@@ -154,7 +154,7 @@ module  getstarindex
 						begin 
 							if (DrawY < (152+Star_Y+Image_width) && DrawY >= (152+Star_Y) && DrawX < (203+Star_X+Image_width/2) && DrawX >= (203+Star_X-Image_width/2))
 								begin
-									starindex= (Image_width+DrawY-Star_Y-152)*96 +Image_X+Image_width/2-DrawX+Star_X+202;//-1 for edge {width-1    0-27)
+									starindex= (DrawY-Star_Y-152)*96 + Image_X+Image_width/2-DrawX+Star_X+202;//-1 for edge {width-1    0-27)
 								end 
 							else
 								begin
@@ -165,7 +165,7 @@ module  getstarindex
 						begin
 							if (DrawY < (152+Star_Y+Image_width) && DrawY >= (152+Star_Y) && DrawX < (203+Star_X+Image_width/2) && DrawX >= (203+Star_X-Image_width/2  ))
 								begin
-									starindex= (Image_width+DrawY-Star_Y-152)*96 + Image_X+DrawX-Star_X-203+Image_width/2 ;
+									starindex= (DrawY-Star_Y-152)*96 + Image_X+DrawX-Star_X-203+Image_width/2 ;
 								end
 							else
 								begin
