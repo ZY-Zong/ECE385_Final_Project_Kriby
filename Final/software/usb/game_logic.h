@@ -9,8 +9,8 @@ typedef struct game_logic
     int interrupt;
 } Game;
 
-void GameStart(Game * game_state);
-void initial_Game_State (Game * game_state);
+void GameStart();
+
 void initial_Registers();
 
 

@@ -360,3 +360,124 @@ module palette_kirby (
 		endcase
 	end
 endmodule
+
+
+module palette_enemy (
+	input  logic [3:0] data_In,
+	output logic [7:0] Red, Green, Blue
+);
+
+	logic [7:0] R, G, B;
+
+	assign Red   = R;
+	assign Green = G;
+	assign Blue  = B;
+
+	always_comb
+	begin
+		case(data_In)
+		4'b0000:
+		begin
+			R = 8'h00;
+			G = 8'hdb;
+			B = 8'hff;
+		end
+		4'b0001:
+		begin
+			R = 8'h00;
+			G = 8'h00;
+			B = 8'h00;
+		end
+		4'b0010:
+		begin
+			R = 8'hde;
+			G = 8'hfb;
+			B = 8'hff;
+		end
+		4'b0011:
+		begin
+			R = 8'h52;
+			G = 8'he3;
+			B = 8'hb5;
+		end
+		4'b0100:
+		begin
+			R = 8'h00;
+			G = 8'h71;
+			B = 8'h4a;
+		end
+		4'b0101:
+		begin
+			R = 8'hff;
+			G = 8'h92;
+			B = 8'h42;
+		end
+		4'b0110:
+		begin
+			R = 8'hff;
+			G = 8'hdb;
+			B = 8'h8c;
+		end
+		4'b0111:
+		begin
+			R = 8'hc6;
+			G = 8'h00;
+			B = 8'h00;
+		end
+		4'b1000:
+		begin
+			R = 8'hff;
+			G = 8'h49;
+			B = 8'h08;
+		end
+		4'b1001:
+		begin
+			R = 8'hff;
+			G = 8'heb;
+			B = 8'h8c;
+		end
+		4'b1010:
+		begin
+			R = 8'hff;
+			G = 8'hc3;
+			B = 8'h08;
+		end
+		4'b1011:
+		begin
+			R = 8'hb5;
+			G = 8'h8a;
+			B = 8'h08;
+		end
+		4'b1100:
+		begin
+			R = 8'hbd;
+			G = 8'hba;
+			B = 8'hbd;
+		end
+		4'b1101:
+		begin
+			R = 8'h00;
+			G = 8'h92;
+			B = 8'h63;
+		end
+		4'b1110:
+		begin
+			R = 8'hb5;
+			G = 8'hfb;
+			B = 8'hff;
+		end
+		4'b1111:
+		begin
+			R = 8'h42;
+			G = 8'h10;
+			B = 8'h21;
+		end
+		default:
+		begin
+			R = 8'h00;
+			G = 8'h00;
+			B = 8'h00;
+		end
+		endcase
+	end
+endmodule

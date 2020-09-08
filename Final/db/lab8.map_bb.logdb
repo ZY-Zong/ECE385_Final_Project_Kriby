@@ -1,5 +1,11 @@
 v1
-DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,getkirbyindex:kirby_index|lpm_mult:Mult0|mult_aat:auto_generated|mac_out2,
-DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,getkirbyindex:kirby_index|lpm_mult:Mult1|mult_8at:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,getenemyindex:enemy_lightning|lpm_mult:Mult3|mult_gft:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,getenemyindex:enemy_fire|lpm_mult:Mult3|mult_gft:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,getenemyindex:enemy_lemon|lpm_mult:Mult3|mult_gft:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,getenemyindex:enemy_monkey|lpm_mult:Mult3|mult_gft:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,getkirbyindex:kirby_index2|lpm_mult:Mult0|mult_aat:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,getkirbyindex:kirby_index2|lpm_mult:Mult1|mult_8at:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,getkirbyindex:kirby_index1|lpm_mult:Mult3|mult_gft:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,getkirbyindex:kirby_index2|lpm_mult:Mult3|mult_gft:auto_generated|mac_out2,
 DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,getareaindex:the_area_index1|lpm_mult:Mult2|mult_tgt:auto_generated|mac_out2,
 DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,getbackindex:background_index|lpm_mult:Mult2|mult_gft:auto_generated|mac_out2,

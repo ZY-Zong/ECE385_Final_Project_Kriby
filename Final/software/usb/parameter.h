@@ -5,16 +5,16 @@
 /* Avalon_Kirby_Interface Parameters */
 static volatile unsigned int * ADDRESS_PTR = (unsigned int *) 0x00000000;
 
-#define REG_0_MAP_INFO          ADDRESS_PTR[0]
-#define REG_1_KIRBY_IMAGE       ADDRESS_PTR[1]
-#define REG_2_KIRBY_MAP_POS     ADDRESS_PTR[2]
-#define REG_3_                  ADDRESS_PTR[3]
-#define REG_4_                  ADDRESS_PTR[4]
-#define REG_5_                  ADDRESS_PTR[5]
-#define REG_6_                  ADDRESS_PTR[6]
-#define REG_7_                  ADDRESS_PTR[7]
-#define REG_8_                  ADDRESS_PTR[8]
-#define REG_9_                  ADDRESS_PTR[9]
+#define REG_0_MAP_INFO          ADDRESS_PTR[0 ]
+#define REG_1_KIRBY_IMAGE       ADDRESS_PTR[1 ]
+#define REG_2_KIRBY_MAP_POS     ADDRESS_PTR[2 ]
+#define REG_3_STAR              ADDRESS_PTR[3 ]
+#define REG_4_                  ADDRESS_PTR[4 ]
+#define REG_5_                  ADDRESS_PTR[5 ]
+#define REG_6_                  ADDRESS_PTR[6 ]
+#define REG_7_                  ADDRESS_PTR[7 ]
+#define REG_8_                  ADDRESS_PTR[8 ]
+#define REG_9_                  ADDRESS_PTR[9 ]
 #define REG_10_                 ADDRESS_PTR[10]
 #define REG_11_                 ADDRESS_PTR[11]
 #define REG_12_                 ADDRESS_PTR[12]
@@ -29,10 +29,25 @@ static volatile unsigned int * ADDRESS_PTR = (unsigned int *) 0x00000000;
 #define KIRBY_START_Y           99
 #define KIRBY_STEP_X            3
 #define KIRBY_STEP_Y            3
+#define KIRBY_KICK_X            3
+#define KIRBY_DROP_Y            4
 #define KIRBY_INHALED_WIDTH     30
 #define KIRBY_INHALED_HEIGHT    30
-#define KIRBY_FRAME_TIME_NUM    1600
+
+#define KIRBY_FRAME_TIME_WALK   1600
 #define KIRBY_FRAME_TIME_BLINK  15000
+#define KIRBY_FRAME_TIME_GULP   20000
+#define KIRBY_FRAME_TIME_INHALE 8000
+#define KIRBY_FRAME_TIME_KICK   4000
+#define KIRBY_FRAME_TIME_DROP   3000       
+#define KIRBY_FRAME_STOP        200000
+
+#define KIRBY_INHALED_WALK_FN   13
+#define KIRBY_INHALED_FLY_FN    6
+#define KIRBY_STAND_FN          2
+#define KIRBY_NORMAL_WALK_FN    10
+#define KIRBY_GULP_FN           6
+#define KIRBY_INHALING_FN       8
 
 /* VGA & Screen Related Parameters */
 #define SCREEN_WIDTH            234
@@ -51,5 +66,11 @@ static volatile unsigned int * ADDRESS_PTR = (unsigned int *) 0x00000000;
 #define MAP_1_WIDTH             976
 #define MAP_2_WIDTH             1217
 #define MAP_HEIGHT              176
+
+#define AREA_CAN_GO             0
+#define AREA_CANNOT_GO          1
+
+/* Star Parameters */
+#define STAR_STEP_X             4
 
 #endif /*PARAMETER_H_*/

@@ -149,6 +149,8 @@ C_SRCS += usb_main.c
 C_SRCS += game_logic.c
 C_SRCS += kirby.c
 C_SRCS += test.c
+C_SRCS += enemy.c
+C_SRCS += star.c
 CXX_SRCS :=
 ASM_SRCS :=
 
