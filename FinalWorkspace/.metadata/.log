@@ -4554,3 +4554,1258 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING
 
 !ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 00:44:18.913
 !MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599565939 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+!SESSION 2020-09-09 14:23:24.623 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2020-09-09 14:23:38.053
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:176)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at com.google.gson.Gson.fromJson(Gson.java:717)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:88)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:70)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:101)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
+	... 9 more
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 14:23:59.514
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599565939]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 14:24:01.878
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599565939 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 14:25:33.283
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 14:25:34.113
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599565939]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 14:25:36.369
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599565939 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+!SESSION 2020-09-09 19:37:04.582 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2020-09-09 19:37:17.614
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:176)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at com.google.gson.Gson.fromJson(Gson.java:717)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:88)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:70)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:101)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
+	... 9 more
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-09-09 19:39:32.051
+!MESSAGE Indexed 'usb_bsp' (81 sources, 153 headers) in 1.1 sec: 5,384 declarations; 9,360 references; 6 unresolved inclusions; 2 syntax errors; 439 unresolved names (2.9%)
+!SESSION 2020-09-09 19:41:05.747 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2020-09-09 19:41:16.845
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:176)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at com.google.gson.Gson.fromJson(Gson.java:717)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:88)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:70)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:101)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
+	... 9 more
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-09-09 19:42:45.827
+!MESSAGE Indexed 'usb_bsp' (81 sources, 153 headers) in 1.18 sec: 5,384 declarations; 9,360 references; 6 unresolved inclusions; 2 syntax errors; 439 unresolved names (2.9%)
+!SESSION 2020-09-09 19:43:18.173 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2020-09-09 19:43:32.065
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:176)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at com.google.gson.Gson.fromJson(Gson.java:717)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:88)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:70)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:101)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
+	... 9 more
+!SESSION 2020-09-09 19:45:46.245 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2020-09-09 19:45:58.327
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:176)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at com.google.gson.Gson.fromJson(Gson.java:717)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:88)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:70)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:101)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
+	... 9 more
+
+!ENTRY org.eclipse.cdt.core 4 0 2020-09-09 19:50:43.088
+!MESSAGE Error while parsing /usb/enemy.h.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.createAST(AbstractIndexerTask.java:1226)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseFile(AbstractIndexerTask.java:1086)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseVersionInContext(AbstractIndexerTask.java:992)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseLinkage(AbstractIndexerTask.java:913)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.runTask(AbstractIndexerTask.java:554)
+	at org.eclipse.cdt.internal.core.pdom.indexer.PDOMIndexerTask.run(PDOMIndexerTask.java:161)
+	at org.eclipse.cdt.internal.core.pdom.PDOMIndexerJob.run(PDOMIndexerJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.cdt.core 4 0 2020-09-09 19:50:49.320
+!MESSAGE Error while parsing /usb/enemy.h.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.createAST(AbstractIndexerTask.java:1226)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseFile(AbstractIndexerTask.java:1086)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseVersionInContext(AbstractIndexerTask.java:992)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseLinkage(AbstractIndexerTask.java:913)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.runTask(AbstractIndexerTask.java:554)
+	at org.eclipse.cdt.internal.core.pdom.indexer.PDOMIndexerTask.run(PDOMIndexerTask.java:161)
+	at org.eclipse.cdt.internal.core.pdom.PDOMIndexerJob.run(PDOMIndexerJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.cdt.core 4 0 2020-09-09 19:51:23.501
+!MESSAGE Error while parsing /usb/enemy.h.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.createAST(AbstractIndexerTask.java:1226)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseFile(AbstractIndexerTask.java:1086)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseVersionInContext(AbstractIndexerTask.java:992)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseLinkage(AbstractIndexerTask.java:913)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.runTask(AbstractIndexerTask.java:554)
+	at org.eclipse.cdt.internal.core.pdom.indexer.PDOMIndexerTask.run(PDOMIndexerTask.java:161)
+	at org.eclipse.cdt.internal.core.pdom.PDOMIndexerJob.run(PDOMIndexerJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.cdt.core 4 0 2020-09-09 19:51:25.804
+!MESSAGE Error while parsing /usb/enemy.h.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.createAST(AbstractIndexerTask.java:1226)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseFile(AbstractIndexerTask.java:1086)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseVersionInContext(AbstractIndexerTask.java:992)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseLinkage(AbstractIndexerTask.java:913)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.runTask(AbstractIndexerTask.java:554)
+	at org.eclipse.cdt.internal.core.pdom.indexer.PDOMIndexerTask.run(PDOMIndexerTask.java:161)
+	at org.eclipse.cdt.internal.core.pdom.PDOMIndexerJob.run(PDOMIndexerJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.cdt.core 4 0 2020-09-09 19:51:26.746
+!MESSAGE Error while parsing /usb/enemy.h.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.createAST(AbstractIndexerTask.java:1226)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseFile(AbstractIndexerTask.java:1086)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseVersionInContext(AbstractIndexerTask.java:992)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseLinkage(AbstractIndexerTask.java:913)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.runTask(AbstractIndexerTask.java:554)
+	at org.eclipse.cdt.internal.core.pdom.indexer.PDOMIndexerTask.run(PDOMIndexerTask.java:161)
+	at org.eclipse.cdt.internal.core.pdom.PDOMIndexerJob.run(PDOMIndexerJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.cdt.core 4 0 2020-09-09 19:51:33.539
+!MESSAGE Error while parsing /usb/enemy.h.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.createAST(AbstractIndexerTask.java:1226)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseFile(AbstractIndexerTask.java:1086)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseVersionInContext(AbstractIndexerTask.java:992)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseLinkage(AbstractIndexerTask.java:913)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.runTask(AbstractIndexerTask.java:554)
+	at org.eclipse.cdt.internal.core.pdom.indexer.PDOMIndexerTask.run(PDOMIndexerTask.java:161)
+	at org.eclipse.cdt.internal.core.pdom.PDOMIndexerJob.run(PDOMIndexerJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SESSION 2020-09-09 19:55:11.168 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2020-09-09 19:55:22.710
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:176)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at com.google.gson.Gson.fromJson(Gson.java:717)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:88)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:70)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:101)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
+	... 9 more
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-09-09 19:55:58.895
+!MESSAGE Indexed 'usb_bsp' (81 sources, 153 headers) in 1.39 sec: 5,384 declarations; 9,360 references; 6 unresolved inclusions; 2 syntax errors; 439 unresolved names (2.9%)
+!SESSION 2020-09-09 19:57:57.608 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2020-09-09 19:58:31.344
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:176)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at com.google.gson.Gson.fromJson(Gson.java:717)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:88)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:70)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:101)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
+	... 9 more
+!SESSION 2020-09-09 20:07:15.644 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2020-09-09 20:07:33.862
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:176)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at com.google.gson.Gson.fromJson(Gson.java:717)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:88)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:70)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:101)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
+	... 9 more
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:09:43.063
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:09:45.280
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:12:38.048
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:12:40.265
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:14:28.078
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:14:28.873
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:14:31.055
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:17:40.647
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:17:42.819
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:17:59.054
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:17:59.805
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:18:02.054
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:19:46.616
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:19:47.419
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:19:49.609
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:30:13.486
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:30:15.721
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:33:16.505
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:33:17.264
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:33:19.490
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:34:56.088
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:34:58.186
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:35:13.574
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:35:14.313
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:35:16.562
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:40:43.679
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:40:45.870
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:42:35.575
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:42:37.808
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:56:08.705
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 20:56:10.868
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:12:39.338
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:12:41.470
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:18:22.216
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:18:24.372
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:21:09.971
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:21:12.160
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:26:07.166
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:26:09.342
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:31:47.733
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:31:49.906
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:33:44.794
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:33:46.972
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:34:01.531
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:34:02.278
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:34:04.478
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:34:35.781
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:34:36.533
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:34:38.759
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:50:22.027
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:50:22.849
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:50:25.164
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:51:18.282
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:51:19.033
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:51:21.247
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:52:20.499
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:52:21.266
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:52:23.477
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:56:18.793
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:56:19.521
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:56:21.671
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+!SESSION 2020-09-09 21:57:26.434 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2020-09-09 21:57:39.693
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:176)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at com.google.gson.Gson.fromJson(Gson.java:717)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:88)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:70)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:101)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
+	... 9 more
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:58:05.918
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 21:58:08.121
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 22:00:00.526
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 22:00:01.307
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 22:00:03.521
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 22:00:56.993
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 22:00:57.755
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 22:00:59.953
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 22:04:48.135
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 22:04:48.866
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 22:04:51.036
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 22:05:05.245
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 22:05:05.977
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 22:05:08.156
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 22:08:59.378
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 22:09:00.212
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 22:09:02.458
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 22:14:05.383
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 22:14:06.176
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 22:14:08.454
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 22:49:46.125
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 22:49:48.333
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:05:18.954
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:05:19.739
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:05:21.931
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:07:05.639
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:07:06.386
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:07:08.547
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:07:25.134
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:07:25.863
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:07:28.078
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:09:21.361
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:09:22.157
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:09:24.356
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:31:46.465
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:31:48.667
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:33:47.192
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:33:47.923
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:33:50.161
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:36:20.346
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:36:21.165
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:36:23.325
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:39:54.407
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:39:55.143
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:39:57.347
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:40:39.942
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:40:40.711
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:40:42.872
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+!SESSION 2020-09-09 23:57:51.790 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2020-09-09 23:58:04.908
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:176)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at com.google.gson.Gson.fromJson(Gson.java:717)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:88)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:70)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:101)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
+	... 9 more
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:58:48.883
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:58:51.133
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:59:08.129
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:59:08.915
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-09 23:59:11.172
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:01:41.288
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:01:42.113
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:01:44.407
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:01:58.370
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:01:59.153
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:02:01.354
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:08:36.994
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:08:39.176
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:11:51.555
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:11:53.728
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:24:51.043
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:24:51.860
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:24:54.141
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:27:15.416
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:27:16.166
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:27:18.351
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:27:31.552
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:27:32.300
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:27:34.487
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:27:52.550
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:27:54.750
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:39:44.293
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:39:45.039
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:39:47.213
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:41:21.522
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:41:22.297
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 00:41:24.502
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+!SESSION 2020-09-10 01:27:38.624 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2020-09-10 01:27:55.561
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:176)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at com.google.gson.Gson.fromJson(Gson.java:717)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:88)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:70)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:101)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
+	... 9 more
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 01:28:19.837
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 01:28:22.016
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 01:30:46.515
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 01:30:47.269
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 01:30:49.464
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 01:33:57.016
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 01:33:57.829
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 01:34:00.003
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 01:35:37.689
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 01:35:40.410
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 01:38:30.929
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 01:38:33.098
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 01:40:01.004
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 01:40:03.765
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-09-10 01:43:08.127
+!MESSAGE Indexed 'usb_bsp' (82 sources, 153 headers) in 1.16 sec: 5,477 declarations; 10,110 references; 11 unresolved inclusions; 2 syntax errors; 869 unresolved names (5.3%)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 01:43:28.620
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 01:43:29.518
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 01:43:31.714
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 01:43:46.649
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 01:43:47.385
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599650824]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 01:43:49.583
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599650824 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+!SESSION 2020-09-10 02:12:16.791 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2020-09-10 02:12:29.826
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:176)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at com.google.gson.Gson.fromJson(Gson.java:717)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:88)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:70)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:101)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
+	... 9 more
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 02:13:52.354
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599673532]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 02:13:54.601
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599673532 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 02:14:10.187
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 02:14:11.035
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599673532]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 02:14:13.200
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599673532 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+!SESSION 2020-09-10 02:17:12.965 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2020-09-10 02:17:25.344
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:176)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at com.google.gson.Gson.fromJson(Gson.java:717)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:88)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:70)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:101)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
+	... 9 more
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 02:18:12.010
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599673532]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 02:18:14.217
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599673532 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 02:18:28.601
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 02:18:29.421
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599673532]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 02:18:31.598
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599673532 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+!SESSION 2020-09-10 02:59:13.479 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization D:/intelfpga_lite/18.1/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 16 2020-09-10 02:59:26.068
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1. ; version: 1.100.0.v20160217-0435
+!STACK 0
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:176)
+	at com.google.gson.Gson.fromJson(Gson.java:803)
+	at com.google.gson.Gson.fromJson(Gson.java:768)
+	at com.google.gson.Gson.fromJson(Gson.java:717)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:88)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:70)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:101)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:374)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:165)
+	... 9 more
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 02:59:56.906
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 02:59:59.069
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:04:57.227
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:04:59.479
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:07:57.447
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:07:59.696
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:12:09.967
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:12:12.152
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:17:48.950
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:17:49.708
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:17:51.914
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:20:03.506
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:20:04.271
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:20:06.404
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:25:20.366
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:25:21.154
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:25:23.344
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:27:47.646
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:27:48.377
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:27:50.612
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:38:49.460
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:38:50.218
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:38:52.411
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:40:22.032
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:40:22.844
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:40:25.185
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:40:41.526
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:40:42.264
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:40:44.464
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:41:54.696
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:41:55.475
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:41:57.664
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:46:24.612
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:46:25.402
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:46:27.536
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:55:30.234
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:55:31.063
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 03:55:33.268
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:02:54.061
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:02:54.868
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:02:57.085
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:07:57.815
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:07:58.579
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:08:00.803
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:11:16.935
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:11:17.741
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:11:19.969
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:13:56.254
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:13:57.070
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:13:59.258
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:14:14.617
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:14:15.404
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:14:17.632
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:23:34.480
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:23:35.548
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:23:38.093
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:25:43.705
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:25:44.507
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:25:46.678
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:26:00.237
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:26:00.992
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:26:03.100
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:27:36.239
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:27:36.986
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:27:39.193
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:28:55.114
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:28:55.938
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:28:58.176
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:29:29.201
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:29:29.986
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:29:32.220
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:30:35.078
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:30:35.832
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:30:38.012
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:31:00.095
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:31:00.868
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:31:03.073
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:33:36.599
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:33:37.394
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:33:39.548
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:38:35.789
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:38:36.591
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:38:38.832
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:42:31.443
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:42:33.929
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:44:30.508
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:44:31.409
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:44:33.766
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:51:31.670
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:51:32.432
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x108 --id=0x0 --timestamp=1599677408]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2020-09-10 04:51:34.711
+!MESSAGE Executing: [D:/intelfpga_lite/18.1/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x108 --id=0x0 --timestamp=1599677408 /cygdrive/d/ECE385/FinalProject/ECE385_Final_Project_Kriby/Final/software/usb/usb.elf]
