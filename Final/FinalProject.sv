@@ -49,7 +49,7 @@ module FinalProject(
     
     logic Reset_h, Clk;
     logic [7:0] keycode;
-	logic [511:0] Register_Files;
+	 logic [511:0] Register_Files;
     
     assign Clk = CLOCK_50;
     always_ff @ (posedge Clk) begin
@@ -123,10 +123,13 @@ module FinalProject(
 	 
 	 
 	 
-	 logic        Direction,Star_Direction;
+	 logic        Direction,Star_Direction,Gameover,Gamestart;
 	 logic [1 :0] Map_idx,Kirby_state;
+	 logic [2 :0] Health;
 	 logic [3 :0] idx_forest;
     logic [3 :0] idx_star;
+	 logic [3 :0] idx_bar;
+	 logic [3 :0] idx_gamestart;
 	 logic [3 :0] idx_area1,idx_area2,idx_area3;
 	 logic [3 :0] idx_kirby,idx_inholekirby,idx_damagekirby;
 	 logic [3 :0] idx_monkey,idx_fire,idx_lemon,idx_lightning;
@@ -135,14 +138,14 @@ module FinalProject(
 
 
 
-	 logic [16:0] backindex,starindex;
+	 logic [16:0] backindex,starindex,barindex,gamestartindex;
 	 logic [17:0] areaindex1,areaindex2,areaindex3,kirbyindex,inholekirbyindex,damagekirbyindex;
 
 
 	 logic [15:0] Map_pos_X,Map_pos_Y;
 	 logic [6 :0] Image_height;                     // 28 for 28x28, 30 for 30x30, 60 for 60x30
 	 logic [7 :0] Kirby_Image_X, Kirby_Image_Y;
-	 logic [7 :0] Kirby_Pos_X, Kirby_Pos_Y,Image_width;
+	 logic [7 :0] Kirby_Pos_X, Kirby_Pos_Y, Image_width;
 	 
 	 logic [8:0]  Enemy_Width;
 	 
@@ -188,10 +191,11 @@ module FinalProject(
 
 	//  logic [3:0] kirby_Width[2:0];
 	  logic  Enemy_Direction[3:0];
+	// logic  Enemy_Show0,Enemy_Show1,Enemy_Show2,Enemy_Show3;
 	  logic  [7 :0] Enemy_Image_X[3:0];
 	  logic  [7 :0] Enemy_Image_Y[3:0];
-	  logic  [7 :0] Enemy_Pos_X[3:0];
-	  logic  [7 :0] Enemy_Pos_Y[3:0];
+	  logic  [15 :0] Enemy_Pos_X[3:0];
+	  logic  [15 :0] Enemy_Pos_Y[3:0];
 	  logic  [7 :0] Enemy_Image_width[3:0];
 	  logic  [6 :0] Enemy_Image_height[3:0];
 //	  logic  [8 :0] Enemy_Width[3:0];
@@ -206,6 +210,8 @@ module FinalProject(
 	 getareaindex  the_area_index2(.DrawX(DrawX),.DrawY(DrawY),.Map_pos_X(Map_pos_X),.Map_Wid(Map_Width[1]),.areaindex(areaindex2));
 	 getareaindex  the_area_index3(.DrawX(DrawX),.DrawY(DrawY),.Map_pos_X(Map_pos_X),.Map_Wid(Map_Width[2]),.areaindex(areaindex3));
 	 
+	 getbarindex   barsindex(.*);
+	 startscreen   startscreen(.*);
 	 getenemyindex enemy_lemon(.*,
 										.Enemy_Direction(Enemy_Direction[0]),
 										.Enemy_Image_X(Enemy_Image_X[0]),
@@ -307,6 +313,7 @@ module FinalProject(
 	     Enemy_Image_Y[0]     =     Register[4][27:24];
 	     Enemy_Image_width[0] =     Register[4][23:16];
 	     Enemy_Image_height[0]=     Register[4][15: 8];
+		//  Enemy_Show0          =     Register[4][1    ];
 		  Enemy_Direction[0]   =     Register[4][0    ];
 		  Enemy_Pos_X[0]       =     Register[5][31:16];
 	     Enemy_Pos_Y[0]       =     Register[5][15: 0];
@@ -315,6 +322,7 @@ module FinalProject(
 	     Enemy_Image_Y[1]     =     Register[6][27:24];
 	     Enemy_Image_width[1] =     Register[6][23:16];
 	     Enemy_Image_height[1]=     Register[6][15: 8];
+		//  Enemy_Show1          =     Register[6][1    ];
 		  Enemy_Direction[1]   =     Register[6][0    ];
 		  Enemy_Pos_X[1]       =     Register[7][31:16];
 	     Enemy_Pos_Y[1]       =     Register[7][15: 0];
@@ -323,6 +331,7 @@ module FinalProject(
 	     Enemy_Image_Y[2]     =     Register[8][27:24];
 	     Enemy_Image_width[2] =     Register[8][23:16];
 	     Enemy_Image_height[2]=     Register[8][15: 8];
+	//	  Enemy_Show2          =     Register[8][1    ];
 		  Enemy_Direction[2]   =     Register[8][0    ];
 		  Enemy_Pos_X[2]       =     Register[9][31:16];
 	     Enemy_Pos_Y[2]       =     Register[9][15: 0];
@@ -331,11 +340,28 @@ module FinalProject(
 	     Enemy_Image_Y[3]     =     Register[10][27:24];
 	     Enemy_Image_width[3] =     Register[10][23:16];
 	     Enemy_Image_height[3]=     Register[10][15: 8];
+	//	  Enemy_Show3          =     Register[10][1    ];	  
 		  Enemy_Direction[3]   =     Register[10][0    ];
 		  Enemy_Pos_X[3]       =     Register[11][31:16];
 	     Enemy_Pos_Y[3]       =     Register[11][15: 0];		  
 		  
+		  
+		  
+		  
+		  Gameover             =     Register[15][4];	
+		  Gamestart            =	  Register[15][3];
+		  //Gamestart            = 1;
+		  Health               =     Register[15][2 : 0];	
+		 // Health               =     3;	
+		  
+		  
     end
+
+	 
+	 BARRAM barram(.data_In(4'b0), 
+													  .write_address(17'b0), 
+													  .read_address(barindex), 
+													  .we(1'b0),.Clk(Clk), .data_Out(idx_bar));    
 
 	Kirby kirby(.data_In(4'b0), 
 												  .write_address(17'b0), 
@@ -375,7 +401,10 @@ module FinalProject(
 	Enemy enemy_lightning_ram(.data_In(4'b0), 
 													  .write_address(17'b0), 
 													  .read_address(enemyindex3), 
-													  .we(1'b0),.Clk(Clk), .data_Out(idx_lightning));    													  
+													  .we(1'b0),.Clk(Clk), .data_Out(idx_lightning));    		
+		
+
+	
 								
 																  
                                             
@@ -384,7 +413,8 @@ module FinalProject(
 												  .write_address(17'b0), 
 												  .read_address(areaindex1), 
 												  .we(1'b0),.Clk(Clk), .data_Out(idx_area1));
- /*
+ 
+ 	 /*
 	areaRAM2 area2(.data_In(4'b0), 
 												  .write_address(17'b0), 
 												  .read_address(areaindex2), 
@@ -398,6 +428,11 @@ module FinalProject(
 */
 
 	//// Read into ram
+	
+    GAMESTARTRAM gamestrartram(.data_In(4'b0), 
+	 								.write_address(17'b0), 
+	 								.read_address(gamestartindex), 
+	 								.we(1'b0), .Clk(Clk), .data_Out(idx_gamestart));
 	 background1RAM background1_ram(.data_In(4'b0), 
 	 								.write_address(17'b0), 
 	 								.read_address(backindex), 

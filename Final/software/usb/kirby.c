@@ -7,7 +7,7 @@
 #include "usb_main.h"
 #include "star.h"
 
-#define TEST_EDGE
+// #define TEST_EDGE
 
 void initial_Kirby(Kirby * kirby){
     kirby->x = KIRBY_START_X;
@@ -15,7 +15,7 @@ void initial_Kirby(Kirby * kirby){
     kirby->map = 0;
     kirby->image = 0;
     kirby->is_left = 0;
-    kirby->health = 8;
+    kirby->health = 6;
     kirby->action = 0;
     kirby->frame = 0;
     kirby->in_slope = 0;
@@ -24,6 +24,9 @@ void initial_Kirby(Kirby * kirby){
     kirby->damaging = 0;
     kirby->inhaling = 0;
     kirby->spitting = 0;
+    kirby->kicking = 0;
+    kirby->gulping = 0;
+    kirby->entered_door = 0;
 }
 
 void upload_Kirby_Info(Kirby * kirby) {
@@ -55,15 +58,27 @@ void upload_Kirby_Info(Kirby * kirby) {
         Kirby_Image_Width = 60;
         Kirby_Image_Height = 30;
     }
+    if (kirby->damaging != 0) {
+        Kirby_Image_Width = 35;
+        Kirby_Image_Height = 35;
+        Kirby_Screen_Y -= 10;
+    }
+    
 
     // Decide the position X of kirby in screen
     Kirby_Screen_X = kirby_Screen_Center_X(kirby_Botton_X);
 
+    if ((kirby->image == 1) && (kirby->action == 3) && (kirby->frame <= 1))
+        Kirby_Screen_Y -= 4; // Slight adjustment
+
+    
+    
 
     // Upload to kirby's registers
     REG_0_MAP_INFO = (REG_0_MAP_INFO & 0x0000fff0) | (Kirby_Screen_X << 24) | (Kirby_Screen_Y << 16) | (kirby->image << 2) | kirby->map;
     REG_1_KIRBY_IMAGE = (Kirby_Image_X << 24) | (Kirby_Image_Y << 16) | (Kirby_Image_Width << 8) | (Kirby_Image_Height << 1) | (kirby->is_left & 0x00000001);
     REG_2_KIRBY_MAP_POS = (kirby_Botton_X << 16) | (kirby_Botton_Y);
+    REG_15_GAME_CONTROL = (REG_15_GAME_CONTROL & 0xfffffff8) | (kirby->health & 0x00000007);
 
     #ifdef TEST1
     printf("\n/******************* check upload ****************/\n");
@@ -78,9 +93,8 @@ void upload_Kirby_Info(Kirby * kirby) {
     #endif
 }
 
-void updateKirby(Kirby * kirby, Star * star, int keycode, int pre_keycode){
+void updateKirby(Kirby * kirby, Star * star, Enemy * enemy, int keycode, int pre_keycode){
     int map_width = map_Width(kirby->map);
-    int i = 0;
 
     // Enforce spitting
     if (kirby->spitting > 0) {
@@ -89,7 +103,7 @@ void updateKirby(Kirby * kirby, Star * star, int keycode, int pre_keycode){
         kirby->action = 4;
         kirby->frame += 1;
         // printf("\n Spitting, ignore keyboard control \n");
-        spit_Star(kirby, star); // spit star in specific frame
+        spit_Star(kirby, star, enemy); // spit star in specific frame
         if (kirby->spitting == 8) {
             kirby->spitting = 0;
             kirby->is_inhaled = 0;
@@ -100,7 +114,7 @@ void updateKirby(Kirby * kirby, Star * star, int keycode, int pre_keycode){
             else
                 kirby->frame = 0;
         }
-        frame_Time(KIRBY_FRAME_TIME_INHALE);
+        frame_Time(KIRBY_FRAME_TIME_INHALE * 2);
     }
     
     // Enforce inhaling
@@ -111,7 +125,7 @@ void updateKirby(Kirby * kirby, Star * star, int keycode, int pre_keycode){
         kirby->frame += 1;
         if (kirby->inhaling == 7) {
             kirby->inhaling = 0;
-            kirby->is_inhaled = 0;
+            kirby->is_inhaled = 1;
             if (kirby->in_air == 1) {
                 kirby->action = 2;
                 kirby->frame = 13;
@@ -120,8 +134,92 @@ void updateKirby(Kirby * kirby, Star * star, int keycode, int pre_keycode){
                 kirby->frame = 0;
             }
         }
+        frame_Time(KIRBY_FRAME_TIME_INHALE * 3);
+    }
+
+    // Gulping
+    else if (kirby->gulping >= 1) {
+        kirby->gulping += 1;
+        kirby->image = 1;
+        kirby->action = 2;
+        kirby->frame += 1;
+        if (kirby->gulping == 7) {
+            kirby->gulping = 0;
+            kirby->is_inhaled = 0;
+            kirby->image = 0;
+            kirby->action = 0;
+            kirby->frame = 0;
+        }
+        frame_Time(KIRBY_FRAME_TIME_INHALE);
     }
     
+    // Damage control
+    else if (kirby->damaging >= 1) {
+        kirby->damaging += 1;
+        if (kirby->is_left == 0)
+            kirby->x -= KIRBY_STEP_X;
+        else
+            kirby->x += KIRBY_STEP_X;
+        if (will_Touch_Ground(kirby, kirby->map) == 0)
+            kirby->in_air = 1;
+        kirby->image = 2;
+        // kirby->action = kirby_Damage_Action(enemy); //Keep action unchanged
+        kirby->frame += 1;
+        if (kirby->damaging == damage_Frame_Number(enemy)) {
+            // printf("\n############### kirby damaging images over #################\n");
+            kirby->damaging = 0;
+            kirby->is_inhaled = 0;
+            kirby->image = 0;
+            kirby->action = 0;
+            if (kirby->in_air == 1)
+                kirby->frame = 10;
+            else
+                kirby->frame = 0;
+        }
+        frame_Time(KIRBY_FRAME_TIME_DAMAGE);
+    }
+
+    // Kicking ass
+    else if (kirby->kicking >= 1) {
+        if ((kirby->kicking <= 8) && (kirby->kicking >= 1)) {
+            kirby->frame = 6;
+            if (kirby->is_left == 0)
+                kirby->x += KIRBY_KICK_X;
+            else
+                kirby->x -= KIRBY_KICK_X;
+            if (will_Touch_Ground(kirby, kirby->map) == 0)
+                kirby->in_air = 1;
+            kirby->kicking += 1;
+        } else if ((kirby->kicking <= 12) && (kirby->kicking >= 9)) {
+            kirby->frame = 7;
+            if (kirby->is_left == 0)
+                kirby->x += (KIRBY_KICK_X - 1);
+            else
+                kirby->x -= (KIRBY_KICK_X - 1);
+            if (will_Touch_Ground(kirby, kirby->map) == 0)
+                kirby->in_air = 1;
+            kirby->kicking += 1;
+        } else if (kirby->kicking == 13) {
+            kirby->kicking = 0;
+            kirby->is_inhaled = 0;
+            kirby->image = 0;
+            kirby->action = 0;
+        }
+
+        if (kirby->in_air == 1) {
+            kirby->kicking = 0;
+            kirby->image = 0;
+            kirby->action = 0;
+            kirby->frame = 10;
+        }
+        // Kill enemy
+        else if (sqr_Dis_Kirby_Enemy(kirby, enemy) <= (KIRBY_DAMAGE_DIS_SQRT * KIRBY_DAMAGE_DIS_SQRT)) {
+            enemy->health = 0;
+            kirby->kicking = 0;
+        }
+        frame_Time(KIRBY_FRAME_TIME_KICK);
+    }
+
     // Key detection
     else {
         kirby->inhaling = 0;
@@ -338,16 +436,10 @@ void updateKirby(Kirby * kirby, Star * star, int keycode, int pre_keycode){
                     kirby->frame = 0;
                 frame_Time(KIRBY_FRAME_TIME_BLINK);
             } else if ((kirby->in_air == 0) && (kirby->is_inhaled == 1)) { // Gulp
+                kirby->gulping = 1;
                 kirby->image = 1;
                 kirby->action = 2;
                 kirby->frame = 0;
-                for (i = 0; i < KIRBY_GULP_FN; i++) {
-                    upload_Kirby_Info(kirby);
-                    kirby->frame += 1;
-                    frame_Time(KIRBY_FRAME_TIME_GULP);
-                }
-                kirby->is_inhaled = 0;
-                kirby_Return_Normal(kirby);
             } else if ((kirby->in_air == 1) && (kirby->is_inhaled == 0)) {
                 if (will_Touch_Ground(kirby, kirby->map) == 1) {
                     kirby->in_air = 0;
@@ -383,6 +475,10 @@ void updateKirby(Kirby * kirby, Star * star, int keycode, int pre_keycode){
         }
 
         case 0x001a: { //"w" jump
+            if (sqr_Dis_Kirby_Door(kirby) <= (DOOR_TOLERANCE * DOOR_TOLERANCE))
+            {
+                kirby->entered_door = 1;
+            }
             kirby->in_air = 1;
             kirby->is_inhaled = 1;
             kirby->image = 1;
@@ -403,18 +499,22 @@ void updateKirby(Kirby * kirby, Star * star, int keycode, int pre_keycode){
                 kirby->inhaling = 1;
                 kirby->image = 1;
                 kirby->action = 3;
-                if (1) {// Not get enemy signal
+                if (enemy_Should_Be_Inhaled(kirby, enemy) == 0) {// Not get enemy signal
                     if (keycode == pre_keycode)
                         kirby->frame = (kirby->frame + 1) % 2;
                     else
                         kirby->frame = 0;
-                    frame_Time(KIRBY_FRAME_TIME_INHALE * 3);
+                    frame_Time(KIRBY_FRAME_TIME_INHALE * 2);
                 } else { // TO DO: Get enemy signal, need test and add signal
-                    print("\n################## Inhale Enemies ################\n");
+                    // printf("\n################## Inhale Enemies ################\n");
                     kirby->inhaling = 2;
                     kirby->image = 1;
                     kirby->action = 3;
                     kirby->frame = 2;
+                    // TO DO: The way enemies is dead when inhaled by kirby
+                    enemy->health = 0;  // Enemy is dead
+                    // enemy->realx = 0;
+                    // enemy->realy = 0;
                 }
             } else { // Spitting
                 kirby->spitting = 1;
@@ -434,7 +534,10 @@ void updateKirby(Kirby * kirby, Star * star, int keycode, int pre_keycode){
         case 0x160f:
         case 0x0f16: { //"l" & "s"
             if (kirby->is_inhaled == 0) {
-                kirby_Kick_Ass(kirby);
+                kirby->kicking = 1;
+                kirby->image = 0;
+                kirby->action = 2;
+                kirby->frame = 6;
             }
             while ((get_keycode_value() == 0x160f) || (get_keycode_value() == 0x0f16)) {
                 kirby->image = 0;
@@ -503,6 +606,17 @@ void updateKirby(Kirby * kirby, Star * star, int keycode, int pre_keycode){
         }
     }
     
+    /* Damage control */
+    if (kirby_Is_Damaged(kirby, enemy) && (kirby->damaging == 0)) {
+        kirby->health -= 1;
+        kirby->spitting = 0;
+        kirby->inhaling = 0;
+        kirby->damaging = 1;
+        kirby->image = 2;
+        kirby->action = kirby_Damage_Action(enemy);
+        kirby->frame = 0;
+    }
+
     /* Position adjustment */
     // 1-Make sure Kirby not extending the map edges
     if (kirby->x <= 0) {
@@ -517,13 +631,19 @@ void updateKirby(Kirby * kirby, Star * star, int keycode, int pre_keycode){
     }
     
     // 2-Floor detection for kirby on the ground
-    if (kirby->in_air == 0) {
+    if (kirby->in_air == 0)
         force_It_On_Ground(kirby, kirby->map);
-    }
-    // 3-Make sure Kirby do not go inside white area
-    force_It_Inside_Map(kirby, kirby->map);
-}
 
+    // 3-Make sure Kirby do not go inside white area
+    // if (kirby->damaging == 0)
+    force_It_Inside_Map(kirby, kirby->map);
+
+    if (kirby->health == 0)
+        game_Over_Anime(kirby);
+    else if (kirby->entered_door == 1)
+        win_Anime(kirby);
+
+}
 
 void force_It_On_Ground(Kirby * kirby, int map_idx) {
     int kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
@@ -536,36 +656,6 @@ void force_It_On_Ground(Kirby * kirby, int map_idx) {
         int dropping_keycode = 0;
         kirby->y += 1;
         
-        // Make kirby able to move in the air
-        // dropping_keycode = get_keycode_value();
-        // switch (dropping_keycode)
-        // {
-        // case 0x0004:
-        // case 0x0400:
-        // case 0x0416:
-        // case 0x1604:
-        // case 0x1a04:
-        // case 0x041a: 
-        //     kirby->is_left = 1;
-        //     kirby->x -= KIRBY_STEP_X;
-        //     break;
-        //
-        // case 0x0007:
-        // case 0x0700:
-        // case 0x0716:
-        // case 0x1607:
-        // case 0x1a07:
-        // case 0x071a: 
-        //     kirby->is_left = 0;
-        //     kirby->x += KIRBY_STEP_X;
-        //     break;
-        //
-        // default:
-        //     break;
-        // }
-        // upload_Kirby_Info(kirby);
-        // frame_Time(KIRBY_FRAME_TIME_DROP);
-
         // Update values
         kirby_botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
         kirby_botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff;
@@ -674,7 +764,7 @@ int get_Kirby_Botton_Pos(Kirby * kirby) {
     if (kirby->is_inhaled == 1) {
         kirby_botton_X = kirby->x + 16;
         kirby_botton_Y = kirby->y + 25;
-    } else if ((kirby->inhaling == 1) || (kirby->spitting == 1)) {
+    } else if ((kirby->inhaling > 1) || (kirby->spitting == 1)) {
         kirby_botton_X = kirby->x + 30;
         kirby_botton_Y = kirby->y + 25;
     } else if (kirby->damaging == 1) {
@@ -753,33 +843,13 @@ int get_Wall_Info(int x, int y, int map_idx) {
     res = (map_Width(map_idx) * y + x) % 32;
     if (map_idx == 0) {
         return ((Wall1[idx] >> (31 - res)) & 0x00000001);
-    } else if (map_idx == 1) {
-        return ((Wall2[idx] >> (31 - res)) & 0x00000001);
+//    } else if (map_idx == 1) {
+//        return ((Wall2[idx] >> (31 - res)) & 0x00000001);
     } else {
-        printf("Error: Map index out of tolerrance!");
+        return ((Wall1[idx] >> (31 - res)) & 0x00000001);
+        // printf("Error: Map index out of tolerrance!");
     }
     return 1;
-}
-
-void kirby_Inhaling(Kirby * kirby) {
-    kirby->frame = 0;
-    upload_Kirby_Info(kirby);
-    frame_Time(KIRBY_FRAME_TIME_INHALE);
-    while (get_keycode_value() == 0x000e) {
-        kirby->frame = (kirby->frame + 1) % 2;
-        upload_Kirby_Info(kirby);
-        frame_Time(KIRBY_FRAME_TIME_INHALE);
-    }
-    kirby->inhaling = 0;
-    kirby->is_inhaled = 1;
-    kirby->action = 0;
-    // kirby->frame = 11;
-    // upload_Kirby_Info(kirby);
-    kirby->frame = 12;
-    upload_Kirby_Info(kirby);
-    kirby->frame = 13;
-    upload_Kirby_Info(kirby);
-    kirby->is_inhaled = 0;
 }
 
 void kirby_Return_Normal(Kirby * kirby) {
@@ -791,58 +861,6 @@ void kirby_Return_Normal(Kirby * kirby) {
     upload_Kirby_Info(kirby);
 }
 
-void kirby_Kick_Ass(Kirby * kirby) {
-    int i = 0;
-    kirby->image = 0;
-    kirby->action = 2;
-    kirby->frame = 6;
-    if (kirby->is_left == 0) {
-        for (i = 0; i < 8; i++){
-            kirby->x += KIRBY_KICK_X;
-            force_It_Inside_Map(kirby, kirby->map);
-            force_It_On_Ground(kirby, kirby->map);
-            upload_Kirby_Info(kirby);
-            frame_Time(KIRBY_FRAME_TIME_KICK);
-        }
-        for (i = 0; i < 6; i++)
-        {
-            kirby->x += (KIRBY_KICK_X - 1);
-            force_It_Inside_Map(kirby, kirby->map);
-            force_It_On_Ground(kirby, kirby->map);
-            upload_Kirby_Info(kirby);
-            frame_Time(KIRBY_FRAME_TIME_KICK);
-        }
-        kirby->x += (KIRBY_KICK_X - 2);
-        force_It_Inside_Map(kirby, kirby->map);
-        force_It_On_Ground(kirby, kirby->map);
-        upload_Kirby_Info(kirby);
-        frame_Time(KIRBY_FRAME_TIME_KICK);
-    } else {
-        for (i = 0; i < 8; i++){
-            kirby->x -= KIRBY_KICK_X;
-            force_It_Inside_Map(kirby, kirby->map);
-            force_It_On_Ground(kirby, kirby->map);
-            upload_Kirby_Info(kirby);
-            frame_Time(KIRBY_FRAME_TIME_KICK);
-        }
-        for (i = 0; i < 6; i++)
-        {
-            kirby->x -= (KIRBY_KICK_X - 1);
-            force_It_Inside_Map(kirby, kirby->map);
-            force_It_On_Ground(kirby, kirby->map);
-            upload_Kirby_Info(kirby);
-            frame_Time(KIRBY_FRAME_TIME_KICK);
-        }
-        kirby->x -= (KIRBY_KICK_X - 2);
-        force_It_Inside_Map(kirby, kirby->map);
-        force_It_On_Ground(kirby, kirby->map);
-        upload_Kirby_Info(kirby);
-        frame_Time(KIRBY_FRAME_TIME_KICK);
-    }
-    
-
-}
-
 int kirby_Screen_Center_X(int x) {
     if (x <= (SCREEN_WIDTH/2)) {
         return x;
@@ -850,6 +868,127 @@ int kirby_Screen_Center_X(int x) {
         return (SCREEN_WIDTH/2);
     } else {
         return (x - MAP_0_WIDTH + SCREEN_WIDTH);
+    }
+}
+
+int kirby_Is_Damaged (Kirby * kirby, Enemy * enemy) {
+    int kirby_Center_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
+    int kirby_Center_Y = (get_Kirby_Left_Pos(kirby) & 0x0000ffff);
+    int enemy_Center_X = (get_Enemy_Botton_Pos(enemy) >> 16) & 0x0000ffff;
+    int enemy_Center_Y = (get_Enemy_Left_Pos(enemy) & 0x0000ffff);
+    int damage_dis_sqr = 0;
+    if (enemy->action == 2)
+        damage_dis_sqr = KIRBY_DAMEGE_DIS_SQRTL;
+    else
+        damage_dis_sqr = KIRBY_DAMAGE_DIS_SQRT;
+
+    if (sqr_Dis_Kirby_Enemy(kirby, enemy) <= (damage_dis_sqr * damage_dis_sqr))
+        return 1;
+    return 0;
+}
+
+int kirby_Damage_Action(Enemy * enemy) {
+    if (enemy->tpe == 0)
+        return 1;
+    if (enemy->tpe == 1)
+        return 2;
+    if ((enemy->tpe == 2) || (enemy->tpe == 3))
+        return 0;
+    printf("\nERROR: Something wrong with kirby's damage action decision!\n");
+}
+
+int damage_Frame_Number(Enemy * enemy) {
+    if (enemy->tpe == 0)
+        return 13;
+    else
+        return 9;
+}
+
+int enemy_Should_Be_Inhaled(Kirby * kirby, Enemy * enemy) {
+    int kirby_Center_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
+    int kirby_Center_Y = (get_Kirby_Left_Pos(kirby) & 0x0000ffff);
+    int enemy_Center_X = (get_Enemy_Botton_Pos(enemy) >> 16) & 0x0000ffff;
+    int enemy_Center_Y = (get_Enemy_Left_Pos(enemy) & 0x0000ffff);
+
+    printf("\n############## Distance is: %d #############\n", ((kirby_Center_X - enemy_Center_X) * (kirby_Center_X - enemy_Center_X) + (kirby_Center_Y - enemy_Center_Y) * (kirby_Center_Y - enemy_Center_Y)));
+    if (sqr_Dis_Kirby_Enemy(kirby, enemy) <= (KIRBY_INHALE_DIS_SQRT * KIRBY_INHALE_DIS_SQRT))
+        return 1;
+    return 0;
+}
+
+int sqr_Dis_Kirby_Enemy(Kirby * kirby, Enemy * enemy) {
+    int kirby_Center_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
+    int kirby_Center_Y = (get_Kirby_Left_Pos(kirby) & 0x0000ffff);
+    int enemy_Center_X = (get_Enemy_Botton_Pos(enemy) >> 16) & 0x0000ffff;
+    int enemy_Center_Y = (get_Enemy_Left_Pos(enemy) & 0x0000ffff);
+
+    return ((kirby_Center_X - enemy_Center_X) * (kirby_Center_X - enemy_Center_X) + (kirby_Center_Y - enemy_Center_Y) * (kirby_Center_Y - enemy_Center_Y));
+}
+
+int sqr_Dis_Kirby_Door(Kirby * kirby) {
+    int kirby_Center_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
+    int kirby_Center_Y = (get_Kirby_Left_Pos(kirby) & 0x0000ffff);
+    int door_Center_X = DOOR_CENTER_X;
+    int door_Center_Y = DOOR_CENTER_Y;
+
+    return ((kirby_Center_X - door_Center_X) * (kirby_Center_X - door_Center_X) + (kirby_Center_Y - door_Center_Y) * (kirby_Center_Y - door_Center_Y));
+}
+
+void game_Over_Anime(Kirby * kirby) {
+    int i = 0;
+    kirby->damaging = 1;
+    kirby->image = 2;
+    kirby->action = 0;
+    kirby->frame = 0;
+    upload_Kirby_Info(kirby);
+    frame_Time(GAME_OVER_FRAME_TIME);
+    if (kirby->is_left == 0) {
+        for (i = 0; i < 14; i++) {
+            kirby->frame = (kirby->frame + 1) % 8;
+            kirby->x -= KIRBY_STEP_X;
+            upload_Kirby_Info(kirby);
+            frame_Time(DIE_INCREASE_TIME_BASE * i);
+        }
+    } else {
+        for (i = 0; i < 14; i++) {
+            kirby->frame = (kirby->frame + 1) % 8;
+            kirby->x += KIRBY_STEP_X;
+            upload_Kirby_Info(kirby);
+            frame_Time(DIE_INCREASE_TIME_BASE * i);
+        }
+    }
+}
+
+void win_Anime(Kirby * kirby) {
+    int i = 0;
+    int y_list[7] = {5,3,3,2,2,1,1};
+
+    kirby->inhaling = 0;
+    kirby->damaging = 0;
+    kirby->gulping = 0;
+    kirby->kicking = 0;
+    kirby->spitting = 0;
+    kirby->is_inhaled = 0;
+    kirby->in_air = 0;
+
+    // Enter Door
+    kirby->image = 0;
+    kirby->action = 0;
+    kirby->frame = 5;
+    kirby->x = DOOR_CENTER_X - 14;
+    kirby->y = DOOR_CENTER_Y - 5;
+    for (i = 0; i < 4; i++) {
+        kirby->frame += 1;
+        upload_Kirby_Info(kirby);
+        frame_Time(GAME_OVER_FRAME_TIME);
+    }
+    // Jump
+    kirby->action = 1;
+    kirby->frame = 10;
+    for (i = 0; i < 7; i++) {
+        kirby->y -= y_list[i];
+        upload_Kirby_Info(kirby);
+        frame_Time(GAME_OVER_FRAME_TIME);
     }
 }
 

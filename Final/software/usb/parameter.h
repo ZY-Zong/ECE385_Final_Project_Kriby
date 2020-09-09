@@ -20,7 +20,7 @@ static volatile unsigned int * ADDRESS_PTR = (unsigned int *) 0x00000000;
 #define REG_12_                 ADDRESS_PTR[12]
 #define REG_13_                 ADDRESS_PTR[13]
 #define REG_14_                 ADDRESS_PTR[14]
-#define REG_15_                 ADDRESS_PTR[15]
+#define REG_15_GAME_CONTROL     ADDRESS_PTR[15]
 
 /* KIRBY's Parameters */
 #define KIRBY_WIDTH             28
@@ -33,14 +33,18 @@ static volatile unsigned int * ADDRESS_PTR = (unsigned int *) 0x00000000;
 #define KIRBY_DROP_Y            4
 #define KIRBY_INHALED_WIDTH     30
 #define KIRBY_INHALED_HEIGHT    30
+#define KIRBY_INHALE_DIS_SQRT   44
+#define KIRBY_DAMAGE_DIS_SQRT   20
+#define KIRBY_DAMEGE_DIS_SQRTL  32
 
-#define KIRBY_FRAME_TIME_WALK   1600
-#define KIRBY_FRAME_TIME_BLINK  15000
-#define KIRBY_FRAME_TIME_GULP   20000
-#define KIRBY_FRAME_TIME_INHALE 8000
-#define KIRBY_FRAME_TIME_KICK   4000
-#define KIRBY_FRAME_TIME_DROP   3000       
-#define KIRBY_FRAME_STOP        200000
+#define KIRBY_FRAME_TIME_WALK   1500//1600
+#define KIRBY_FRAME_TIME_BLINK  3000//15000
+#define KIRBY_FRAME_TIME_GULP   4000//20000
+#define KIRBY_FRAME_TIME_INHALE 5000//8000
+#define KIRBY_FRAME_TIME_KICK   900//4000
+#define KIRBY_FRAME_TIME_DROP   3000//3000
+#define KIRBY_FRAME_TIME_DAMAGE 2500
+#define KIRBY_FRAME_STEP        500//200000
 
 #define KIRBY_INHALED_WALK_FN   13
 #define KIRBY_INHALED_FLY_FN    6
@@ -72,6 +76,19 @@ static volatile unsigned int * ADDRESS_PTR = (unsigned int *) 0x00000000;
 
 /* Star Parameters */
 #define STAR_STEP_X             4
-#define STAR_FRAME_TIME         4000
+#define STAR_FRAME_TIME         3500
+#define STAR_DAMAGE_DIS_SQRT    21
+
+/* Enemy Parameters */
+#define LEFT_FRAME_NUM          8
+#define LEFT_FRAME_DEMAGE_NUM   4
+#define ENEMY_DETECT_DIS_SQRT   150
+
+/* Game About Parameters */
+#define GAME_OVER_FRAME_TIME    45000
+#define DOOR_TOLERANCE          6
+#define DOOR_CENTER_X           1094
+#define DOOR_CENTER_Y           85
+#define DIE_INCREASE_TIME_BASE  10000
 
 #endif /*PARAMETER_H_*/

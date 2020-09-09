@@ -481,3 +481,128 @@ module palette_enemy (
 		endcase
 	end
 endmodule
+
+
+
+
+
+module palette_start (
+	input  logic [3:0] data_In,
+	output logic [7:0] Red, Green, Blue
+);
+
+	logic [7:0] R, G, B;
+
+	assign Red   = R;
+	assign Green = G;
+	assign Blue  = B;
+
+	always_comb
+	begin
+		case(data_In)
+		4'b0000:
+		begin
+			R = 8'h00;
+			G = 8'h00;
+			B = 8'h00;
+		end
+		4'b0001:
+		begin
+			R = 8'h0f;
+			G = 8'h31;
+			B = 8'h9d;
+		end
+		4'b0010:
+		begin
+			R = 8'h70;
+			G = 8'haa;
+			B = 8'hff;
+		end
+		4'b0011:
+		begin
+			R = 8'h86;
+			G = 8'hb8;
+			B = 8'hff;
+		end
+		4'b0100:
+		begin
+			R = 8'h96;
+			G = 8'hc9;
+			B = 8'hff;
+		end
+		4'b0101:
+		begin
+			R = 8'h4a;
+			G = 8'h42;
+			B = 8'haf;
+		end
+		4'b0110:
+		begin
+			R = 8'hf8;
+			G = 8'h91;
+			B = 8'h35;
+		end
+		4'b0111:
+		begin
+			R = 8'hf8;
+			G = 8'hf8;
+			B = 8'hf8;
+		end
+		4'b1000:
+		begin
+			R = 8'hb0;
+			G = 8'hf0;
+			B = 8'hf8;
+		end
+		4'b1001:
+		begin
+			R = 8'h97;
+			G = 8'h1f;
+			B = 8'h29;
+		end
+		4'b1010:
+		begin
+			R = 8'hde;
+			G = 8'hd2;
+			B = 8'he6;
+		end
+		4'b1011:
+		begin
+			R = 8'he5;
+			G = 8'hc7;
+			B = 8'h43;
+		end
+		4'b1100:
+		begin
+			R = 8'hf4;
+			G = 8'hd8;
+			B = 8'h77;
+		end
+		4'b1101:
+		begin
+			R = 8'h6d;
+			G = 8'hc4;
+			B = 8'h80;
+		end
+		4'b1110:
+		begin
+			R = 8'ha4;
+			G = 8'h9e;
+			B = 8'ha0;
+		end
+		4'b1111:
+		begin
+			R = 8'h86;
+			G = 8'hf9;
+			B = 8'hc2;
+		end
+		default:
+		begin
+			R = 8'h00;
+			G = 8'h00;
+			B = 8'h00;
+		end
+		endcase
+	end
+endmodule
+

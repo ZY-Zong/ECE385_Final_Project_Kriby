@@ -5,12 +5,12 @@
 
 typedef struct game_logic
 {
-    int map;
-    int interrupt;
+    int start;
+    int end;
 } Game;
 
 void GameStart();
-
+void initial_Game_State(Game * game_state);
 void initial_Registers();
 
 

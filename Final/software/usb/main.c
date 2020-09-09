@@ -10,6 +10,8 @@
 #include "game_logic.h"
 
 int main(void) {
+    // Game * game_state;
+    // initial_Game_State(game_state);
     GameStart();
 
     printf("Interrupt takes place!");

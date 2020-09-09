@@ -154,7 +154,7 @@ module  getstarindex
 						begin 
 							if (DrawY < (152+Star_Y+Image_width) && DrawY >= (152+Star_Y) && DrawX < (203+Star_X+Image_width/2) && DrawX >= (203+Star_X-Image_width/2))
 								begin
-									starindex= (DrawY-Star_Y-152)*96 + Image_X+Image_width/2-DrawX+Star_X+202;//-1 for edge {width-1    0-27)
+									starindex= (DrawY-Star_Y-152)*96 +Image_X+Image_width/2-DrawX+Star_X+202;//-1 for edge {width-1    0-27)
 								end 
 							else
 								begin
@@ -197,16 +197,16 @@ module  getenemyindex
 	//always_ff @ (posedge Clk) 
 	logic [15 :0] Enemy_Image_Xsize, Enemy_Image_Ysize;
 	assign Enemy_Image_Xsize=Enemy_Image_X*Enemy_Image_width;
-	assign Enemy_Image_Ysize=Enemy_Image_Y*Enemy_Image_height;
+	assign Enemy_Image_Ysize=Enemy_Image_Y*25;
 	always_comb
 		begin
 			if (DrawY < 10'd328 && DrawY >= 10'd152 && DrawX < 10'd436 && DrawX >= 10'd203)
 				begin
 					if (Enemy_Direction)
 						begin 
-							if (DrawY < (152+Enemy_Pos_Y+Enemy_Image_height) && DrawY >= (152+Enemy_Pos_Y) && DrawX < (203+Enemy_Pos_X+Enemy_Image_width/2) && DrawX >= (203+Enemy_Pos_X-Enemy_Image_width/2))
+							if (DrawY < (Enemy_Pos_Y+Enemy_Image_height) && DrawY >= Enemy_Pos_Y && DrawX < (Enemy_Pos_X+Enemy_Image_width/2) && DrawX >= (Enemy_Pos_X-Enemy_Image_width/2))
 								begin
-									enemyindex= (Enemy_Image_Ysize+DrawY-Enemy_Pos_Y-152)*Enemy_Width +Enemy_Image_Xsize+Enemy_Image_width/2-DrawX+Enemy_Pos_X+202;//-1 for edge {width-1    0-27)
+									enemyindex= (Enemy_Image_Ysize+DrawY-Enemy_Pos_Y)*Enemy_Width +Enemy_Image_Xsize+Enemy_Image_width/2-DrawX+Enemy_Pos_X-1;//-1 for edge {width-1    0-27)
 								end 
 							else
 								begin
@@ -215,9 +215,9 @@ module  getenemyindex
 						end 
 					else
 						begin
-							if (DrawY < (152+Enemy_Pos_Y+Enemy_Image_height) && DrawY >= (152+Enemy_Pos_Y) && DrawX < (203+Enemy_Pos_X+Enemy_Image_width/2) && DrawX >= (203+Enemy_Pos_X-Enemy_Image_width/2  ))
+							if (DrawY < (Enemy_Pos_Y+Enemy_Image_height) && DrawY >= (Enemy_Pos_Y) && DrawX < (Enemy_Pos_X+Enemy_Image_width/2) && DrawX >= (Enemy_Pos_X-Enemy_Image_width/2  ))
 								begin
-									enemyindex= (Enemy_Image_Ysize+DrawY-Enemy_Pos_Y-152)*Enemy_Width + Enemy_Image_Xsize+DrawX-Enemy_Pos_X-203+Enemy_Image_width/2 ;
+									enemyindex= (Enemy_Image_Ysize+DrawY-Enemy_Pos_Y)*Enemy_Width + Enemy_Image_Xsize+DrawX-Enemy_Pos_X+Enemy_Image_width/2;
 								end
 							else
 								begin
@@ -231,4 +231,84 @@ module  getenemyindex
 				end
 		end
 	
+endmodule
+
+
+
+
+module  getbarindex
+(		
+		input  [9 :0] DrawX,DrawY,
+		input  [2:0]  Health,
+		output [16:0] barindex
+);
+	 logic [15 :0] bar_X, bar_Y,Image_height,Image_width,Enemy_Pos_Y,Enemy_Pos_X;
+	 assign bar_X=(6-Health)*25;
+	 assign bar_Y=0;
+	 assign Image_height = 14;
+	 assign Image_width =25;
+	 assign Enemy_Pos_Y=300;
+	 assign Enemy_Pos_X=220;
+	 always_comb 
+	 begin
+		
+
+        	 if (DrawY < 10'd328 && DrawY >= 10'd152 && DrawX < 10'd436 && DrawX >= 10'd203)
+				 begin
+				    if (DrawY < (Enemy_Pos_Y+Image_height) && DrawY >= Enemy_Pos_Y && DrawX < (Enemy_Pos_X+Image_width) && DrawX >= (Enemy_Pos_X))
+						 begin
+							 barindex = (DrawY-Enemy_Pos_Y) * 175  + (DrawX-Enemy_Pos_X+bar_X);
+						 end
+					 else
+						 begin
+							 barindex = 0;
+						 end
+					
+				 end
+			  else 
+				 begin
+					   barindex = 0;
+				 end
+				 
+			 
+    end
+endmodule
+
+
+
+
+module  startscreen
+(		
+		input  [9 :0] DrawX,DrawY,
+		output [16:0] gamestartindex
+);
+	 logic [15 :0] Image_height,Image_width,Enemy_Pos_Y,Enemy_Pos_X;
+
+	 assign Image_height = 176;
+	 assign Image_width =234;
+	 assign Enemy_Pos_Y=152;
+	 assign Enemy_Pos_X=203;
+	 always_comb 
+	 begin
+		
+
+        	 if (DrawY < 10'd328 && DrawY >= 10'd152 && DrawX < 10'd436 && DrawX >= 10'd203)
+				 begin
+				    if (DrawY < (Enemy_Pos_Y+Image_height) && DrawY >= Enemy_Pos_Y && DrawX < (Enemy_Pos_X+Image_width) && DrawX >= (Enemy_Pos_X))
+						 begin
+							 gamestartindex = (DrawY-Enemy_Pos_Y) * 234  + (DrawX-Enemy_Pos_X);
+						 end
+					 else
+						 begin
+							 gamestartindex = 0;
+						 end
+					
+				 end
+			  else 
+				 begin
+					   gamestartindex = 0;
+				 end
+				 
+			 
+    end
 endmodule
