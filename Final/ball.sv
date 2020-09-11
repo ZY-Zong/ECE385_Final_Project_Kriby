@@ -19,7 +19,9 @@ module  ball ( input         Clk,                // 50 MHz clock
                              frame_clk,          // The clock indicating a new frame (~60Hz)
                input [9:0]   DrawX, DrawY,       // Current pixel coordinates
 					input [7:0]   keycode,        // Key pressed in the keyboard (8-bit)
-               output logic  is_ball             // Whether current pixel belongs to ball or background
+               output logic  is_ball,             // Whether current pixel belongs to ball or background
+					output logic  [1:0] dirc
+					
               );
     
     parameter [9:0] Ball_X_Center = 10'd320;  // Center position on the X axis
@@ -70,7 +72,7 @@ module  ball ( input         Clk,                // 50 MHz clock
         Ball_Y_Pos_in = Ball_Y_Pos;
         Ball_X_Motion_in = Ball_X_Motion;
         Ball_Y_Motion_in = Ball_Y_Motion;
-        
+        dirc=2'd0;
         // Update position and motion only at rising edge of frame clock
         if (frame_clk_rising_edge)
         begin
@@ -79,21 +81,25 @@ module  ball ( input         Clk,                // 50 MHz clock
 					8'h1A: begin		//w
 									Ball_X_Motion_in = 10'd000;
 									Ball_Y_Motion_in = (~(Ball_Y_Step) + 1'b1);
+									dirc=2'd0;
 							  end
 							  
 					8'h16: begin		//s
 									Ball_X_Motion_in = 10'd000;
 									Ball_Y_Motion_in = Ball_Y_Step;
+									dirc=2'd0;
 							  end
 					
 					8'h04: begin		//a
 									Ball_X_Motion_in = (~(Ball_X_Step) + 1'b1);
 									Ball_Y_Motion_in = 10'd000;
+									dirc=2'd1;
 							  end
 							  
 					8'h07: begin		//d
 									Ball_X_Motion_in = Ball_X_Step;
 									Ball_Y_Motion_in = 10'd000;
+									dirc=2'd2;
 							  end
 							  
 					default: ;

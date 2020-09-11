@@ -49,14 +49,15 @@ module FinalProject(
     
     logic Reset_h, Clk;
     logic [7:0] keycode;
+	 logic [511:0] Register_Files;
     
     assign Clk = CLOCK_50;
     always_ff @ (posedge Clk) begin
         Reset_h <= ~(KEY[0]);        // The push buttons are active low
     end
     
-    logic [1:0] hpi_addr;
-    logic [15:0] hpi_data_in, hpi_data_out;
+    logic [1:0] hpi_addr, dirc;
+    logic [15:0] hpi_data_in, hpi_data_out,count;
     logic hpi_r, hpi_w, hpi_cs, hpi_reset;
     
     // Interface between NIOS II and EZ-OTG chip
@@ -101,7 +102,8 @@ module FinalProject(
                              .otg_hpi_cs_export(hpi_cs),
                              .otg_hpi_r_export(hpi_r),
                              .otg_hpi_w_export(hpi_w),
-                             .otg_hpi_reset_export(hpi_reset)
+                             .otg_hpi_reset_export(hpi_reset),
+							 .kirby_export_export_data(Register_Files)
     );
     
     // Use PLL to generate the 25MHZ VGA_CLK.
@@ -111,25 +113,330 @@ module FinalProject(
     // TODO: Fill in the connections for the rest of the modules 
 	 
 	 logic [9:0] DrawX,DrawY; // for ball
-	 logic is_ball;
+	 //logic is_ball;
     VGA_controller vga_controller_instance(.Clk(Clk),.Reset(Reset_h),.*);
     
     // Which signal should be frame_clk?
-    ball ball_instance(.Clk(Clk),.Reset(Reset_h),.frame_clk(VGA_VS),.*);
+   // ball ball_instance(.Clk(Clk),.Reset(Reset_h),.frame_clk(VGA_VS),.*);
     
     color_mapper color_instance(.*);
 	 
+	 
+	 
+	 logic        Direction,Star_Direction,Gameover,Gamestart;
+	 logic [1 :0] Map_idx,Kirby_state;
+	 logic [2 :0] Health;
 	 logic [3 :0] idx_forest;
-	 logic [16:0] index;
+    logic [3 :0] idx_star;
+	 logic [3 :0] idx_bar;
+	 logic [3 :0] idx_gamestart;
+	 logic [3 :0] idx_area1,idx_area2,idx_area3;
+	 logic [3 :0] idx_kirby,idx_inholekirby,idx_damagekirby;
+	 logic [3 :0] idx_monkey,idx_fire,idx_lemon,idx_lightning;
+
+
+
+
+
+	 logic [16:0] backindex,starindex,barindex,gamestartindex;
+	 logic [17:0] areaindex1,areaindex2,areaindex3,kirbyindex,inholekirbyindex,damagekirbyindex;
+
+
+	 logic [15:0] Map_pos_X,Map_pos_Y;
+	 logic [6 :0] Image_height;                     // 28 for 28x28, 30 for 30x30, 60 for 60x30
+	 logic [7 :0] Kirby_Image_X, Kirby_Image_Y;
+	 logic [7 :0] Kirby_Pos_X, Kirby_Pos_Y, Image_width;
 	 
-	 // Expand to 4 times
-	 assign index = (DrawY >> 1)* 540 + (DrawX >> 1) + Kriby_Position;
+	 logic [8:0]  Enemy_Width;
 	 
-	 // Read into ram
+	 
+	 logic [7 :0] Star_X,Star_Y;
+	 logic [1 :0] Star_image_X;
+    logic        Star_appear;
+	 
+	 
+	// kirbyindex kirby_index(.DrawX(DrawX),.DrawY(DrawY),.Clk(Clk),.kirbyindex(kirbyindex));
+
+//	 
+//	 assign Kirby_Pos_X   = 0;
+//	 assign Kirby_Pos_Y   = 0;
+//	 assign Kirby_Image_X = 0;
+//	 assign Kirby_Image_Y = 0;
+//	 assign Image_height  = 30;
+//	 assign Image_width   = 30;
+//	 assign Kirby_state   = 1;
+	 
+	 //always_comb
+//	
+
+	 logic [10:0] Map_Width[2:0];
+//	 logic [3:0] idx_area[2:0];
+	 //logic [17:0] areaindex[2:0];
+	 assign Map_Width[0]  = 11'd1215; //4'd2;
+	 assign Map_Width[1]  = 11'd976;
+	 assign Map_Width[2]  = 11'd1217;
+	 
+	 
+	 logic [8:0] kirby_Width[2:0];
+	 assign kirby_Width[0]  = 9'd308; //4'd2;
+	 assign kirby_Width[1]  = 9'd480;
+	 assign kirby_Width[2]  = 9'd455;
+	 
+	 assign Enemy_Width     = 9'd400;
+	 
+
+//	 assign areaindex[0]  = 17'd0; //4'd2;
+//	 assign areaindex[1]  = 17'd0;
+//	 assign areaindex[2]  = 17'd0;
+
+	//  logic [3:0] kirby_Width[2:0];
+	  logic  Enemy_Direction[3:0];
+	// logic  Enemy_Show0,Enemy_Show1,Enemy_Show2,Enemy_Show3;
+	  logic  [7 :0] Enemy_Image_X[3:0];
+	  logic  [7 :0] Enemy_Image_Y[3:0];
+	  logic  [15 :0] Enemy_Pos_X[3:0];
+	  logic  [15 :0] Enemy_Pos_Y[3:0];
+	  logic  [7 :0] Enemy_Image_width[3:0];
+	  logic  [6 :0] Enemy_Image_height[3:0];
+//	  logic  [8 :0] Enemy_Width[3:0];
+	  logic  [17:0] enemyindex0,enemyindex1,enemyindex2,enemyindex3;
+	 
+	 getbackindex  background_index(.*);
+	 getkirbyindex kirby_index0(.*,.kirby_Width(kirby_Width[0]),.kirbyindex(kirbyindex));
+    getkirbyindex kirby_index1(.*,.kirby_Width(kirby_Width[1]),.kirbyindex(inholekirbyindex));
+    getkirbyindex kirby_index2(.*,.kirby_Width(kirby_Width[2]),.kirbyindex(damagekirbyindex));
+	 getstarindex  staroindex(.*);
+	 getareaindex  the_area_index1(.DrawX(DrawX),.DrawY(DrawY),.Map_pos_X(Map_pos_X),.Map_Wid(Map_Width[0]),.areaindex(areaindex1));
+	 getareaindex  the_area_index2(.DrawX(DrawX),.DrawY(DrawY),.Map_pos_X(Map_pos_X),.Map_Wid(Map_Width[1]),.areaindex(areaindex2));
+	 getareaindex  the_area_index3(.DrawX(DrawX),.DrawY(DrawY),.Map_pos_X(Map_pos_X),.Map_Wid(Map_Width[2]),.areaindex(areaindex3));
+	 
+	 getbarindex   barsindex(.*);
+	 startscreen   startscreen(.*);
+	 getenemyindex enemy_lemon(.*,
+										.Enemy_Direction(Enemy_Direction[0]),
+										.Enemy_Image_X(Enemy_Image_X[0]),
+										.Enemy_Image_Y(Enemy_Image_Y[0]),
+										.Enemy_Pos_X(Enemy_Pos_X[0]),
+										.Enemy_Pos_Y(Enemy_Pos_Y[0]),
+										.Enemy_Image_width(Enemy_Image_width[0]),
+										.Enemy_Image_height(Enemy_Image_height[0]),
+										.Enemy_Width(Enemy_Width),
+										.enemyindex(enemyindex0)
+										);
+										
+		
+		
+	 getenemyindex enemy_monkey(.*,
+										.Enemy_Direction(Enemy_Direction[1]),
+										.Enemy_Image_X(Enemy_Image_X[1]),
+										.Enemy_Image_Y(Enemy_Image_Y[1]),
+										.Enemy_Pos_X(Enemy_Pos_X[1]),
+										.Enemy_Pos_Y(Enemy_Pos_Y[1]),
+										.Enemy_Image_width(Enemy_Image_width[1]),
+										.Enemy_Image_height(Enemy_Image_height[1]),
+										.Enemy_Width(Enemy_Width),
+										.enemyindex(enemyindex1)
+										);
+										
+										
+	 getenemyindex enemy_fire(.*,
+										.Enemy_Direction(Enemy_Direction[2]),
+										.Enemy_Image_X(Enemy_Image_X[2]),
+										.Enemy_Image_Y(Enemy_Image_Y[2]),
+										.Enemy_Pos_X(Enemy_Pos_X[2]),
+										.Enemy_Pos_Y(Enemy_Pos_Y[2]),
+										.Enemy_Image_width(Enemy_Image_width[2]),
+										.Enemy_Image_height(Enemy_Image_height[2]),
+										.Enemy_Width(Enemy_Width),
+										.enemyindex(enemyindex2)
+										);	
+	
+	 getenemyindex enemy_lightning(.*,
+										.Enemy_Direction(Enemy_Direction[3]),
+										.Enemy_Image_X(Enemy_Image_X[3]),
+										.Enemy_Image_Y(Enemy_Image_Y[3]),
+										.Enemy_Pos_X(Enemy_Pos_X[3]),
+										.Enemy_Pos_Y(Enemy_Pos_Y[3]),
+										.Enemy_Image_width(Enemy_Image_width[3]),
+										.Enemy_Image_height(Enemy_Image_height[3]),
+										.Enemy_Width(Enemy_Width),
+										.enemyindex(enemyindex3)
+										);	
+    logic [31:0] Register [15:0];
+//    logic [7:0] Addr_X, Addr_Y;
+//    logic [2:0] Palette_idx;
+//    logic [3:0] Color_idx;
+//    logic [1:0] Map_idx;
+
+    assign Register[0 ] = Register_Files[31 :0  ];
+    assign Register[1 ] = Register_Files[63 :32 ];
+    assign Register[2 ] = Register_Files[95 :64 ];
+    assign Register[3 ] = Register_Files[127:96 ];
+    assign Register[4 ] = Register_Files[159:128];
+    assign Register[5 ] = Register_Files[191:160];
+    assign Register[6 ] = Register_Files[223:192];
+    assign Register[7 ] = Register_Files[255:224];
+    assign Register[8 ] = Register_Files[287:256];
+    assign Register[9 ] = Register_Files[319:288];
+    assign Register[10] = Register_Files[351:320];
+    assign Register[11] = Register_Files[383:352];
+    assign Register[12] = Register_Files[415:384];
+    assign Register[13] = Register_Files[447:416];
+    assign Register[14] = Register_Files[479:448];
+    assign Register[15] = Register_Files[511:480];
+
+
+    always_comb 
+	 begin
+		  Kirby_Pos_X   =  Register[0][31:24];
+        Kirby_Pos_Y   =  Register[0][23:16];
+        Kirby_state   =  Register[0][ 3: 2];
+		  Map_idx       =  Register[0][ 1: 0];
+		  
+        Kirby_Image_X =  Register[1][31:24];
+        Kirby_Image_Y =  Register[1][23:16];
+		  Image_width   =  Register[1][15: 8];
+		  Image_height  =  Register[1][ 7: 1];
+		  Direction     =  Register[1][ 0   ];
+		  
+		  Map_pos_X     =  Register[2][31:16];
+		  Map_pos_Y     =  Register[2][15: 0];
+		  
+		  Star_X        =  Register[3][31:24];
+		  Star_Y        =  Register[3][23:16];
+	     Star_image_X  =  Register[3][15:14];
+		  Star_Direction=  Register[3][13   ];
+		  Star_appear   =  Register[3][12   ];
+		  
+
+	     Enemy_Image_X[0]     =     Register[4][31:28];
+	     Enemy_Image_Y[0]     =     Register[4][27:24];
+	     Enemy_Image_width[0] =     Register[4][23:16];
+	     Enemy_Image_height[0]=     Register[4][15: 8];
+		//  Enemy_Show0          =     Register[4][1    ];
+		  Enemy_Direction[0]   =     Register[4][0    ];
+		  Enemy_Pos_X[0]       =     Register[5][31:16];
+	     Enemy_Pos_Y[0]       =     Register[5][15: 0];
+	   	  
+		  Enemy_Image_X[1]     =     Register[6][31:28];
+	     Enemy_Image_Y[1]     =     Register[6][27:24];
+	     Enemy_Image_width[1] =     Register[6][23:16];
+	     Enemy_Image_height[1]=     Register[6][15: 8];
+		//  Enemy_Show1          =     Register[6][1    ];
+		  Enemy_Direction[1]   =     Register[6][0    ];
+		  Enemy_Pos_X[1]       =     Register[7][31:16];
+	     Enemy_Pos_Y[1]       =     Register[7][15: 0];
+		  
+		  Enemy_Image_X[2]     =     Register[8][31:28];
+	     Enemy_Image_Y[2]     =     Register[8][27:24];
+	     Enemy_Image_width[2] =     Register[8][23:16];
+	     Enemy_Image_height[2]=     Register[8][15: 8];
+	//	  Enemy_Show2          =     Register[8][1    ];
+		  Enemy_Direction[2]   =     Register[8][0    ];
+		  Enemy_Pos_X[2]       =     Register[9][31:16];
+	     Enemy_Pos_Y[2]       =     Register[9][15: 0];
+		  
+		  Enemy_Image_X[3]     =     Register[10][31:28];
+	     Enemy_Image_Y[3]     =     Register[10][27:24];
+	     Enemy_Image_width[3] =     Register[10][23:16];
+	     Enemy_Image_height[3]=     Register[10][15: 8];
+	//	  Enemy_Show3          =     Register[10][1    ];	  
+		  Enemy_Direction[3]   =     Register[10][0    ];
+		  Enemy_Pos_X[3]       =     Register[11][31:16];
+	     Enemy_Pos_Y[3]       =     Register[11][15: 0];		  
+		  
+		  
+		  
+		  
+		  Gameover             =     Register[15][4];	
+		  Gamestart            =	  Register[15][3];
+		  //Gamestart            = 1;
+		  Health               =     Register[15][2 : 0];	
+		 // Health               =     3;	
+		  
+		  
+    end
+
+	 
+	 BARRAM barram(.data_In(4'b0), 
+													  .write_address(17'b0), 
+													  .read_address(barindex), 
+													  .we(1'b0),.Clk(Clk), .data_Out(idx_bar));    
+
+	Kirby kirby(.data_In(4'b0), 
+												  .write_address(17'b0), 
+												  .read_address(kirbyindex), 
+												  .we(1'b0),.Clk(Clk), .data_Out(idx_kirby));
+   InholeKirby inholeKirby(.data_In(4'b0), 
+												  .write_address(17'b0), 
+												  .read_address(inholekirbyindex), 
+												  .we(1'b0),.Clk(Clk), .data_Out(idx_inholekirby));
+	DamageKirby damagekirby(.data_In(4'b0), 
+												  .write_address(17'b0), 
+												  .read_address(damagekirbyindex), 
+												  .we(1'b0),.Clk(Clk), .data_Out(idx_damagekirby));
+	
+	
+	Stars stars(.data_In(4'b0), 
+                                                  .write_address(17'b0), 
+                                                  .read_address(starindex), 
+                                                  .we(1'b0), .Clk(Clk), .data_Out(idx_star));       
+
+
+
+	Enemy enemy_lemon_ram(.data_In(4'b0), 
+													  .write_address(17'b0), 
+													  .read_address(enemyindex0), 
+													  .we(1'b0),.Clk(Clk), .data_Out(idx_lemon));    
+													  
+	Enemy enemy_monkey_ram(.data_In(4'b0), 
+													  .write_address(17'b0), 
+													  .read_address(enemyindex1), 
+													  .we(1'b0),.Clk(Clk), .data_Out(idx_monkey));    
+	Enemy enemy_fire_ram(.data_In(4'b0), 
+													  .write_address(17'b0), 
+													  .read_address(enemyindex2), 
+													  .we(1'b0),.Clk(Clk), .data_Out(idx_fire));    
+													  
+	Enemy enemy_lightning_ram(.data_In(4'b0), 
+													  .write_address(17'b0), 
+													  .read_address(enemyindex3), 
+													  .we(1'b0),.Clk(Clk), .data_Out(idx_lightning));    		
+		
+
+	
+								
+																  
+                                            
+
+	areaRAM area1(.data_In(4'b0), 
+												  .write_address(17'b0), 
+												  .read_address(areaindex1), 
+												  .we(1'b0),.Clk(Clk), .data_Out(idx_area1));
+ 
+ 	 /*
+	areaRAM2 area2(.data_In(4'b0), 
+												  .write_address(17'b0), 
+												  .read_address(areaindex2), 
+												  .we(1'b0),.Clk(Clk), .data_Out(idx_area2));
+											  
+												  
+//	 areaRAM3 area3(.data_In(4'b0), 
+												  .write_address(17'b0), 
+												  .read_address(areaindex3), 
+												  .we(1'b0),.Clk(Clk), .data_Out(idx_area3));		
+*/
+
+	//// Read into ram
+	
+    GAMESTARTRAM gamestrartram(.data_In(4'b0), 
+	 								.write_address(17'b0), 
+	 								.read_address(gamestartindex), 
+	 								.we(1'b0), .Clk(Clk), .data_Out(idx_gamestart));
 	 background1RAM background1_ram(.data_In(4'b0), 
-									        .write_address(17'b0), 
-									        .read_address(index), 
-									        .we(1'b0), .Clk(Clk), .data_Out(idx_forest));
+	 								.write_address(17'b0), 
+	 								.read_address(backindex), 
+	 								.we(1'b0), .Clk(Clk), .data_Out(idx_forest));
     
     // Display keycode on hex display
     HexDriver hex_inst_0 (keycode[3:0], HEX0);

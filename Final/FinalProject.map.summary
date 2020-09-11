@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Sun Aug 30 22:16:27 2020
+Analysis & Synthesis Status : Successful - Thu Sep 10 02:56:57 2020
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : FinalProject
 Top-level Entity Name : FinalProject
 Family : Cyclone IV E
-Total logic elements : 3,803
-    Total combinational functions : 2,810
-    Dedicated logic registers : 2,197
-Total registers : 2197
+Total logic elements : 9,213
+    Total combinational functions : 7,743
+    Dedicated logic registers : 2,759
+Total registers : 2759
 Total pins : 128
 Total virtual pins : 0
-Total memory bits : 529,792
-Embedded Multiplier 9-bit elements : 4
+Total memory bits : 3,222,456
+Embedded Multiplier 9-bit elements : 18
 Total PLLs : 2
