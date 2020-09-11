@@ -33,7 +33,8 @@ pix_freqs_sorted = sorted(pix_freqs.items(), key=lambda x: x[1])
 pix_freqs_sorted.reverse()
 print(pix)
 outImg = Image.new('RGB', im.size, color='white')
-outFile = open("./sprite_bytes/" + filename + '.txt', 'w')
+outFile = open("./sprite_bytes/" + filename + 'ram.txt', 'w')
+arr=['0000','0001','0010','0011','0100','0101','0110','0111','1000','1001','1010','1011','1100','1101','1110','1111']
 i = 0
 for y in range(im.size[1]):
     for x in range(im.size[0]):
@@ -41,12 +42,13 @@ for y in range(im.size[1]):
         print(pixel)
         if(pixel[3] < 200):
             outImg.putpixel((x,y), palette_rgb[0])
-            outFile.write("3'h%x," %(0))
+            outFile.write("%x" %(0000))
             print(i)
         else:
             index = pixel_tree.query(pixel[:3])[1]
             outImg.putpixel((x,y), palette_rgb[index])
-            outFile.write("3'h%x," %(index))
+
+            outFile.write("%s" %(arr[index]))
         i += 1
 outFile.close()
 outImg.save("./sprite_converted/" + filename + ".png" )
