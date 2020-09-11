@@ -1,0 +1,9 @@
+#ifndef STAR_H_
+#define STAR_H_
+
+
+void spit_Star(Kirby * kirby);
+void upload_Star_Info(int x, int y, int idx, int direction);
+
+
+#endif /*STAR_H_*/

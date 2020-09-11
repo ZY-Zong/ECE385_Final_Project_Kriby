@@ -1,0 +1,256 @@
+
+#include <stdio.h>
+#include "enemy.h"
+#include "parameter.h"
+#include "image.h"
+#include "wall.h"
+#include "usb_main.h"
+#include "kirby.h"
+
+
+
+// void AI_enemy(Enemy * enemy, int kirbyx, int enemyrightcount,int enemyleftcount ){
+//     if ((kirbyx>200)&&(kirbyx< 300)){
+//     	if (enemyrightcount== 19 ){
+//     		enemyrightcount =0;
+//     		enemy->is_right=0;
+//     	}
+//     	if (enemyleftcount== 19 ){
+//     		enemyleftcount =0;
+//     		enemy->is_right=1;
+//     	}
+// 		if ((enemyrightcount < 20)&&(enemy->is_right==1)){
+// 			set_the_enemy_easy (enemy,150+enemyrightcount, 50);
+// 			enemyrightcount+=1;
+// 		}
+//         if((enemyleftcount < 20)&&(enemy->is_right==0)){
+// 			set_the_enemy_easy (enemy,170-enemyleftcount, 50);
+// 			enemyleftcount+=1;
+// 		}
+
+//     }
+// }
+
+
+
+
+void initial_enemy(Enemy * enemy, int which){
+    enemy->realx = 0;
+    enemy->realy = 0;
+    enemy->map = 0;
+    enemy->is_right = 1;
+    enemy->health = 2;
+    enemy->tpe = which ;
+    enemy->frame = 0;
+    enemy->show = 0;
+    switch(enemy->tpe){
+        case 0:{
+            enemy->action = 0;
+            break;
+        }
+        case 1:{
+            enemy->action = 4;
+            break; 
+        }
+        case 2:{
+            enemy->action = 5;
+            break; 
+        }
+        case 3:{
+            enemy->action = 6;
+            break; 
+        }
+
+
+    }  
+}
+
+
+
+void set_the_enemy_easy(Enemy * enemy,int x,int y,Kirby * kirby){
+    enemy->realx = x;
+    enemy->realy = y;
+    //enemy-> show= 1;
+
+    if(enemy->health==0){
+        // draw the damage pic 
+
+    } else
+    {
+        enemy->frame = (enemy->frame + 1) % LEFT_FRAME_NUM;
+        upload_enemy_Info(enemy,kirby);
+        frame_Time(10000);
+
+    }
+                                                                                                                                                                                                                                                                                                                    
+
+}
+
+
+void set_the_enemy_lightning(Enemy * enemy,int x,int y,Kirby * kirby){
+    enemy->realx = x;
+    enemy->realy = y;
+    //enemy-> show= 1;
+    if(enemy->health==0){
+        // draw the damage pic 
+        
+    }else
+    {
+        enemy->frame = (enemy->frame + 1) % LEFT_FRAME_NUM;
+
+    }
+                                                                                                                                                                                                                                                                                                                    
+
+}
+void upload_enemy_Info(Enemy * enemy,Kirby * kirby){
+
+    int Enemy_Pos_X = enemy->realx;
+    int Enemy_Pos_Y = enemy->realy;
+    int Enemy_Image_X = enemy->frame;
+    int Enemy_Image_Y = enemy->action;
+    int Enemy_Image_Width = 0;
+    int Enemy_Image_Height = 0;
+    int Enemy_Screen_X = enemy->realx;
+    int Enemy_Screen_Y = enemy->realy;
+    int kirby_Botton_X =0;
+    int Kirby_Screen_X = 0;
+    //enemy->show=1;
+    // Decide enemy's image width and height
+    if (enemy->tpe == 3) {
+        Enemy_Image_Width = 28;
+        Enemy_Image_Height = 28;
+    } else if ((enemy->tpe == 1) || (enemy->tpe == 2)) {
+        Enemy_Image_Width = 25;
+        Enemy_Image_Height = 25;
+    } else {
+        Enemy_Image_Width = 25;
+        Enemy_Image_Height = 25;
+    }
+    kirby_Botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
+    Kirby_Screen_X = kirby_Screen_Center_X(kirby_Botton_X);
+
+//    if(((kirby->x-enemy->realx)< 117)||((enemy->realx-kirby->x)< 117)){
+//		Enemy_Screen_X=kirby->x-enemy->realx+Kirby_Screen_X;
+//		Enemy_Screen_Y=enemy->realy;
+//    }
+    // Upload to enemy's registers
+    ADDRESS_PTR[4+2*enemy->tpe]=(Enemy_Image_X << 28) | (Enemy_Image_Y << 24) | (Enemy_Image_Width << 16) | (Enemy_Image_Height << 8)|(enemy->show <<1)|(enemy->is_right);
+    printf("the register is %x",ADDRESS_PTR[4+2*enemy->tpe]);
+    ADDRESS_PTR[5+2*enemy->tpe]=(Enemy_Screen_X << 16)|Enemy_Screen_Y;
+}
+
+/* realX and realY are top center of enemies */
+
+int get_Enemy_Botton_Pos (Enemy * enemy) {
+    int enemy_ceil_X = 0;
+    int enemy_ceil_Y = 0;
+
+    switch (enemy->action) {
+    case 0:
+    case 4:
+    case 5:
+        enemy_ceil_X = enemy->realx;
+        enemy_ceil_Y = enemy->realy + 21;
+        break;
+    case 1:
+        enemy_ceil_X = enemy->realx;
+        enemy_ceil_Y = enemy->realy + 21;
+        break;
+    case 2:
+        enemy_ceil_X = enemy->realx;
+        enemy_ceil_Y = enemy->realy + 46;
+        break;
+    case 6:
+        enemy_ceil_X = enemy->realx;
+        enemy_ceil_Y = enemy->realy + 26;
+    default:
+        break;
+    }
+    return ((enemy_ceil_X << 16) | enemy_ceil_Y);
+}
+
+int get_Enemy_Ceil_Pos (Enemy * enemy) {
+    int enemy_ceil_X = 0;
+    int enemy_ceil_Y = 0;
+
+    switch (enemy->action) {
+    case 0:
+    case 4:
+    case 5:
+        enemy_ceil_X = enemy->realx;
+        enemy_ceil_Y = enemy->realy + 4;
+        break;
+    case 1:
+        enemy_ceil_X = enemy->realx;
+        enemy_ceil_Y = enemy->realy + 4;
+        break;
+    case 2:
+        enemy_ceil_X = enemy->realx;
+        enemy_ceil_Y = enemy->realy + 4;
+        break;
+    case 6:
+        enemy_ceil_X = enemy->realx;
+        enemy_ceil_Y = enemy->realy + 3;
+    default:
+        break;
+    }
+    return ((enemy_ceil_X << 16) | enemy_ceil_Y);
+}
+
+int get_Enemy_Left_Pos (Enemy * enemy) {
+    int enemy_left_X = 0;
+    int enemy_left_Y = 0;
+
+    switch (enemy->action) {
+    case 0:
+    case 4:
+    case 5:
+        enemy_left_X = enemy->realx - 10;
+        enemy_left_Y = enemy->realy + 13;
+        break;
+    case 1:
+        enemy_left_X = enemy->realx - 10;
+        enemy_left_Y = enemy->realy + 13;
+        break;
+    case 2:
+        enemy_left_X = enemy->realx - 21;
+        enemy_left_Y = enemy->realy + 25;
+        break;
+    case 6:
+        enemy_left_X = enemy->realx - 14;
+        enemy_left_Y = enemy->realy + 14;
+    default:
+        break;
+    }
+    return ((enemy_left_X << 16) | enemy_left_Y);
+}
+
+int get_Enemy_Right_Pos (Enemy * enemy) {
+    int enemy_right_X = 0;
+    int enemy_right_Y = 0;
+
+    switch (enemy->action) {
+    case 0:
+    case 4:
+    case 5:
+        enemy_right_X = enemy->realx + 10;
+        enemy_right_Y = enemy->realy + 13;
+        break;
+
+    case 1:
+        enemy_right_X = enemy->realx + 10;
+        enemy_right_Y = enemy->realy + 13;
+        break;
+    case 2:
+        enemy_right_X = enemy->realx + 21;
+        enemy_right_Y = enemy->realy + 25;
+        break;
+    case 6:
+        enemy_right_X = enemy->realx + 14;
+        enemy_right_Y = enemy->realy + 14;
+    default:
+        break;
+    }
+    return ((enemy_right_X << 16) | enemy_right_Y);
+}
+

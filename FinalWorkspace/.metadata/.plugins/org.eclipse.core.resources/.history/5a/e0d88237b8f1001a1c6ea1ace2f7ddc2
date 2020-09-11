@@ -1,0 +1,76 @@
+#include <stdio.h>
+
+#include "star.h"
+#include "parameter.h"
+
+
+void initial_Star(Star * star) {
+    star->x = 0;
+    star->y = 0;
+    star->idx = 0;
+    star->appear = 0;
+    star->is_left = 0;
+}
+
+void spit_Star(Kirby * kirby, Star * star) {
+    update_Star(kirby, star);
+    upload_Star_Info(star);
+    // frame_Time(KIRBY_FRAME_TIME_INHALE);
+}
+
+void upload_Star_Info(Star * star) {
+    printf("\n**************** Spit Star - Load Registers ****************\n");
+    REG_3_STAR = (star->x << 24) | (star->y << 16) | (star->idx << 14) | (star->is_left << 13) | (star->appear << 12);
+}
+
+void update_Star(Kirby * kirby, Star * star) {
+    if ((kirby->image == 1) && (kirby->action == 4) && (kirby->frame == 2)) {
+        // spit star
+        star->appear = 1;
+        star->idx = 0;
+        star->is_left = kirby->is_left;
+        if (star->is_left == 0) { // Right
+            star->x = kirby_Screen_Center_X(kirby->x) + 31;
+            star->y = kirby->y + 3;
+        } else { // Left
+            star->x = kirby_Screen_Center_X(kirby->x) - 31;
+            star->y = kirby->y + 3;
+        }
+        return;
+    }
+
+    if (star->appear == 1) {
+        star->idx = (star->idx + 1) % 4; // 4 frames for 1 star-cycle
+
+        // 1 - Edge detection: L/R
+        if (star->is_left == 0) {
+            star->x += STAR_STEP_X;
+
+            // If meet edges of map or screen
+            if ((get_Wall_Info(star->x + 22, star->y, 0) == 1) || ((star->x + 22) >= 233)) {
+                star->appear = 0;
+                return;
+            }
+        }
+        else {
+            star->x -=STAR_STEP_X;
+
+            // If meet edges of map or screen
+            if ((get_Wall_Info(star->x + 1, star->y, 0) == 1) || ((star->x + 1) <= 0)) {
+                star->appear = 0;
+                return;
+            }
+        }
+        
+        // 2 - Enemy detection
+        if (0) {  // TO DO: Need a signal here
+            // TO DO: Enemy get a signal - Damaged
+
+            //
+            star->appear = 0;
+            return;
+        }
+
+        return;
+    }
+}

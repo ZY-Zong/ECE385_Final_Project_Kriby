@@ -1,0 +1,117 @@
+#include "game_logic.h"
+#include "parameter.h"
+#include "kirby.h"
+#include "test.h"
+#include "star.h"
+#include "enemy.h"
+#include "usb_main.h"
+
+#include <stdio.h>
+
+void GameStart() {
+    Kirby * kirby;
+    Star * star;
+    Enemy * lemon;
+    Enemy * fire;
+    Enemy * monkey;
+    Enemy * lightning;
+
+
+    int keycode = 0;
+    int pre_keycode = 0;
+    int spitting_flag = 0;
+    int kicking_flag = 0;
+
+    initial_Registers();
+    initial_Star(star);
+    initial_Kirby(kirby);
+    kirby->is_inhaled = 1;
+
+//    printf("** USB initial begin?? **\n");
+    initial_enemy(lemon,3);
+    initial_enemy(fire,1);
+    initial_enemy(monkey,2);
+    initial_enemy(lightning,0);
+
+    usb_initialize();
+    printf("What's wrong with USB?");
+
+    while (1)
+    {
+        pre_keycode = keycode;
+        keycode = get_keycode_value();
+
+        // test_keyboard(keycode);)
+
+        // Renew enemies
+        if ((kirby->x >= (320 + monkey->dist + SCREEN_WIDTH/2)) || (kirby->x <= (320 - SCREEN_WIDTH/2)))
+            initial_enemy(monkey, 2);
+        if ((kirby->x >= (150 + lemon->dist + SCREEN_WIDTH/2)) || (kirby->x <= (150 - SCREEN_WIDTH/2)))
+            initial_enemy(lemon, 3);
+        if ((kirby->x >= (540 + fire->dist + SCREEN_WIDTH/2)) || (kirby->x <= (540 - SCREEN_WIDTH/2)))
+            initial_enemy(fire, 1);
+        if ((kirby->x >= (900 + lightning->dist + SCREEN_WIDTH/2)) || (kirby->x <= (900 - SCREEN_WIDTH/2)))
+            initial_enemy(lightning,0);
+        
+        
+
+        AI_enemy(monkey, kirby, 320, 95);
+        AI_enemy(lemon, kirby, 150, 30);
+        AI_enemy(fire, kirby, 540, 64);
+        AI_enemy(lightning, kirby, 700, 115);
+
+        // Detect enemies in caching area
+        if ((sqr_Dis_Kirby_Enemy(kirby, monkey) <= ENEMY_DETECT_DIS_SQRT * ENEMY_DETECT_DIS_SQRT) && (monkey->health != 0)) {
+            updateKirby(kirby, star, monkey, keycode, pre_keycode);
+            upload_Kirby_Info(kirby);
+            if (star->appear == 1)
+        	    spit_Star(kirby, star, monkey);
+        } else if ((sqr_Dis_Kirby_Enemy(kirby, lemon) <= ENEMY_DETECT_DIS_SQRT * ENEMY_DETECT_DIS_SQRT) && (lemon->health != 0)) {
+            updateKirby(kirby, star, lemon, keycode, pre_keycode);
+            upload_Kirby_Info(kirby);
+            if (star->appear == 1)
+        	    spit_Star(kirby, star, lemon);
+        } else if ((sqr_Dis_Kirby_Enemy(kirby, fire) <= ENEMY_DETECT_DIS_SQRT * ENEMY_DETECT_DIS_SQRT) && (fire->health != 0)) {
+            updateKirby(kirby, star, fire, keycode, pre_keycode);
+            upload_Kirby_Info(kirby);
+            if (star->appear == 1)
+        	    spit_Star(kirby, star, fire);
+        } else {
+            updateKirby(kirby, star, lightning, keycode, pre_keycode);
+            upload_Kirby_Info(kirby);
+            if (star->appear == 1)
+        	    spit_Star(kirby, star, lightning);
+        }
+
+        // TO DO: Check game_state.interrupt why changed
+        // if (game_state->interrupt != 0) {
+        //     break;
+        // }
+    }
+    
+}
+
+void initial_Game_State (Game * game_state) {
+    game_state->interrupt = 0;
+    game_state->map = 0;
+}
+
+
+void initial_Registers() {
+    REG_0_MAP_INFO      = 0;
+    REG_1_KIRBY_IMAGE   = 0;
+    REG_2_KIRBY_MAP_POS = 0;
+    REG_3_STAR          = 0;
+    REG_4_              = 0;
+    REG_5_              = 0;
+    REG_6_              = 0;
+    REG_7_              = 0;
+    REG_8_              = 0;
+    REG_9_              = 0;
+    REG_10_             = 0;
+    REG_11_             = 0;
+    REG_12_             = 0;
+    REG_13_             = 0;
+    REG_14_             = 0;
+    REG_15_GAME_CONTROL = 0;
+}

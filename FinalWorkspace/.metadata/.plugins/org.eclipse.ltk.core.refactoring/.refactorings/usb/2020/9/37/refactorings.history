@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;usb/structure&apos; to &apos;structure.h&apos;" description="Rename resource &apos;structure&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="structure" name="structure.h" stamp="1599653059168" updateReferences="true"/>
+</session>
