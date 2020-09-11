@@ -1,0 +1,35 @@
+
+'0x000000',
+'0x0f319d',
+'0x70aaff',
+'0x86b8ff',
+'0x96c9ff',
+'0x4a42af',
+'0xf89135',
+'0xf8f8f8',
+'0xb0f0f8',
+'0x971f29',
+'0xded2e6',
+'0xe5c743',
+'0xf4d877',
+'0x6dc480',
+'0xa49ea0',
+'0x86f9c2',
+
+
+1.black font
+2.Blue inside font
+3.sky blue 1
+4.sky blue 2
+5.sky blue 3. 
+6.purple font edge
+7.start orange
+8.cloud white
+9.cloud blue
+10.brown font
+11.mirror purple 
+12.gold 1
+13.gold 2
+14.green 1
+15.green2. Changed  brown
+16.green3.    

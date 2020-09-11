@@ -12,7 +12,7 @@
 '0xFFC308',
 '0xB58A08',
 '0xBDBABD',
-'0x009263',
+'0x00A2FF',
 '0xB5FBFF',
 '0x421021',
 
@@ -30,6 +30,6 @@
 11. yellow
 12. deep yellow
 13. grew
-14. middle green
+14. Deeper blue
 15. light blue
 16. deepdeep red
