@@ -16,6 +16,6 @@ void initial_Star(Star * star);
 void spit_Star(Kirby * kirby, Star * star, Enemy * enemy);
 void upload_Star_Info(Star * star);
 void update_Star(Kirby * kirby, Star * star, Enemy * enemy);
-
+int star_Meet_Enemy(Star * star, Enemy * enemy);
 
 #endif /*STAR_H_*/

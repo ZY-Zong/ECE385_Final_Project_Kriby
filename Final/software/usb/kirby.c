@@ -42,6 +42,11 @@ void upload_Kirby_Info(Kirby * kirby) {
     int kirby_Botton_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff; // Center botton
     int kirby_Botton_Y = get_Kirby_Botton_Pos(kirby) & 0x0000ffff; // Center botton
 
+    if (kirby->inhaling == 1) {
+        kirby_Botton_X -= 16;
+        kirby_Botton_Y -= 25;
+    }
+    
     // Decide kirby's image width and height
     if (kirby->is_inhaled == 1) {
         Kirby_Image_Width = 30;
@@ -68,8 +73,8 @@ void upload_Kirby_Info(Kirby * kirby) {
     // Decide the position X of kirby in screen
     Kirby_Screen_X = kirby_Screen_Center_X(kirby_Botton_X);
 
-    if ((kirby->image == 1) && (kirby->action == 3) && (kirby->frame <= 1))
-        Kirby_Screen_Y -= 4; // Slight adjustment
+    // if ((kirby->image == 1) && (kirby->action == 3) && (kirby->frame <= 1))
+    //     Kirby_Screen_Y -= 4; // Slight adjustment
 
     
     
@@ -538,13 +543,13 @@ void updateKirby(Kirby * kirby, Star * star, Enemy * enemy, int keycode, int pre
                 kirby->image = 0;
                 kirby->action = 2;
                 kirby->frame = 6;
-            }
-            while ((get_keycode_value() == 0x160f) || (get_keycode_value() == 0x0f16)) {
-                kirby->image = 0;
-                kirby->action = 2;
-                kirby->frame = (kirby->frame + 1) % KIRBY_STAND_FN + 2 * kirby->in_slope;
-                upload_Kirby_Info(kirby);
-                force_It_On_Ground(kirby, kirby->map);
+                while ((get_keycode_value() == 0x160f) || (get_keycode_value() == 0x0f16)) {
+                    kirby->image = 0;
+                    kirby->action = 2;
+                    kirby->frame = (kirby->frame + 1) % KIRBY_STAND_FN + 2 * kirby->in_slope;
+                    upload_Kirby_Info(kirby);
+                    // force_It_On_Ground(kirby, kirby->map);
+                }
             }
             break;
         }
@@ -653,7 +658,7 @@ void force_It_On_Ground(Kirby * kirby, int map_idx) {
 
     // Cling to the ground
     while (get_Wall_Info(kirby_botton_X, kirby_botton_Y + 1, map_idx) == AREA_CAN_GO) {
-        int dropping_keycode = 0;
+//        int dropping_keycode = 0;
         kirby->y += 1;
         
         // Update values
@@ -764,7 +769,7 @@ int get_Kirby_Botton_Pos(Kirby * kirby) {
     if (kirby->is_inhaled == 1) {
         kirby_botton_X = kirby->x + 16;
         kirby_botton_Y = kirby->y + 25;
-    } else if ((kirby->inhaling > 1) || (kirby->spitting == 1)) {
+    } else if ((kirby->inhaling == 1) || (kirby->spitting == 1)) {
         kirby_botton_X = kirby->x + 30;
         kirby_botton_Y = kirby->y + 25;
     } else if (kirby->damaging == 1) {
@@ -872,10 +877,6 @@ int kirby_Screen_Center_X(int x) {
 }
 
 int kirby_Is_Damaged (Kirby * kirby, Enemy * enemy) {
-    int kirby_Center_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-    int kirby_Center_Y = (get_Kirby_Left_Pos(kirby) & 0x0000ffff);
-    int enemy_Center_X = (get_Enemy_Botton_Pos(enemy) >> 16) & 0x0000ffff;
-    int enemy_Center_Y = (get_Enemy_Left_Pos(enemy) & 0x0000ffff);
     int damage_dis_sqr = 0;
     if (enemy->action == 2)
         damage_dis_sqr = KIRBY_DAMEGE_DIS_SQRTL;
@@ -894,6 +895,7 @@ int kirby_Damage_Action(Enemy * enemy) {
         return 2;
     if ((enemy->tpe == 2) || (enemy->tpe == 3))
         return 0;
+    return 0;
     printf("\nERROR: Something wrong with kirby's damage action decision!\n");
 }
 
@@ -905,12 +907,6 @@ int damage_Frame_Number(Enemy * enemy) {
 }
 
 int enemy_Should_Be_Inhaled(Kirby * kirby, Enemy * enemy) {
-    int kirby_Center_X = (get_Kirby_Botton_Pos(kirby) >> 16) & 0x0000ffff;
-    int kirby_Center_Y = (get_Kirby_Left_Pos(kirby) & 0x0000ffff);
-    int enemy_Center_X = (get_Enemy_Botton_Pos(enemy) >> 16) & 0x0000ffff;
-    int enemy_Center_Y = (get_Enemy_Left_Pos(enemy) & 0x0000ffff);
-
-    printf("\n############## Distance is: %d #############\n", ((kirby_Center_X - enemy_Center_X) * (kirby_Center_X - enemy_Center_X) + (kirby_Center_Y - enemy_Center_Y) * (kirby_Center_Y - enemy_Center_Y)));
     if (sqr_Dis_Kirby_Enemy(kirby, enemy) <= (KIRBY_INHALE_DIS_SQRT * KIRBY_INHALE_DIS_SQRT))
         return 1;
     return 0;

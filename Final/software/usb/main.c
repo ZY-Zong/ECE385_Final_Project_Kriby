@@ -14,6 +14,6 @@ int main(void) {
     // initial_Game_State(game_state);
     GameStart();
 
-    printf("Interrupt takes place!");
+    printf("ERROR: Game interrupted!");
     return 0;
 }

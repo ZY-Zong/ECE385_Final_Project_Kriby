@@ -33,7 +33,7 @@ static volatile unsigned int * ADDRESS_PTR = (unsigned int *) 0x00000000;
 #define KIRBY_DROP_Y            4
 #define KIRBY_INHALED_WIDTH     30
 #define KIRBY_INHALED_HEIGHT    30
-#define KIRBY_INHALE_DIS_SQRT   44
+#define KIRBY_INHALE_DIS_SQRT   36
 #define KIRBY_DAMAGE_DIS_SQRT   20
 #define KIRBY_DAMEGE_DIS_SQRTL  32
 

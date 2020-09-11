@@ -20,6 +20,8 @@ void GameStart() {
     int keycode = 0;
     int pre_keycode = 0;
 
+    usb_initialize();
+
     // Start of the game loop
     START:
     end = 0;
@@ -32,11 +34,8 @@ void GameStart() {
 
     initial_enemy(lemon,3);
     initial_enemy(fire,1);
-    // initial_enemy(monkey,2);
+//    initial_enemy(monkey,2);
     initial_enemy(lightning,0);
-
-    usb_initialize();
-    // printf("What's wrong with USB?");
 
     while (get_keycode_value() != 0x0028) {
         draw_Start_Image(kirby);
@@ -52,8 +51,8 @@ void GameStart() {
         // Renew enemies
         if (kirby->x >= (150 + lemon->dist + SCREEN_WIDTH/2))
             initial_enemy(lemon, 3);
-        // if ((kirby->x >= (320 + monkey->dist + SCREEN_WIDTH/2)) || (kirby->x <= (320 - SCREEN_WIDTH/2)))
-        //     initial_enemy(monkey, 2);
+//        if ((kirby->x >= (320 + monkey->dist + SCREEN_WIDTH/2)) || (kirby->x <= (320 - SCREEN_WIDTH/2)))
+//            initial_enemy(monkey, 2);
         if ((kirby->x >= (540 + fire->dist + SCREEN_WIDTH/2)) || (kirby->x <= (540 - SCREEN_WIDTH/2)))
             initial_enemy(fire, 1);
         if ((kirby->x >= (700 + lightning->dist + SCREEN_WIDTH/2)) || (kirby->x <= (700 - SCREEN_WIDTH/2)))
@@ -61,17 +60,17 @@ void GameStart() {
         
         
         AI_enemy(lemon, kirby, 150, 30);
-        // AI_enemy(monkey, kirby, 320, 95);
+//        AI_enemy(monkey, kirby, 320, 95);
         AI_enemy(fire, kirby, 540, 64);
         AI_enemy(lightning, kirby, 700, 113);
 
         // Detect enemies in caching area
-        // if ((sqr_Dis_Kirby_Enemy(kirby, monkey) <= ENEMY_DETECT_DIS_SQRT * ENEMY_DETECT_DIS_SQRT) && (monkey->health != 0)) {
-        //     updateKirby(kirby, star, monkey, keycode, pre_keycode);
-        //     upload_Kirby_Info(kirby);
-        //     if (star->appear == 1)
-        // 	    spit_Star(kirby, star, monkey);
-        // } else 
+//        if ((sqr_Dis_Kirby_Enemy(kirby, monkey) <= ENEMY_DETECT_DIS_SQRT * ENEMY_DETECT_DIS_SQRT) && (monkey->health != 0)) {
+//            updateKirby(kirby, star, monkey, keycode, pre_keycode);
+//            upload_Kirby_Info(kirby);
+//            if (star->appear == 1)
+//        	    spit_Star(kirby, star, monkey);
+//        } else
         if ((sqr_Dis_Kirby_Enemy(kirby, lemon) <= ENEMY_DETECT_DIS_SQRT * ENEMY_DETECT_DIS_SQRT) && (lemon->health != 0)) {
             updateKirby(kirby, star, lemon, keycode, pre_keycode);
             upload_Kirby_Info(kirby);

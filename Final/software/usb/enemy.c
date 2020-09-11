@@ -1,5 +1,7 @@
 
 #include <stdio.h>
+#include <stdlib.h>
+
 #include "enemy.h"
 #include "parameter.h"
 #include "image.h"
@@ -39,9 +41,6 @@ void AI_enemy(Enemy * enemy, Kirby *  kirby, int startx, int starty){
 
 }
 
-
-
-
 void initial_enemy(Enemy * enemy, int which){
     enemy->realx = 0;
     enemy->realy = 0;
@@ -79,8 +78,6 @@ void initial_enemy(Enemy * enemy, int which){
 
     }  
 }
-
-
 
 void set_the_enemy_easy(Enemy * enemy,int x,int y,Kirby * kirby){
     // enemy->realx = x;
@@ -126,7 +123,6 @@ void set_the_enemy_easy(Enemy * enemy,int x,int y,Kirby * kirby){
                                                                                                                                                                                                                                                                                                                     
 
 }
-
 
 void set_the_enemy_lightning(Enemy * enemy,int x,int y,Kirby * kirby){
     // enemy->realx = x;
@@ -196,10 +192,11 @@ void set_the_enemy_lightning(Enemy * enemy,int x,int y,Kirby * kirby){
                                                                                                                                                                                                                                                                                                                     
 
 }
+
 void upload_enemy_Info(Enemy * enemy,Kirby * kirby){
 
-    int Enemy_Pos_X = enemy->realx;
-    int Enemy_Pos_Y = enemy->realy;
+//    int Enemy_Pos_X = enemy->realx;
+//    int Enemy_Pos_Y = enemy->realy;
     int Enemy_Image_X = enemy->frame;
     int Enemy_Image_Y = enemy->action;
     int Enemy_Image_Width = 0;
@@ -287,6 +284,7 @@ int get_Enemy_Botton_Pos (Enemy * enemy) {
     case 6:
         enemy_ceil_X = enemy->realx + 14;
         enemy_ceil_Y = enemy->realy + 26;
+        break;
     default:
         break;
     }
@@ -315,6 +313,7 @@ int get_Enemy_Ceil_Pos (Enemy * enemy) {
     case 6:
         enemy_ceil_X = enemy->realx + 14;
         enemy_ceil_Y = enemy->realy + 3;
+        break;
     default:
         break;
     }
@@ -343,6 +342,7 @@ int get_Enemy_Left_Pos (Enemy * enemy) {
     case 6:
         enemy_left_X = enemy->realx - 0;
         enemy_left_Y = enemy->realy + 14;
+        break;
     default:
         break;
     }
@@ -372,6 +372,7 @@ int get_Enemy_Right_Pos (Enemy * enemy) {
     case 6:
         enemy_right_X = enemy->realx + 28;
         enemy_right_Y = enemy->realy + 14;
+        break;
     default:
         break;
     }
