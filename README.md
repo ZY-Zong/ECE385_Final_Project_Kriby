@@ -8,6 +8,8 @@ The final project of ECE385.
 This project reproduces the GBA game **Kirby & The Amazing Mirror** using  FPGA DE2-115 board. Due to the
 limit size of OCM, we only put three enemies, kirby and one map inside it.
 
+![](cover.png)
+
 # Features
 * NIOS II CPU core
   * Game logic control
