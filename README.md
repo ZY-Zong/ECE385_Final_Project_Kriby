@@ -22,3 +22,4 @@ limit size of OCM, we only put three enemies, kirby and one map inside it.
 # References
 * [The Spriters Resource](https://www.spriters-resource.com/game_boy_advance/kirbyandtheamazingmirror/) provides image sources.
 * [Aseprite](https://www.aseprite.org/) is a quite powerful pixelart tool, highly recommended.
+* [ECE385 Helper Tools](https://github.com/atrifex/ECE385-HelperTools) provides PNG to HEX converter.
